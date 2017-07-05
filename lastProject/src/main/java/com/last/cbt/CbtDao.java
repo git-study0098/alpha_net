@@ -3,8 +3,12 @@ package com.last.cbt;
 import java.sql.SQLException;
 import java.util.List;
 
-public interface CbtDao {
+import com.last.vo.CbtVo;
 
-	public List<?> selectCbt(String first, String end) throws SQLException;
+public interface CbtDao {
+	
+	public List<CbtVo> selectCbtSearchList(String index, String key) throws SQLException;
+
+	public List<CbtVo> selectCbtList(String first, String end) throws SQLException;
 	
 }
