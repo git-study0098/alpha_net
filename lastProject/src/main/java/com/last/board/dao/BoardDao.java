@@ -8,14 +8,20 @@ import org.apache.ibatis.session.SqlSession;
 import com.ibatis.sqlmap.client.SqlMapClient;
 import com.last.vo.BoardVo;
 
-abstract public class BoardDao {
-	
+public class BoardDao {
+
+	/**
+	 * iBatis
+	 */
 	protected SqlMapClient client;
 	
 	public void setClient(SqlMapClient client) {
 		this.client = client;
 	}
 
+	/**
+	 * myBatis
+	 */
 	protected SqlSession sqlSession;
 	
 	public void setSession(SqlSession sqlSession){
@@ -37,9 +43,18 @@ abstract public class BoardDao {
 //"listAllProduct", null);
 //}
 
-	abstract public int insertBoard(BoardVo boardVo) throws SQLException;
-	
+	/**
+	 * 기본적으로 회원은 조회만가능
+	 * @param boardCode
+	 * @return
+	 * @throws SQLException
+	 */
 	public List<BoardVo> selectBoardAllList(String boardCode) throws SQLException{
+		
+		return null;
+	}
+	
+	public List<BoardVo> selectBoardList(String boardCode, int first, int end) throws SQLException{
 		
 		return null;
 	}
@@ -49,14 +64,4 @@ abstract public class BoardDao {
 		return null;
 	}
 	
-	public int updateBoard(BoardVo boardVo) throws SQLException{
-		
-		return 0;
-	}
-	
-	public int deleteBoard(String boardCode) throws SQLException{
-		
-		return 0;
-	}
-		
 }

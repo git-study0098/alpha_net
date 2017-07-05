@@ -5,6 +5,12 @@ import java.util.List;
 
 import com.last.vo.CbtVo;
 
+/**
+ * 
+ * @author kimjae
+ * RUD, search select, first~end select
+ *
+ */
 public interface CbtDaoAdmin {
 	
 	public List<CbtVo> selectCbtSearchList(String index, String key) throws SQLException;

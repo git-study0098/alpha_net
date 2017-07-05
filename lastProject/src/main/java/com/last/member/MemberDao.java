@@ -14,29 +14,110 @@ import com.last.vo.SubjectVo;
 
 public interface MemberDao {
 
-	public List<StareVo> selectMemberStareHistoryList(String memberId, String stareCode) throws SQLException;
+	/**
+	 * 응시내역 조회
+	 * @param memberId
+	 * @param stareCode
+	 * @return
+	 * @throws SQLException
+	 */
+	public List<StareVo> selectStareHistoryList(String stareCode) throws SQLException;
 	
+	/**
+	 * 응시하기(원서접수)
+	 * @param memberId
+	 * @param stareVo
+	 * @return
+	 * @throws SQLException
+	 */
 	public int insertStare(String memberId, StareVo stareVo) throws SQLException;
 	
+	/**
+	 * 개인정보 수정
+	 * @param memberVo
+	 * @return
+	 * @throws SQLException
+	 */
 	public int updateMemberInfo(MemberVo memberVo) throws SQLException;
 	
-	public List<StareVo> selectResultStareList(String memberId, String stareCode) throws SQLException;
+	/**
+	 * 특정원서정보 조회
+	 * @param memberId
+	 * @param stareCode
+	 * @return
+	 * @throws SQLException
+	 */
+	public StareVo selectStareInfo(String stareCode) throws SQLException;
 	
-	public QualifiRestrictVo selectQualifiRestrictVo(String memberId) throws SQLException;
+	/**
+	 * 특정시험의 자격제한 조회
+	 * @param memberId
+	 * @return
+	 * @throws SQLException
+	 */
+	public QualifiRestrictVo selectQualifiRestrictVo(String examCode) throws SQLException;
 	
-	public DocVo selectDocVo(String memberId) throws SQLException;
+	/**
+	 * 특정시험의 서류조회
+	 * @param memberId
+	 * @return
+	 * @throws SQLException
+	 */
+	public DocVo selectDoc(String examCode) throws SQLException;
 	
-	public int insertDocVo(String memberId, DocVo dorVo) throws SQLException;
+	/**
+	 * 서류 제출
+	 * @param memberId
+	 * @param dorVo
+	 * @return
+	 * @throws SQLException
+	 */
+	public int insertDocVo(DocVo dorVo) throws SQLException;
 	
-	public List<PaperVo> selectMemberPaperHistoryList(String memberId, String paperCode) throws SQLException;
+	/**
+	 * 확인서내역 조회
+	 * @param memberId
+	 * @param paperCode
+	 * @return
+	 * @throws SQLException
+	 */
+	public List<PaperVo> selectPaperHistoryList(String paperCode) throws SQLException;
 	
-	public List<QualifiVo> selectMemberQualifiHistoryList(String memberId, String qualifiCode) throws SQLException;
+	/**
+	 * 자격증내역 조회
+	 * @param memberId
+	 * @param qualifiCode
+	 * @return
+	 * @throws SQLException
+	 */
+	public List<QualifiVo> selectQualifiHistoryList(String qualifiCode) throws SQLException;
 	
-	public List<DocVo> selectQualifiDocList(String memberId, String qualifiCode) throws SQLException;
+	/**
+	 * 서류내역 조회
+	 * @param memberId
+	 * @param qualifiCode
+	 * @return
+	 * @throws SQLException
+	 */
+	public List<DocVo> selectQualifiDocList(String qualifiCode) throws SQLException;
 	
-	public List<ExamVo> selectExemptionExamList(String memberId, String stareCode) throws SQLException;
+	/**
+	 * 면제시험 조회
+	 * @param memberId
+	 * @param stareCode
+	 * @return
+	 * @throws SQLException
+	 */
+	public List<ExamVo> selectExemptionExamList(String stareCode) throws SQLException;
 
-	public List<SubjectVo> selectExemptionSubjectList(String memberId, String stareCode) throws SQLException;
+	/**
+	 * 면제과목 조회
+	 * @param memberId
+	 * @param stareCode
+	 * @return
+	 * @throws SQLException
+	 */
+	public List<SubjectVo> selectExemptionSubjectList(String stareCode) throws SQLException;
 	
 	
 }

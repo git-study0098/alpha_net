@@ -8,6 +8,12 @@ import org.apache.ibatis.session.SqlSession;
 import com.ibatis.sqlmap.client.SqlMapClient;
 import com.last.vo.BoardVo;
 
+/**
+ * 
+ * @author kimjae
+ * 게시판 공통 dao
+ * 기본적인 CRUD, search select
+ */
 abstract public class BoardDaoAdmin {
 
 	protected SqlMapClient client;
@@ -22,7 +28,7 @@ abstract public class BoardDaoAdmin {
 		this.sqlSession = sqlSession;
 	}
 	//////////////////////////////////////////////////////////////
-///////////////////////////////////////////
+///////////////////////////////////////////  스케쥴링으로 리스트 새로고침
 //ArrayList<ProductVO> listNewProduct = null;
 //ArrayList<ProductVO> listBestProduct = null;
 //ArrayList<ProductVO> listForKindProduct = null;
@@ -44,6 +50,11 @@ abstract public class BoardDaoAdmin {
 		return null;
 	}
 	
+	public List<BoardVo> selectBoardList(String boardCode, int first, int end) throws SQLException{
+		
+		return null;
+	}
+
 	public List<BoardVo> selectBoardSearchList(String boardCode, String index, String key) throws SQLException{
 		
 		return null;

@@ -6,10 +6,6 @@ import com.last.vo.BoardVo;
 
 public class BoardNtcDao extends BoardDao {
 
-	@Override
-	public int insertBoard(BoardVo boardVo) throws SQLException {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+
 
 }

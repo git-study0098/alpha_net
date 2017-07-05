@@ -45,7 +45,7 @@
 <!-- 	<tx:advice id="txAdvice" transaction-manager="transactionManager"> -->
 <!-- 		<tx:attributes> -->
 <!-- 			<tx:method name="*" propagation="REQUIRED"/> -->
-<!-- 			<tx:method name="write*" rollback-for="Exception"/> -->
+<!-- 			<tx:method name="insert*" rollback-for="Exception"/> -->
 <!-- 			<tx:method name="update*" rollback-for="Exception"/> -->
 <!-- 			<tx:method name="delete*" rollback-for="Exception"/> -->
 <!-- 			<tx:method name="get*" read-only="true" /> -->

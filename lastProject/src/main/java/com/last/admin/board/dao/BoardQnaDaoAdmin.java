@@ -4,6 +4,12 @@ import java.sql.SQLException;
 
 import com.last.vo.BoardVo;
 
+/**
+ * 
+ * @author kimjae
+ * Q&A 게시판
+ *
+ */
 public class BoardQnaDaoAdmin extends BoardDaoAdmin {
 
 	@Override

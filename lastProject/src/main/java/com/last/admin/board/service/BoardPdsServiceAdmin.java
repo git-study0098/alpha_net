@@ -27,21 +27,27 @@ public class BoardPdsServiceAdmin implements BoardServiceAdmin {
 	}
 
 	@Override
-	public void AddBoard(BoardVo boardVo) {
+	public void addBoard(BoardVo boardVo) {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void ModBoard(BoardVo boardVo) {
+	public void modBoard(BoardVo boardVo) {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void RidBoard(String boardCode) {
+	public void ridBoard(String boardCode) {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public List<BoardVo> getBoardList(String boardCode, int first, int end) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

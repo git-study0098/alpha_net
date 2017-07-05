@@ -44,4 +44,10 @@ public class BoardQnaService implements BoardService {
 
 	}
 
+	@Override
+	public List<BoardVo> getBoardList(String boardCode, String first, String end) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

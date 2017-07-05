@@ -1,8 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
-		
+	
+	<!-- dao,service 붙이기 -->
+	<!-- mybatis -->
+<!-- 	<bean id="BoardDaoAdmin" -->
+<!-- 		  abstract="true" -->
+<!-- 		  class="com.last.admin.board.dao.BoardDaoAdmin" -->
+<!-- 		  p:session-ref="sqlSession" -->
+<!-- 	/> -->
+<!-- 	<bean id="BoardNtcDaoAdmin" -->
+<!-- 		  parent="BoardDaoAdmin" -->
+<!-- 		  class="com.last.admin.board.dao.BoardNtcDaoAdmin" -->
+<!-- 	/> -->
+		  
+	<!-- ibatis -->
+	<bean id="BoardDaoAdmin"
+		  class="com.last.admin.board.dao.BoardDaoAdmin"
+		  abstract="true" 
+		  p:client-ref="sqlMapClient"
+	/>
+	<bean id="BoardNtcDaoAdmin"
+		  parent="BoardDaoAdmin"
+		  class="com.last.admin.board.dao.BoardNtcDaoAdmin"
+	/>
+	
+	
+	<!-- Service -->
+<!-- 	<bean id="BoardServiceAdmin" class="com.last.admin.board.service.BoardServiceAdmin" > -->
+<!-- 		<property name="BoardNtcDaoAdmin" ref="BoardNtcDaoAdmin"/> -->
+<!-- 	</bean> -->
+	
+<!-- 	<bean id="BoardNtcServiceAdmin" -->
+<!-- 		  class="com.last.admin.board.service.BoardServiceAdmin" -->
+<!-- 		  p:BoardNtcDaoAdmin-ref="BoardNtcDaoAdmin" -->
+<!-- 	/>	 -->
+		  
 </beans>
