@@ -23,13 +23,13 @@
 		  p:dataSource-ref="dataSource"
 		  p:configLocation="classpath:com/last/db/sqlconfig/mybatis-config.xml"
 	/>
-	<bean id="sqlSession"
+	<bean id="session"
 		  class="org.mybatis.spring.SqlSessionTemplate"
 		  c:sqlSessionFactory-ref="sqlSessionFactory"
 	/>	 
 	
 	<!-- ibatis mapclient -->	 
-	<bean id="sqlMapClient"
+	<bean id="client"
 		  class="org.springframework.orm.ibatis.SqlMapClientFactoryBean"
 		  p:configLocation="classpath:com/last/db/sqlconfig/ibatis-config.xml"
 		  p:dataSource-ref="dataSource"

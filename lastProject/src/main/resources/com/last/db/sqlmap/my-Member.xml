@@ -9,9 +9,9 @@
 <!-- 			select count(*) from member -->
 <!-- 		</select> -->
 		
-<!-- 		<select id="selectMember" parameterType="str" resultType="member"> -->
-<!-- 			select * from member where id=#{id} -->
-<!-- 		</select> -->
+		<select id="selectMember" parameterType="str" resultType="member">
+			select * from member
+		</select>
 		
 <!-- 		<select id="selectMemberList" parameterType="str" resultType="member"> -->
 <!-- 			select * from member where id like '%'||#{id}||'%' -->

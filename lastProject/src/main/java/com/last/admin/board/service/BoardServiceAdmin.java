@@ -3,7 +3,6 @@ package com.last.admin.board.service;
 import java.util.List;
 
 import com.last.vo.BoardVo;
-import com.last.vo.vo;
 
 /**
  * 

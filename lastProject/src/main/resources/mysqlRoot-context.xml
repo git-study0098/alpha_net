@@ -6,12 +6,13 @@
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	
-	<!-- dao,service 붙이기 aa라는 daoImpl이 있을경우-->
+	<!-- mysql::dao,service 붙이기 aa라는 daoImpl이 있을경우-->
+	
 	<!-- mybatis -->
 <!-- 	<bean id="memberDao" -->
 <!-- 		  abstract="true" -->
 <!-- 		  class="com.last.member.MemberDao" -->
-<!-- 		  p:session-ref="session" -->
+<!-- 		  p:session-ref="mysqlSession" -->
 <!-- 	/> -->
 <!-- 	<bean id="aa" -->
 <!-- 		  parent="memberDao" -->
@@ -22,7 +23,7 @@
 <!-- 	<bean id="memberDao" -->
 <!-- 		  class="com.last.member.MemberDao" -->
 <!-- 		  abstract="true" -->
-<!-- 		  p:client-ref="client" -->
+<!-- 		  p:client-ref="mysqlClient" -->
 <!-- 	/> -->
 <!-- 	<bean id="aa" -->
 <!-- 		  class="com.last.member.aa" -->
@@ -37,6 +38,4 @@
 <!-- 		  p:memberDao-ref="aa" -->
 <!-- 	/>	 -->
 
-<!-- mysqlSession, mysqlClient -->
-		  
 </beans>

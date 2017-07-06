@@ -6,15 +6,15 @@
 
 
 <configuration>
-<!-- 	<typeAliases>		 -->
-<!-- 		<typeAlias alias="member" type="com.last.vo.MemberVo" /> -->
-<!-- 		<typeAlias alias="int" type="java.lang.Integer" /> -->
-<!-- 		<typeAlias alias="str" type="java.lang.String" /> -->
-<!-- 	</typeAliases> -->
+	<typeAliases>		
+		<typeAlias alias="member" type="com.last.vo.MemberVo" />
+		<typeAlias alias="int" type="java.lang.Integer" />
+		<typeAlias alias="str" type="java.lang.String" />
+	</typeAliases>
 	
-<!-- 	<mappers>				 -->
-<!-- 		<mapper resource="com/last/db/sqlmap/my-Member.xml" /> -->
-<!-- 	</mappers> -->
+	<mappers>				
+		<mapper resource="com/last/db/sqlmap/my-Member.xml" />
+	</mappers>
 
 </configuration>
 

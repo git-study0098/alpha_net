@@ -1,5 +1,6 @@
 package com.last.admin.paper;
 
+
 public class PaperControllerAdmin {
 
 	private PaperServiceAdmin paperServiceAdmin;

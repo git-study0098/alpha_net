@@ -4,7 +4,6 @@ import java.sql.SQLException;
 import java.util.List;
 
 import com.last.vo.ExamVo;
-import com.last.vo.MemberVo;
 import com.last.vo.PayVo;
 
 public interface ExamDao {
