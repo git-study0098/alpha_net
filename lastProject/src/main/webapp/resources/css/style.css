@@ -816,6 +816,12 @@
 	
 	.tbl_type4.thLeft tbody th {padding-left:10px; text-align:left !important}	
 	
+	.list_width01 {overflow:hidden}  /* 가로 ul-li리스트 형  */
+.list_width01:after {content:""; clear:both; display:block}
+.list_width01 li {float:left; margin-right:20px}
+.list_width01 li input[type="radio"] {position:relative; top:1px; margin-right:5px}
+.list_width01 li label {position:relative; top:-1px}
+
 	/* 검색결과목록 */
 	.search_result {margin-bottom:20px; border-top:2px solid #3a7ab8}
 	.search_result li {padding:7px 10px 10px 20px; border-bottom:1px solid #e1e1e1; font-size:12px; line-height:20px}
