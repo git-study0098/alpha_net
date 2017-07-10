@@ -18,6 +18,7 @@ public class CommonController {
 	public String main(){
 		String url = "1main";
 		System.out.println("창연이형");
+		System.out.println("시발");
 		return url;
 	}
 }
