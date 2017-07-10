@@ -17,7 +17,7 @@ public class CommonController {
 	@RequestMapping("/main")
 	public String main(){
 		String url = "1main";
-		
+		System.out.println("창연이형");
 		return url;
 	}
 }
