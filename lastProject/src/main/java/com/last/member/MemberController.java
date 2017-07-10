@@ -1,5 +1,6 @@
 package com.last.member;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 //@Controller
@@ -12,10 +13,10 @@ public class MemberController {
 		this.memberService = memberService;
 	}
 	
-	@RequestMapping("/test")
+	@RequestMapping("/1main")
 	public String test(){
 
-		return null;
+		return "1main";
 	}
 	
 }
