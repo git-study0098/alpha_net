@@ -9,6 +9,7 @@
 		<param-value>
 			classpath:root-context.xml
 			classpath:dataSource-context.xml
+			classpath:mongoContext.xml
 		</param-value>
 	</context-param>
 <!-- 			classpath:mail-context.xml -->
