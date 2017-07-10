@@ -6,6 +6,16 @@
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	
+	
+	<bean id="commonDao"
+		  class="com.last.common.CommonDao"
+		  p:client-ref="client"
+	/>
+	
+	<bean id="commonService"
+		  class="com.last.common.CommonService"
+		  p:commonDao-ref="commonDao"/> 
+	
 	<!-- dao,service 붙이기 aa라는 daoImpl이 있을경우-->
 	<!-- mybatis -->
 <!-- 	<bean id="memberDao" -->
@@ -28,7 +38,6 @@
 <!-- 		  class="com.last.member.aa" -->
 <!-- 		  parent="memberDao" -->
 <!-- 	/> -->
-	
 	
 	<!-- Service -->
 	
