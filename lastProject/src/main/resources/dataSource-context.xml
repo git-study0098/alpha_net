@@ -12,21 +12,21 @@
 	<bean id="dataSource"
 		  class="org.apache.commons.dbcp2.BasicDataSource"
 		  p:driverClassName="oracle.jdbc.driver.OracleDriver"
-		  p:url="jdbc:oracle:thin:@localhost:1521:XE"
-		  p:username="jspex"
-		  p:password="jspex"
+		  p:url="jdbc:oracle:thin:@192.168.204.35:1521:XE"
+		  p:username="lastp"
+		  p:password="lastp"
 		  />
 
 	<!-- mybastis session -->		 
-	<bean id="sqlSessionFactory" 
-		  class="org.mybatis.spring.SqlSessionFactoryBean"
-		  p:dataSource-ref="dataSource"
-		  p:configLocation="classpath:com/last/db/sqlconfig/mybatis-config.xml"
-	/>
-	<bean id="session"
-		  class="org.mybatis.spring.SqlSessionTemplate"
-		  c:sqlSessionFactory-ref="sqlSessionFactory"
-	/>	 
+<!-- 	<bean id="sqlSessionFactory"  -->
+<!-- 		  class="org.mybatis.spring.SqlSessionFactoryBean" -->
+<!-- 		  p:dataSource-ref="dataSource" -->
+<!-- 		  p:configLocation="classpath:com/last/db/sqlconfig/mybatis-config.xml" -->
+<!-- 	/> -->
+<!-- 	<bean id="session" -->
+<!-- 		  class="org.mybatis.spring.SqlSessionTemplate" -->
+<!-- 		  c:sqlSessionFactory-ref="sqlSessionFactory" -->
+<!-- 	/>	  -->
 	
 	<!-- ibatis mapclient -->	 
 	<bean id="client"
@@ -37,10 +37,10 @@
 
 
 
-	<bean id="transactionManager"
-		  class="org.springframework.jdbc.datasource.DataSourceTransactionManager"
-		  p:dataSource-ref="dataSource"
-		  />
+<!-- 	<bean id="transactionManager" -->
+<!-- 		  class="org.springframework.jdbc.datasource.DataSourceTransactionManager" -->
+<!-- 		  p:dataSource-ref="dataSource" -->
+<!-- 		  /> -->
 		  
 <!-- 	<tx:advice id="txAdvice" transaction-manager="transactionManager"> -->
 <!-- 		<tx:attributes> -->

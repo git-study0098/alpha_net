@@ -2,7 +2,7 @@ package com.last.admin.board.service;
 
 import java.util.List;
 
-import com.last.vo.BoardVo;
+import com.last.vo.Notice1VO;
 
 /**
  * 
@@ -16,15 +16,15 @@ import com.last.vo.BoardVo;
  */
 public interface BoardServiceAdmin {
 
-	public List<BoardVo> getBoardAllList(String boardCode);
+	public List<Notice1VO> getBoardAllList(String boardCode);
 	
-	public List<BoardVo> getBoardList(String boardCode, int first, int end);
+	public List<Notice1VO> getBoardList(String boardCode, int first, int end);
 	
-	public List<BoardVo> getBoardSearchList(String boardCode, String index, String key);
+	public List<Notice1VO> getBoardSearchList(String boardCode, String index, String key);
 	
-	public void addBoard(BoardVo boardVo);
+	public void addBoard(Notice1VO boardVo);
 	
-	public void modBoard(BoardVo boardVo);
+	public void modBoard(Notice1VO boardVo);
 	
 	public void ridBoard(String boardCode);
 	

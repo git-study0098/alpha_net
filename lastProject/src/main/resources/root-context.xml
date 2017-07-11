@@ -7,14 +7,23 @@
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	
 	
-	<bean id="commonDao"
-		  class="com.last.common.CommonDao"
+<!-- 	<bean id="commonDao" -->
+<!-- 		  class="com.last.common.CommonDao" -->
+<!-- 		  p:client-ref="client" -->
+<!-- 	/> -->
+	
+<!-- 	<bean id="commonService" -->
+<!-- 		  class="com.last.common.CommonService" -->
+<!-- 		  p:commonDao-ref="commonDao"/>  -->
+		  
+	<bean id="noticeDao"
+		  class="com.last.board.dao.NoticeDAO"
 		  p:client-ref="client"
 	/>
 	
-	<bean id="commonService"
-		  class="com.last.common.CommonService"
-		  p:commonDao-ref="commonDao"/> 
+	<bean id="noticeService"
+		  class="com.last.board.service.NoticeService"
+		  p:noticeDao-ref="noticeDao"/> 
 	
 	<!-- dao,service 붙이기 aa라는 daoImpl이 있을경우-->
 	<!-- mybatis -->
@@ -41,9 +50,9 @@
 	
 	<!-- Service -->
 	
-<!-- 	<bean id="memberService" -->
-<!-- 		  class="com.last.member.MemberService" -->
-<!-- 		  p:memberDao-ref="aa" -->
+<!-- 	<bean id="noticeService" -->
+<!-- 		  class="com.last.board.service.NoticeService" -->
+<!-- 		  p:noticeDao-ref="notice" -->
 <!-- 	/>	 -->
 
 <!-- mysqlSession, mysqlClient -->

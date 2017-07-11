@@ -1,6 +1,17 @@
+<%@page import="com.last.vo.Notice1VO"%>
+<%@page import="java.util.List"%>
+<%@page import="com.last.vo.PagingVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page trimDirectiveWhitespaces="true"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<%
+   Integer pageNumber = (Integer)request.getAttribute("pageNumber");
+   PagingVO viewData =
+   (PagingVO)request.getAttribute("viewData");
+%>
+
 <style>
 	* {	box-sizing: content-box;}
 	
@@ -170,106 +181,33 @@
 										</tr>
 									</thead>
 									<tbody>
-
+									
+									<!-- 게시판 테이블 내용 -->
+										<%
+											if (viewData.getNotice1CountPerPage() > 0) {
+												List<Notice1VO> noticeList = viewData.getNotice1List();
+												for (int i = 0; i < noticeList.size(); i++) {
+										%>
 										<tr>
-											<td>1</td>
-											<td class="tit"
-												title="2017년도 제28회 공인중개사 자격시험 예정 공고(2차시험 교시분리)"><a
-												href="#" onclick="goNext('5199229', '1')"><b><font
-														color="#ff0000">2017년도 제28회 공인중개사 자격시험 예정 공고(2차시...</font></b></a>
-
-											</td>
-											<td>전문자격국 전문..</td>
-											<td>2017.06.14</td>
+											<td><%=i+1%></td> <!-- 글번호 -->
+											<td><%=noticeList.get(i).getTitle()%></td>
+											<td><%=noticeList.get(i).getAdminCode()%></td>
+											<td><%=noticeList.get(i).getEnrollDate()%></td>
 										</tr>
+										<%
+											}
+										%>
 
+										<%
+											} else {
+										%>
 										<tr>
-											<td>2</td>
-											<td class="tit" title="SMS(카카오톡 포함) 서비스 일시 중단 알림"><a
-												href="#" onclick="goNext('5201609', '1')"><b><font
-														color="#ff0000">SMS(카카오톡 포함) 서비스 일시 중단 알림</font></b></a></td>
-											<td>정보화지원국 정..</td>
-											<td>2017.06.02</td>
+											<td style="text-align: center;">내용이 없습니다.</td>
 										</tr>
+										<%
+											}
+										%>
 
-										<tr>
-											<td>3</td>
-											<td class="tit" title="국가자격 능력평가전문가 인력풀 모집 안내"><a
-												href="#" onclick="goNext('5201715', '1')">국가자격 능력평가전문가
-													인력풀 모집 안내</a> <img src="../images/common/ico_new.gif"
-												alt="새로운 글"></td>
-											<td>능력평가국 기술..</td>
-											<td>2017.07.05</td>
-										</tr>
-
-										<tr>
-											<td>4</td>
-											<td class="tit" title="지도제작기능사 실기시험 방법 개선(재공지)"><a
-												href="#" onclick="goNext('5199090', '1')"><b>지도제작기능사
-														실기시험 방법 개선(재공지)</b></a> <img src="../images/common/ico_new.gif"
-												alt="새로운 글"></td>
-											<td>기술자격출제실 ..</td>
-											<td>2017.07.04</td>
-										</tr>
-
-										<tr>
-											<td>5</td>
-											<td class="tit" title="CQ-Net 홈페이지 오픈 및 이벤트 개최 안내"><a
-												href="#" onclick="goNext('5201698', '1')">CQ-Net 홈페이지 오픈
-													및 이벤트 개최 안내</a> <img src="../images/common/ico_new.gif"
-												alt="새로운 글"></td>
-											<td>정보화지원국 정..</td>
-											<td>2017.06.29</td>
-										</tr>
-
-										<tr>
-											<td>6</td>
-											<td class="tit" title="양복기능사/양장기능사/한복기능사/한복산업기사 실기시험 변경 안내">
-												<a href="#" onclick="goNext('5198924', '1')"><b>양복기능사/양장기능사/한복기능사/한복산업기사
-														실기시...</b></a> <img src="../images/common/ico_new.gif" alt="새로운 글">
-
-											</td>
-											<td>기술자격출제실 ..</td>
-											<td>2017.06.29</td>
-										</tr>
-
-										<tr>
-											<td>7</td>
-											<td class="tit" title="조리(한식/양식)기능사 추가 신규과제 안내 (2018년 적용)">
-												<a href="#" onclick="goNext('5201697', '1')">조리(한식/양식)기능사
-													추가 신규과제 안내 (2018년 적...</a>
-
-											</td>
-											<td>기술자격출제실 ..</td>
-											<td>2017.06.28</td>
-										</tr>
-
-										<tr>
-											<td>8</td>
-											<td class="tit" title="2017년도 제5회 행정사 제1차 시험 합격자 공고"><a
-												href="#" onclick="goNext('5201693', '1')">2017년도 제5회 행정사
-													제1차 시험 합격자 공고...</a></td>
-											<td>전문자격국 전문..</td>
-											<td>2017.06.28</td>
-										</tr>
-
-										<tr>
-											<td>9</td>
-											<td class="tit" title="국가기술자격 실기시험 중앙채점 주요내용 알림"><a
-												href="#" onclick="goNext('5201691', '1')"><b>국가기술자격
-														실기시험 중앙채점 주요내용 알림</b></a></td>
-											<td>서울지역본부 채..</td>
-											<td>2017.06.23</td>
-										</tr>
-
-										<tr>
-											<td>10</td>
-											<td class="tit" title="2017년도 관광통역안내사 자격시험 시행계획 공고"><a
-												href="#" onclick="goNext('5201690', '1')"><b>2017년도
-														관광통역안내사 자격시험 시행계획 공고...</b></a></td>
-											<td>전문자격국 전문..</td>
-											<td>2017.06.22</td>
-										</tr>
 
 									</tbody>
 								</table>
@@ -279,47 +217,33 @@
 									title="이전10페이지">
 									<span class="blind">이전10페이지</span>
 								</button>
+								
 								<button type="button" class="btn3_icon3 btn_prev_page"
 									title="이전 페이지">
 									<span class="blind">이전 페이지</span>
 								</button>
-								<span class="page"> <strong class="on" title="1페이지">1</strong>
-									<button type="button" class="btn5" onclick="goPage(2);"
-										title="2페이지">
-										<span>2</span>
-									</button>
-									<button type="button" class="btn5" onclick="goPage(3);"
-										title="3페이지">
-										<span>3</span>
-									</button>
-									<button type="button" class="btn5" onclick="goPage(4);"
-										title="4페이지">
-										<span>4</span>
-									</button>
-									<button type="button" class="btn5" onclick="goPage(5);"
-										title="5페이지">
-										<span>5</span>
-									</button>
-									<button type="button" class="btn5" onclick="goPage(6);"
-										title="6페이지">
-										<span>6</span>
-									</button>
-									<button type="button" class="btn5" onclick="goPage(7);"
-										title="7페이지">
-										<span>7</span>
-									</button>
-									<button type="button" class="btn5" onclick="goPage(8);"
-										title="8페이지">
-										<span>8</span>
-									</button>
-									<button type="button" class="btn5" onclick="goPage(9);"
-										title="9페이지">
-										<span>9</span>
-									</button>
-									<button type="button" class="btn5" onclick="goPage(10);"
-										title="10페이지">
-										<span>10</span>
-									</button>
+								
+								<span class="page"> 
+								
+								<%
+									for(int i = 1; i<viewData.getPageTotalCount()+1; i++){
+										if(pageNumber==i){
+								%>	
+										<strong class="on" title="<%=i %>페이지"><%=i %></strong>
+									<%
+										
+										}else{
+									%>
+										<button type="button" class="btn5" onclick="goPage(<%=i%>);"
+											title="<%=i%>페이지">
+											<span><%=i%></span>
+										</button> 
+										<% }
+									}
+								%>
+								
+									
+									
 								</span>
 								<button type="button" class="btn3_icon3 btn_next_page"
 									onclick="goPage(2);" title="다음 페이지">
