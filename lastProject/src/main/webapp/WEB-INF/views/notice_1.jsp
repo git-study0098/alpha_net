@@ -69,12 +69,12 @@
 					</form>
 				</div>
 
-				<h2 id="lnbTitle" class="tit_lnb">자격증/확인서</h2>
+				<h2 id="lnbTitle" class="tit_lnb">고객지원</h2>
 				<!-- menu리스트 -->
 				<ul id="lnbNavi" class="lnb on">
 					<li class="low active on"><a>공지사항</a>
 						<ul style="display: block;">
-							<li><a>공지사항</a></li>
+							<li class="on"><a>공지사항</a></li>
 							<li><a>자격제도</a></li>
 							<li><a>시행</a></li>
 							<li><a>출제</a></li>
@@ -102,8 +102,6 @@
 						<ul style="display: block;">
 							<li><a>취업/훈련/연수</a></li>
 							<li><a>대학생(중고생)장학금</a></li>
-							<li><a>창업지원/교육서비스</a></li>
-							<li><a>자금운용/보증지원</a></li>
 						</ul></li>
 					<li class="low"><a>관련학과 지정신청</a></li>
 					<li><a>고객의 소리</a></li>
