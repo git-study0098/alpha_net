@@ -46,7 +46,7 @@
 	.mobile #header .center_area {}
 	.mobile #header p.mText {display:block; position:absolute; left:50%; bottom:0; top:auto; margin-left:-25%; width:50%; text-align:center}
 	.mobile #header .view_pc {display:block; position:absolute; left:50%; top:0; margin-left:-63px}
-	.mobile #header .view_pc span {display:block; width:126px; height:25px; background:url('../images/mobile/bg_view_pc.png') no-repeat center top; font-size:11px; font-weight:bold; color:#fff}
+	.mobile #header .view_pc span {display:block; width:126px; height:25px; background:url('resources/images/mobile/bg_view_pc.png') no-repeat center top; font-size:11px; font-weight:bold; color:#fff}
 	.mobile #header .center_area {margin:0 auto; width:96%}
 	.mobile .footer .center_area {}
 	.mobile #header .center_area {padding:15px 0}
@@ -76,28 +76,28 @@
 	.mobile .mMenu_list li a {display:block; padding:0 20px 6px 30px; color:#00ffff}
 	.mobile .mMenu_list li li a {color:#fff}
 	.mobile .mMenu_list li li.on a {color:#00ffff}
-	.mobile .mMenu_list > ul {padding-bottom:2px; background:#1072ba url('../images/mobile/bg_menu.png') repeat-x left bottom}
-	.mobile .mMenu_list > ul > li {padding-top:2px; background:url('../images/mobile/bg_menu.png') repeat-x left top; font-size:16px}
-	.mobile .mMenu_list > ul > li > a {padding-top:20px; background:url('../images/mobile/bg_menu_bl.png') no-repeat 1.3em 1.7em; font-weight:bold}
-	.mobile .mMenu_list > ul > li > a > span {display:block; margin:0 14px 15px 0; padding-bottom:5px; background:url('../images/mobile/bg_menu_down.png') no-repeat right 5px}
-	.mobile .mMenu_list > ul > li.on {background:#1485d7 url('../images/mobile/bg_menu_on.png') repeat-x left top}
-	.mobile .mMenu_list > ul > li.on > a {background-image:url('../images/mobile/bg_menu_bl_on.png'); color:#fff}
-	.mobile .mMenu_list > ul > li.on > a > span {background:url('../images/mobile/bg_menu_up.png') no-repeat right center; color:#fff}
+	.mobile .mMenu_list > ul {padding-bottom:2px; background:#1072ba url('resources/images/mobile/bg_menu.png') repeat-x left bottom}
+	.mobile .mMenu_list > ul > li {padding-top:2px; background:url('resources/images/mobile/bg_menu.png') repeat-x left top; font-size:16px}
+	.mobile .mMenu_list > ul > li > a {padding-top:20px; background:url('resources/images/mobile/bg_menu_bl.png') no-repeat 1.3em 1.7em; font-weight:bold}
+	.mobile .mMenu_list > ul > li > a > span {display:block; margin:0 14px 15px 0; padding-bottom:5px; background:url('resources/images/mobile/bg_menu_down.png') no-repeat right 5px}
+	.mobile .mMenu_list > ul > li.on {background:#1485d7 url('resources/images/mobile/bg_menu_on.png') repeat-x left top}
+	.mobile .mMenu_list > ul > li.on > a {background-image:url('resources/images/mobile/bg_menu_bl_on.png'); color:#fff}
+	.mobile .mMenu_list > ul > li.on > a > span {background:url('resources/images/mobile/bg_menu_up.png') no-repeat right center; color:#fff}
 	.mobile .mMenu_list > ul > li > ul {padding:2px 0 15px; background:#0d68ad}
-	.mobile .mMenu_list > ul > li.on > ul {background:#0d68ad url('../images/mobile/bg_menu.png') repeat-x left top}
+	.mobile .mMenu_list > ul > li.on > ul {background:#0d68ad url('resources/images/mobile/bg_menu.png') repeat-x left top}
 	.mobile .mMenu_list > ul > li > ul > li {padding-top:15px; font-size:14px}
-	.mobile .mMenu_list > ul > li > ul > li > a {padding-top:2px; padding-bottom:5px; background:url('../images/mobile/bg_menu_sbl_on.png') no-repeat 1.5em 0.6em; font-weight:bold}
-	.mobile .mMenu_list > ul > li > ul > li.on > a {background-image:url('../images/mobile/bg_menu_sbl.png')}
+	.mobile .mMenu_list > ul > li > ul > li > a {padding-top:2px; padding-bottom:5px; background:url('resources/images/mobile/bg_menu_sbl_on.png') no-repeat 1.5em 0.6em; font-weight:bold}
+	.mobile .mMenu_list > ul > li > ul > li.on > a {background-image:url('resources/images/mobile/bg_menu_sbl.png')}
 	.mobile .mMenu_list > ul > li > ul > li > a:hover {background-color:#0a4977}
 	.mobile .mMenu_list > ul > li > ul > li > ul > li {margin-top:5px; font-size:12px}
-	.mobile .mMenu_list > ul > li > ul > li > ul > li > a {padding-top:2px; padding-bottom:5px; background:url('../images/mobile/bg_menu_ssbl.png') no-repeat 20px 9px}
+	.mobile .mMenu_list > ul > li > ul > li > ul > li > a {padding-top:2px; padding-bottom:5px; background:url('resources/images/mobile/bg_menu_ssbl.png') no-repeat 20px 9px}
 	.mobile .mMenu_list > ul > li > ul > li > ul > li > a:hover {background-color:#0a4977}
 	.mobile .mMenu_list > ul > li > ul > li > ul > li > ul > li {font-size:11px}
-	.mobile .mMenu_list > ul > li > ul > li > ul > li > ul > li > a {padding-left:35px; padding-top:0; padding-bottom:3px; background:url('../images/mobile/bg_menu_sssbl.png') no-repeat 20px 9px}
+	.mobile .mMenu_list > ul > li > ul > li > ul > li > ul > li > a {padding-left:35px; padding-top:0; padding-bottom:3px; background:url('resources/images/mobile/bg_menu_sssbl.png') no-repeat 20px 9px}
 	.mobile .mMenu_list > ul > li > ul > li > ul > li > ul > li > a:hover {background-color:#0a4977}
 	
 	/* main */
-	.mobile ul.link_top {padding:0; min-height:0; background:url('../images/mobile/bg_link_top.png') repeat-x left bottom}
+	.mobile ul.link_top {padding:0; min-height:0; background:url('resources/images/mobile/bg_link_top.png') repeat-x left bottom}
 	.mobile ul.link_top li {padding:2% 0 2% 1.5%; width:23%; text-align:center}
 	.mobile ul.link_top li:first-child {padding-left:0}
 	.mobile ul.link_top li.n04 {padding-left:0; width:27%}
@@ -108,14 +108,14 @@
 	.mobile #content > .bbs_list dl {}
 	.mobile #content > .bbs_list dl dt {padding:22px 25px 0; font-size:16px; font-weight:bold; color:#000}
 	.mobile #content > .bbs_list dl dd {position:relative; padding:25px 25px 0}
-	.mobile #content > .bbs_list dd .more {position:absolute; right:25px; top:-8%; width:18px; height:18px; background:url('../images/main/bg_more.gif') no-repeat center center; text-indent:-999px; overflow:hidden}
+	.mobile #content > .bbs_list dd .more {position:absolute; right:25px; top:-8%; width:18px; height:18px; background:url('resources/images/main/bg_more.gif') no-repeat center center; text-indent:-999px; overflow:hidden}
 	.mobile #content > .bbs_list dd ul {}
-	.mobile #content > .bbs_list dd li {margin-bottom:17px; background:url('../images/main/bl_bbs.gif') no-repeat left center; zoom:1; line-height:1.2em}
+	.mobile #content > .bbs_list dd li {margin-bottom:17px; background:url('resources/images/main/bl_bbs.gif') no-repeat left center; zoom:1; line-height:1.2em}
 	.mobile #content > .bbs_list dd li:after {content:''; display:block; clear:both}
 	.mobile #content > .bbs_list dd li a {position:relative; float:left; top:-2px; margin-right:5px; padding-left:10px; max-width:81%; color:#333; overflow:hidden; white-space:nowrap; text-overflow:ellipsis}
 	.mobile #content > .bbs_list dd li img {position:relative; float:left; top:1px; vertical-align:top}
 	.mobile #content > .bbs_list dd li span {position:relative; float:right; top:-2px; color:#999}
-	.mobile #content > .bbs_list dd .none {padding-top:130px; background:url('../images/main/bg_none_bbs.gif') no-repeat center 40px; text-align:center; color:#016cbc; font-weight:bold}
+	.mobile #content > .bbs_list dd .none {padding-top:130px; background:url('resources/images/main/bg_none_bbs.gif') no-repeat center 40px; text-align:center; color:#016cbc; font-weight:bold}
 	
 	.mobile div.main_cont {position:relative; margin:0 auto; padding:2% 0; width:96%; overflow:hidden}
 	.mobile div.main_cont div.left, .mobile div.main_cont div.right {float:none; width:auto}
@@ -132,38 +132,38 @@
 	.mobile div.main_cont div.right dl.bbs_list dd li a {max-width:81%; overflow:hidden; white-space:nowrap; text-overflow:ellipsis}
 	.mobile div.main_cont div.right ul.left_banner {width:67%}
 
-	.mobile ul.link_go {margin:0; padding:0 2%; min-height:89px; background:url('../images/mobile/bg_mlink.png') repeat left top; overflow:hidden}
-	.mobile ul.link_go li {position:relative; float:left; margin-top:1px; min-width:93px; width:12.5%; background:url('../images/mobile/bg_mlink_line.png') no-repeat right top}
+	.mobile ul.link_go {margin:0; padding:0 2%; min-height:89px; background:url('resources/images/mobile/bg_mlink.png') repeat left top; overflow:hidden}
+	.mobile ul.link_go li {position:relative; float:left; margin-top:1px; min-width:93px; width:12.5%; background:url('resources/images/mobile/bg_mlink_line.png') no-repeat right top}
 	.mobile ul.link_go li a {width:auto; height:auto; background-size:88.1%}
-	.mobile ul.link_go li.go01 a {background:url('../images/mobile/bg_mlink_line.png') no-repeat left top}
-	.mobile ul.link_go li a span {height:60px; background:url('../images/mobile/bg_mlink.png') repeat-x left -1px}
+	.mobile ul.link_go li.go01 a {background:url('resources/images/mobile/bg_mlink_line.png') no-repeat left top}
+	.mobile ul.link_go li a span {height:60px; background:url('resources/images/mobile/bg_mlink.png') repeat-x left -1px}
 	.mobile ul.link_go li a em {height:60px}
 	.mobile ul.link_go li.m09 {display:none}
 	.mobile ul.link_go li a strong {padding-top:4px; height:24px}
 	.mobile ul.link_go li.go02 a strong {letter-spacing:-1px}
 
-	.mobile div.main_cont ul.left_banner > li.customer {position:relative; padding-left:55%; background:url('../images/main/bg_customer_left.png') no-repeat left bottom}
+	.mobile div.main_cont ul.left_banner > li.customer {position:relative; padding-left:55%; background:url('resources/images/main/bg_customer_left.png') no-repeat left bottom}
 	.mobile div.main_cont ul.left_banner > li.customer dl {position:absolute; right:0; top:0}
 
 	.mobile div.main_cont ul.left_banner > li.list_tel {background-position:30% 21px}
 	.mobile div.main_cont ul.left_banner > li.list_tel > a {padding-left:42%}
 
-	/*.mobile ul.mLink {display:block; padding:0 2%; min-height:89px; background:url('../images/mobile/bg_mlink.png') repeat left top; overflow:hidden}
-	.mobile ul.mLink li {float:left; min-width:93px; width:12.5%; background:url('../images/mobile/bg_mlink_line.png') no-repeat left top; text-align:center}
+	/*.mobile ul.mLink {display:block; padding:0 2%; min-height:89px; background:url('resources/images/mobile/bg_mlink.png') repeat left top; overflow:hidden}
+	.mobile ul.mLink li {float:left; min-width:93px; width:12.5%; background:url('resources/images/mobile/bg_mlink_line.png') no-repeat left top; text-align:center}
 	.mobile ul.mLink li a {display:block; margin-left:1px}
-	.mobile ul.mLink li.m08 a {background:url('../images/mobile/bg_mlink_line.png') no-repeat right top}
+	.mobile ul.mLink li.m08 a {background:url('resources/images/mobile/bg_mlink_line.png') no-repeat right top}
 	.mobile ul.mLink li.m08 a strong {margin-right:1px}
 	.mobile ul.mLink li a span {display:block; padding-top:1px; height:60px}
 	.mobile ul.mLink li a span img {margin-top:13px}
 	.mobile ul.mLink li a:hover span img {opacity:0; -moz-opacity:0; -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"}
-	.mobile ul.mLink li.m01 a:hover span {background:#b5c837 url('../images/mobile/m01_on.png') no-repeat center bottom}
-	.mobile ul.mLink li.m02 a:hover span {background:#b5c837 url('../images/mobile/m02_on.png') no-repeat center bottom}
-	.mobile ul.mLink li.m03 a:hover span {background:#b5c837 url('../images/mobile/m03_on.png') no-repeat center bottom}
-	.mobile ul.mLink li.m04 a:hover span {background:#b5c837 url('../images/mobile/m04_on.png') no-repeat center bottom}
-	.mobile ul.mLink li.m05 a:hover span {background:#b5c837 url('../images/mobile/m05_on.png') no-repeat center bottom}
-	.mobile ul.mLink li.m06 a:hover span {background:#b5c837 url('../images/mobile/m06_on.png') no-repeat center bottom}
-	.mobile ul.mLink li.m07 a:hover span {background:#b5c837 url('../images/mobile/m07_on.png') no-repeat center bottom}
-	.mobile ul.mLink li.m08 a:hover span {background:#b5c837 url('../images/mobile/m08_on.png') no-repeat center bottom}
+	.mobile ul.mLink li.m01 a:hover span {background:#b5c837 url('resources/images/mobile/m01_on.png') no-repeat center bottom}
+	.mobile ul.mLink li.m02 a:hover span {background:#b5c837 url('resources/images/mobile/m02_on.png') no-repeat center bottom}
+	.mobile ul.mLink li.m03 a:hover span {background:#b5c837 url('resources/images/mobile/m03_on.png') no-repeat center bottom}
+	.mobile ul.mLink li.m04 a:hover span {background:#b5c837 url('resources/images/mobile/m04_on.png') no-repeat center bottom}
+	.mobile ul.mLink li.m05 a:hover span {background:#b5c837 url('resources/images/mobile/m05_on.png') no-repeat center bottom}
+	.mobile ul.mLink li.m06 a:hover span {background:#b5c837 url('resources/images/mobile/m06_on.png') no-repeat center bottom}
+	.mobile ul.mLink li.m07 a:hover span {background:#b5c837 url('resources/images/mobile/m07_on.png') no-repeat center bottom}
+	.mobile ul.mLink li.m08 a:hover span {background:#b5c837 url('resources/images/mobile/m08_on.png') no-repeat center bottom}
 	.mobile ul.mLink li.m09 {display:none}
 	.mobile ul.mLink li a strong {display:block; padding-top:4px; height:24px; background:#00557e; color:#c3dcf4}
 	.mobile ul.mLink li a:hover strong {background:#819b29; color:#fff}
@@ -236,7 +236,7 @@
 }
 @media only screen and  (max-width:850px) {
 	.mobile ul.link_go li {min-width:93px; width:25%}
-	.mobile ul.link_go li.go05 a {padding-left:1px; background:url('../images/mobile/bg_mlink_line.png') no-repeat left top}
+	.mobile ul.link_go li.go05 a {padding-left:1px; background:url('resources/images/mobile/bg_mlink_line.png') no-repeat left top}
 	.mobile ul.link_go li.go05 a span {left:1px}
 }
 @media only screen and  (max-width:800px) {
@@ -252,13 +252,13 @@
 	.mobile div.main_cont div.left dl.test_ing {width:42%}
 	/*
 	.mobile ul.mLink li {min-width:93px; width:25%}
-	.mobile ul.mLink li.m04 a {background:url('../images/mobile/bg_mlink_line.png') no-repeat right top}
+	.mobile ul.mLink li.m04 a {background:url('resources/images/mobile/bg_mlink_line.png') no-repeat right top}
 	.mobile ul.mLink li.m04 a strong {margin-right:1px}
 */
 	.mobile .cw800 {display:none}
 	.mobile #content .mTest {display:block; padding-top:5px; overflow:hidden}
 	.mobile #content .mTest ol {float:left; width:33%}
-	.mobile #content .mTest ol li {padding-top:10px; background:url('../images/mobile/bg_step_list_down.png') no-repeat center -5px; text-align:center; font-size:12px}
+	.mobile #content .mTest ol li {padding-top:10px; background:url('resources/images/mobile/bg_step_list_down.png') no-repeat center -5px; text-align:center; font-size:12px}
 	.mobile #content .mTest ol li:first-child {padding-top:0; background:none}
 	.mobile #content .mTest ol li span {display:block; margin:0 5%; padding:8px 10px 10px; background-color:#939395; -webkit-border-radius: 3px; border-radius: 3px; color:#fff}
 	.mobile #content .mTest ol.wbg li span {background-color:#fff; border:1px solid #c8c9d3; color:#998f86}
@@ -323,7 +323,7 @@
 	.mobile #content .cw700 {display:none}
 	.mobile #content .mw700 {display:block}
 	.mobile #content .mStep_list {display:block; margin:6px auto 10px; width:60%}
-	.mobile #content .mStep_list > li {padding:15px 0 0; background:url('../images/mobile/bg_step_list_down.png') no-repeat center top; text-align:center; font-size:12px; text-indent:0; line-height:1.2em}
+	.mobile #content .mStep_list > li {padding:15px 0 0; background:url('resources/images/mobile/bg_step_list_down.png') no-repeat center top; text-align:center; font-size:12px; text-indent:0; line-height:1.2em}
 	.mobile #content .mStep_list > li:first-child {padding-top:0; background:none}
 	.mobile #content .mStep_list > li span {display:block; padding:8px 10px 10px; background-color:#b0aba8; -webkit-border-radius: 3px; border-radius: 3px; color:#fff}
 	.mobile #content .mStep_list li div {margin-top:2px; padding:8px 10px 10px 10px; background-color:#fff; border:1px solid #d9d8d6; -webkit-border-radius: 3px; border-radius: 3px}
@@ -458,7 +458,7 @@
 	.mobile ul.link_go li a em {height:56px}
 	/*.mobile ul.link_go li a span img {margin-top:9px}*/
 	.mobile ul.link_go li a strong {padding-top:1px; height:19px}
-	.mobile ul.link_go li.go09 {display:block; height:74px; background:url('../images/mobile/bg_none.png') no-repeat center center !important}
+	.mobile ul.link_go li.go09 {display:block; height:74px; background:url('resources/images/mobile/bg_none.png') no-repeat center center !important}
 	.mobile ul.link_go li.go01 a, .mobile ul.link_go li.go05 a {padding:0; background:none}
 	.mobile ul.link_go li.go01 a span, .mobile ul.link_go li.go05 a span {left:0}
 	.mobile ul.link_go li.go03 a, .mobile ul.link_go li.go06 a {border-right:0}
@@ -469,7 +469,7 @@
 	.mobile ul.mLink li a span {height:56px; border-right:1px solid #d5d5d5}
 	.mobile ul.mLink li a span img {margin-top:9px}
 	.mobile ul.mLink li a strong {padding-top:1px; height:19px; border-right:1px solid #3a7a98}
-	.mobile ul.mLink li.m09 {display:block; height:74px; background:url('../images/mobile/bg_none.png') no-repeat center center !important}
+	.mobile ul.mLink li.m09 {display:block; height:74px; background:url('resources/images/mobile/bg_none.png') no-repeat center center !important}
 	.mobile ul.mLink li.m01, .mobile ul.mLink li.m04, .mobile ul.mLink li.m07 {width:33.4%}
 	.mobile ul.mLink li.m04 a strong, .mobile ul.mLink li.m08 a strong {margin-right:0}
 	.mobile ul.mLink li.m03 a span, .mobile ul.mLink li.m06 a span, .mobile ul.mLink li.m03 a strong, .mobile ul.mLink li.m06 a strong {border-right:0}

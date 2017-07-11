@@ -6,7 +6,7 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 
 import com.ibatis.sqlmap.client.SqlMapClient;
-import com.last.vo.BoardVo;
+import com.last.vo.Notice1VO;
 
 /**
  * 
@@ -43,24 +43,24 @@ abstract public class BoardDaoAdmin {
 //"listAllProduct", null);
 //}
 
-	abstract public int insertBoard(BoardVo boardVo) throws SQLException;
+	abstract public int insertBoard(Notice1VO boardVo) throws SQLException;
 	
-	public List<BoardVo> selectBoardAllList(String boardCode) throws SQLException{
+	public List<Notice1VO> selectBoardAllList(String boardCode) throws SQLException{
 		
 		return null;
 	}
 	
-	public List<BoardVo> selectBoardList(String boardCode, int first, int end) throws SQLException{
+	public List<Notice1VO> selectBoardList(String boardCode, int first, int end) throws SQLException{
 		
 		return null;
 	}
 
-	public List<BoardVo> selectBoardSearchList(String boardCode, String index, String key) throws SQLException{
+	public List<Notice1VO> selectBoardSearchList(String boardCode, String index, String key) throws SQLException{
 		
 		return null;
 	}
 	
-	public int updateBoard(BoardVo boardVo) throws SQLException{
+	public int updateBoard(Notice1VO boardVo) throws SQLException{
 		
 		return 0;
 	}

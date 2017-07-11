@@ -1,32 +1,32 @@
 package com.last.board.dao;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.ibatis.session.SqlSession;
-
 import com.ibatis.sqlmap.client.SqlMapClient;
-import com.last.vo.BoardVo;
+import com.last.vo.Notice1VO;
 
-public class BoardDao {
+public class NoticeDAO {
 
 	/**
 	 * iBatis
 	 */
-	protected SqlMapClient client;
+	private SqlMapClient client;
 	
 	public void setClient(SqlMapClient client) {
 		this.client = client;
 	}
 
-	/**
-	 * myBatis
-	 */
-	protected SqlSession sqlSession;
+//	/**
+//	 * myBatis
+//	 */
+//	protected SqlSession sqlSession;
+//	
+//	public void setSession(SqlSession sqlSession){
+//		this.sqlSession = sqlSession;
+//	}
 	
-	public void setSession(SqlSession sqlSession){
-		this.sqlSession = sqlSession;
-	}
 	//////////////////////////////////////////////////////////////
 ///////////////////////////////////////////
 //ArrayList<ProductVO> listNewProduct = null;
@@ -49,19 +49,30 @@ public class BoardDao {
 	 * @return
 	 * @throws SQLException
 	 */
-	public List<BoardVo> selectBoardAllList(String boardCode) throws SQLException{
-		
-		return null;
+	
+	
+	/**
+	 * 공지사항 전체리스트 조회 
+	 * * @param boardCode
+	 * 	@return
+	 * 	@throws SQLException
+	 */
+	public List<Notice1VO> selectNotice1List(int firstRow, int endRow) throws SQLException{
+		List<Notice1VO> selectNotice1List = (ArrayList<Notice1VO>)client.queryForList("selectNotice1",firstRow-1 , endRow-firstRow+1);
+		return selectNotice1List;
 	}
 	
-	public List<BoardVo> selectBoardList(String boardCode, int first, int end) throws SQLException{
-		
-		return null;
+	public int selectNotice1Count() throws SQLException{
+		int result = (Integer) client.queryForObject("selectNotice1_Count");
+		return result;
 	}
-	
-	public List<BoardVo> selectBoardSearchList(String boardCode, String index, String key) throws SQLException{
-		
-		return null;
-	}
-	
+//public int selectNoticeUpdate() throws SQLException{
+//		
+//	}
+//	public int selectNoticeUpdate() throws SQLException{
+//		
+//	}
+//	public int selectNoticeUpdate() throws SQLException{
+//		
+//	}
 }
