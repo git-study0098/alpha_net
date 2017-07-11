@@ -30,7 +30,7 @@ public interface LoginDao {
 	 * @return
 	 * @throws SQLException
 	 */
-	public int selectLogin(String memberId, String memberPw) throws SQLException;
+	public MemberVo selectLogin(MemberVo memberVo) throws SQLException;
 	
 	/**
 	 * 아이디 중복확인

@@ -14,6 +14,7 @@
 		<pattern>/idCheckForm.do*</pattern>
 		<pattern>/**/*Xml.do</pattern>
 		<pattern>/**/*Json.do</pattern>
+		<pattern>/login/loginForm</pattern>
 	</excludes>
 
 </decorators>

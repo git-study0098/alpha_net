@@ -29,22 +29,22 @@
 <!-- 	/> -->
 		  
 	<!-- ibatis -->
-<!-- 	<bean id="memberDao" -->
-<!-- 		  class="com.last.member.MemberDao" -->
-<!-- 		  abstract="true" -->
-<!-- 		  p:client-ref="client" -->
-<!-- 	/> -->
-<!-- 	<bean id="aa" -->
-<!-- 		  class="com.last.member.aa" -->
-<!-- 		  parent="memberDao" -->
-<!-- 	/> -->
+	<bean id="loginDao"
+		  class="com.last.login.LoginDao"
+		  abstract="true"
+		  p:client-ref="client"
+	/>
+	<bean id="loginDaoImpl"
+		  class="com.last.login.LoginDaoImpl"
+		  parent="loginDao"
+	/>
 	
 	<!-- Service -->
 	
-<!-- 	<bean id="memberService" -->
-<!-- 		  class="com.last.member.MemberService" -->
-<!-- 		  p:memberDao-ref="aa" -->
-<!-- 	/>	 -->
+	<bean id="loginService"
+		  class="com.last.login.LoginService"
+		  p:loginDao-ref="loginDaoImpl"
+	/>	
 
 <!-- mysqlSession, mysqlClient -->
 		  
