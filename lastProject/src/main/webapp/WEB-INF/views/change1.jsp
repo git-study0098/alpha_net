@@ -83,8 +83,6 @@
 						<ul style="display: block;">
 							<li><a>취업/훈련/연수</a></li>
 							<li><a>대학생(중고생)장학금</a></li>
-							<li><a>창업지원/교육서비스</a></li>
-							<li><a>자금운용/보증지원</a></li>
 						</ul></li>
 					<li class="low"><a>관련학과 지정신청</a></li>
 					<li><a>고객의 소리</a></li>
