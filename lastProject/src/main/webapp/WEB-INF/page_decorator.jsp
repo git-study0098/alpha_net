@@ -793,7 +793,7 @@ var speed = 800;
 						<strong class="logo"><img src="resources/images/footer_logo.gif" alt="한국산업인력공단"></strong>
 						<span class="mLogo"><img src="resources/images/footer_logo.png" alt="한국산업인력공단"></span>
 						<address>울산광역시 중구 종가로 345 한국산업인력공단 (우)44538 ☏1644 - 8000</address>
-						<p>Copyright ⓒ 1999~2015 All Rights Reserved. Human Resources Development Service of Korea.</p>
+						<p>Copyright ⓒ 1999~2015 All Rights Reserved. Human resources Development Service of Korea.</p>
 					</div>
 				</div>
 			</div>
