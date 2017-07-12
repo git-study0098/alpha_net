@@ -6,12 +6,13 @@ import java.util.List;
 import com.last.board.dao.PdsDAO;
 import com.last.vo.Notice1VO;
 import com.last.vo.PagingVO;
+import com.last.vo.PdsVO;
 
 public class PdsService {
 
 	private PdsDAO pdsDao;
 	
-	public void setpDao(PdsDAO pdsDao) {
+	public void setPdsDao(PdsDAO pdsDao) {
 		this.pdsDao = pdsDao;
 	}
 	
@@ -19,7 +20,7 @@ public class PdsService {
 	/*
 	    * 관리자 서비스 메소드
 	    */
-	   public PagingVO selectPdsList(int pageNumber) throws ServiceException {
+	   public PdsVO selectPdsList(int pageNumber) throws ServiceException {
 
 	      int currentPageNumber = pageNumber;
 	      try {
@@ -37,7 +38,7 @@ public class PdsService {
 	            currentPageNumber = 0;
 	            pdsList = Collections.emptyList();
 	         }
-	         return new PagingVO(pdsList, pdsTotalCount,
+	         return new PdsVO(pdsList, pdsTotalCount,
 	               currentPageNumber, PDS_COUNT_PER_PAGE, firstRow, endRow);
 	      } catch (Exception e) {
 	    	  throw new ServiceException("게시판 리스트 구하기 실패!",e);

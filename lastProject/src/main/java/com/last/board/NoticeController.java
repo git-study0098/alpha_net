@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.last.board.service.NoticeService;
 import com.last.board.service.ServiceException;
+import com.last.vo.Notice1VO;
 import com.last.vo.PagingVO;
 
 @Controller
@@ -23,7 +24,7 @@ public class NoticeController {
 	
 	@RequestMapping("/noticeList")
 	   public String listNotice(@RequestParam(value="page",defaultValue="1") int pageNumber, Model model){
-
+				
 		      PagingVO viewData=null;
 		      try {
 		          viewData= noticeService.selectNotice1List(pageNumber);

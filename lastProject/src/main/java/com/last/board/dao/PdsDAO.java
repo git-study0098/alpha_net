@@ -8,7 +8,7 @@ import com.ibatis.sqlmap.client.SqlMapClient;
 import com.last.vo.Notice1VO;
 
 
-public class PdsDAO extends NoticeDAO {
+public class PdsDAO {
 
 	private SqlMapClient client;
 	
@@ -17,7 +17,7 @@ public class PdsDAO extends NoticeDAO {
 	}
 	
 	public List<Notice1VO> selectPdsList(int firstRow, int endRow) throws SQLException{
-		List<Notice1VO> selectPdsList = (ArrayList<Notice1VO>)client.queryForList("selectPds",firstRow-1 , endRow-firstRow+1);
+		List<Notice1VO> selectPdsList = (ArrayList<Notice1VO>)client.queryForList("selectPdsList",firstRow-1 , endRow-firstRow+1);
 		return selectPdsList;
 	}
 	

@@ -9,10 +9,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.last.board.service.PdsService;
 import com.last.board.service.ServiceException;
 import com.last.vo.PagingVO;
+import com.last.vo.PdsVO;
 
 @Controller
 public class PdsController {
 	
+	@Autowired
 	private PdsService pdsService;
 	
 	public void setPdsService(PdsService pdsService) {
@@ -22,14 +24,14 @@ public class PdsController {
 	@RequestMapping("/pdsList")
 	   public String listPds(@RequestParam(value="page",defaultValue="1") int pageNumber, Model model){
 
-		      PagingVO viewData=null;
+		      PdsVO viewData=null;
 		      try {
 		          viewData= pdsService.selectPdsList(pageNumber);
 		      } catch (ServiceException e) {
 		         e.printStackTrace();
 		      }
 		      
-		      if(viewData.getNotice1List().isEmpty()){
+		      if(viewData.getPdsList().isEmpty()){
 		         pageNumber--;
 		         if(pageNumber<=0) pageNumber=1;
 		         try {
