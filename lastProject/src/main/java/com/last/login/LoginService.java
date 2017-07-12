@@ -1,5 +1,9 @@
 package com.last.login;
 
+import java.sql.SQLException;
+
+import com.last.vo.MemberVo;
+
 public class LoginService {
 
 	private LoginDao loginDao;
@@ -8,4 +12,12 @@ public class LoginService {
 		this.loginDao = loginDao;
 	}
 	
+	public void getLogin(MemberVo memberVo){
+		try {
+			loginDao.selectLogin(memberVo);
+		} catch (SQLException e) {
+			System.out.println("service!!");
+			e.printStackTrace();
+		}
+	}
 }

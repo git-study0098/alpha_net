@@ -115,12 +115,13 @@ $(function(){
 </script>
 <script>
 $(function(){	
-	$(".gnb > ul > li").mouseover(function(){
+	$(".gnb > ul > li").mouseenter(function(){
 		$(this).addClass("on");
 	})
 	$(".gnb > ul > li").mouseout(function(){
 		$(this).removeClass("on");
 	})
+	
 });
 
 $(function(){
@@ -134,108 +135,111 @@ var $gnb = $(".gnb"),
 	$gnbBg = $(".gnb_bg");
 	
 
-
+var speed = 800;
 /* reset */
-$gnb.stop().animate({height : $oldHeight}, speed, "easeInOutQuart");
-$gnb.find("li.on").addClass("active");
-
-$gnb1depth.find(">a").mouseenter(function(){
-	$gnb1depth.find("div").hide();
-	$gnb2depth.removeClass("on");
-	$gnb2depth.find(">ul").hide();
-
-	$(this).parent("li").find(">div").show();
-	$(this).parent("li").addClass("on").siblings().removeClass("on");
-
-	var bgH = Math.max($(this).next("div").height(), $(this).parent("li").find(">div").find(">ul>li>ul").height()) + parseInt($(this).parent("li").find("> div").css("padding-top")) + parseInt($(this).parent("li").find("> div").css("padding-bottom")) + 10,
-		sLeft = $(this).parent("li").find("> div > ul").width() + 20,
-		ssLeft = $(this).parent("li").find("> div > ul > li > ul").width() + 40,
-		sH = $(this).parent("li").find("> div > ul").height();
-
-	/* 3depth가 있을 경우 */
-	if($(this).parent("li").find(">div").find(">ul>li:first-child").find("ul").length){
-		$(this).parent("li").find(">div").find(">ul>li:first-child").addClass("on").find("ul").show();
-	} else {
-		//$(this).parent("li").find("> div > ul").height($(this).parent("li").find("> div > ul").height());
-	}
-
-	$(this).parent("li").find("ul").css("min-height",sH);
-
-	$(this).parent("li").find("> div > ul > li > ul").css({"left":sLeft});
-	$(this).parent("li").find("> div > ul > li > ul > li > ul").css({"left":ssLeft});
-
-	$gnb.stop().animate({height : bgH}, speed, "easeInOutQuart");
-	$gnbBg.stop().animate({height : bgH}, speed, "easeInOutQuart");
-
-})
-.focusin(function(){
-	$(this).mouseenter();
-});
-$gnb1depth.focusin(function(){
-	$(this).mouseenter();
-});
-
-$($gnb, $gnbBg).mouseleave(function(){
-	gnbReset();
-});
-
-$gnb1depth.filter(":last").find("a:last").off('keydown').on('keydown', function (b) {
-   if(b.keyCode == 9 && b.shiftKey) {
-   } else if (b.keyCode == 9) {
-		gnbReset();
-   }
-});
-
-$gnb1depth.filter(":first").find(">a").off('keydown').on('keydown', function (b) {
-   if(b.keyCode == 9 && b.shiftKey) {
-		gnbReset();
-   } else if (b.keyCode == 9) {}
-});
-
-function gnbReset(){
 	$gnb.stop().animate({height : $oldHeight}, speed, "easeInOutQuart");
-	$gnbBg.stop().animate({height : 0}, speed, "easeInOutQuart", function(){
-		$gnb1depth.removeClass("on");
+	$gnb.find("li.on").addClass("active");
+
+	$gnb1depth.find(">a").mouseenter(function(){
 		$gnb1depth.find("div").hide();
-		$gnb.find("li.active").addClass("on");
-	});
-}
-
-$gnb2depth.find(">a").mouseenter(function(){
-	var max = Math.max($(this).parent("li").find(">ul").height(), $(this).parent("li").parent("ul").height()),
-		bgH = max + parseInt($(this).parent("li").find("> div").css("padding-top")) + parseInt($(this).parent("li").find("> div").css("padding-bottom"));
-
-	if($(this).parent("li").find(">ul").length){
+		$gnb2depth.removeClass("on");
+		$gnb2depth.find(">ul").hide();
+	
+		$(this).parent("li").find(">div").show();
+		$(this).parent("li").addClass("on").siblings().removeClass("on");
+	
+		var bgH = Math.max($(this).next("div").height(), $(this).parent("li").find(">div").find(">ul>li>ul").height()) + parseInt($(this).parent("li").find("> div").css("padding-top")) + parseInt($(this).parent("li").find("> div").css("padding-bottom")) + 10,
+			sLeft = $(this).parent("li").find("> div > ul").width() + 20,
+			ssLeft = $(this).parent("li").find("> div > ul > li > ul").width() + 40,
+			sH = $(this).parent("li").find("> div > ul").height();
+	
+		/* 3depth가 있을 경우 */
+		if($(this).parent("li").find(">div").find(">ul>li:first-child").find("ul").length){
+			$(this).parent("li").find(">div").find(">ul>li:first-child").addClass("on").find("ul").show();
+		} else {
+			//$(this).parent("li").find("> div > ul").height($(this).parent("li").find("> div > ul").height());
+		}
+	
+		$(this).parent("li").find("ul").css("min-height",sH);
+	
+		$(this).parent("li").find("> div > ul > li > ul").css({"left":sLeft});
+		$(this).parent("li").find("> div > ul > li > ul > li > ul").css({"left":ssLeft});
+	
 		$gnb.stop().animate({height : bgH}, speed, "easeInOutQuart");
 		$gnbBg.stop().animate({height : bgH}, speed, "easeInOutQuart");
-	}else{
-		$(this).parent("li").css({"background":"none"});
+	
+	})
+	.focusin(function(){
+		$(this).mouseenter();
+	});
+	$gnb1depth.focusin(function(){
+		$(this).mouseenter();
+	});
+
+	$($gnb, $gnbBg).mouseleave(function(){
+		gnbReset();
+	});
+
+	$gnb1depth.filter(":last").find("a:last").off('keydown').on('keydown', function (b) {
+	   if(b.keyCode == 9 && b.shiftKey) {
+	   } else if (b.keyCode == 9) {
+			gnbReset();
+	   }
+	});
+
+	$gnb1depth.filter(":first").find(">a").off('keydown').on('keydown', function (b) {
+	   if(b.keyCode == 9 && b.shiftKey) {
+			gnbReset();
+	   } else if (b.keyCode == 9) {}
+	});
+
+	function gnbReset(){
+		$gnb.stop().animate({height : $oldHeight}, speed, "easeInOutQuart");
+		$gnbBg.stop().animate({height : 0}, speed, "easeInOutQuart", function(){
+			$gnb1depth.removeClass("on");
+			$gnb1depth.find("div").hide();
+			$gnb.find("li.active").addClass("on");
+		});
 	}
 
-	$gnb3depth.removeClass("on");
-	$gnb3depth.find(">ul").hide();
-	$gnb2depth.find(">ul").hide();
+	$gnb2depth.find(">a").mouseenter(function(){
+		var max = Math.max($(this).parent("li").find(">ul").height(), $(this).parent("li").parent("ul").height()),
+			bgH = max + parseInt($(this).parent("li").find("> div").css("padding-top")) + parseInt($(this).parent("li").find("> div").css("padding-bottom"));
+	
+		if($(this).parent("li").find(">ul").length){
+			$gnb.stop().animate({height : bgH}, speed, "easeInOutQuart");
+			$gnbBg.stop().animate({height : bgH}, speed, "easeInOutQuart");
+		}else{
+			$(this).parent("li").css({"background":"none"});
+		}
+	
+		$gnb3depth.removeClass("on");
+		$gnb3depth.find(">ul").hide();
+		$gnb2depth.find(">ul").hide();
+	
+		$gnb2depth.removeClass("on");
+		$(this).parent("li").addClass("on");
+		$(this).parent("li").find(">ul").show();
+	
+	})
+	.focusin(function(){
+		$(this).mouseenter();
+	});
 
-	$gnb2depth.removeClass("on");
-	$(this).parent("li").addClass("on");
-	$(this).parent("li").find(">ul").show();
-
-})
-.focusin(function(){
-	$(this).mouseenter();
-});
-
-$gnb3depth.find(">a").mouseenter(function(){
-	var sH = $(this).parents("ul").height();
-
-	$gnb3depth.find(">ul").hide();
-	$(this).parent("li").addClass("on").siblings().removeClass("on");
-	$(this).parent("li").find(">ul").show();
-
-	$(this).parent("li").find(">ul").height(sH);
-})
-.focusin(function(){
-	$(this).mouseenter();
+	$gnb3depth.find(">a").mouseenter(function(){
+		var sH = $(this).parents("ul").height();
+	
+		$gnb3depth.find(">ul").hide();
+		$(this).parent("li").addClass("on").siblings().removeClass("on");
+		$(this).parent("li").find(">ul").show();
+	
+		$(this).parent("li").find(">ul").height(sH);
+	})
+	.focusin(function(){
+		$(this).mouseenter();
+	});
+	
+	
 });
 </script>
 </head>
@@ -255,7 +259,7 @@ $gnb3depth.find(">a").mouseenter(function(){
 						<li><a>고객의소리</a></li>
 					</ul>
 					<ul class="right">
-						<li><a>로그인</a></li>
+						<li><a href="login">로그인</a></li>
 						<li><a>회원가입</a></li>
 						<li><a>English</a></li>
 						<li><a>이용안내</a></li>

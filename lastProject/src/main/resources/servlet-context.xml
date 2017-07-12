@@ -13,27 +13,17 @@
 	<!-- Enables the Spring MVC @Controller programming model -->
 	<annotation-driven />
 
-	<view-controller path="/index" view-name="index"/>
-	<view-controller path="/m1" view-name="mypage_dnjstj1"/>
-	<view-controller path="/m2" view-name="mypage_dnjstj2"/>
-	<view-controller path="/m3" view-name="mypage_dnjstj3"/>
-	<view-controller path="/m4" view-name="mypage_dnjstj4"/>
+<!-- 	<view-controller path="/a" view-name="1main"/> -->
 	
-	<view-controller path="/n1" view-name="mypage_dmdtl1"/>
-	<view-controller path="/n2" view-name="mypage_dmdtl2"/>
-	<view-controller path="/n3" view-name="mypage_dmdtl3"/>
-	<view-controller path="/n4" view-name="mypage_dmdtl4"/>
+<!-- 	<view-controller view-name="login/accessDenied" path="/accessDenied"/> -->
+<!-- 	<view-controller view-name="login/logout" path="/logout"/> -->
+<!-- 	<view-controller view-name="login/login_duplicate" path="/login_duplicate"/> -->
 	
-	<view-controller path="/b1" view-name="mypage_qkfrma1"/>
-	<view-controller path="/b2" view-name="mypage_qkfrma2"/>
-	<view-controller path="/b3" view-name="mypage_qkfrma3"/>
-	
-	<view-controller path="/v1" view-name="mypage_auswp1"/>
-	<view-controller path="/v2" view-name="mypage_auswp2"/>
-	
-	<view-controller path="/c1" view-name="mypage_rodls1"/>
-	<view-controller path="/c2" view-name="mypage_rodls2"/>
-	<view-controller path="/c3" view-name="mypage_rodls3"/>
+	<view-controller path="/main" view-name="1main"/>
+	<view-controller view-name="login/accessDenied" path="/accessDenied"/>
+	<view-controller view-name="login/loginForm" path="/loginForm"/>
+	<view-controller view-name="login/logout" path="/logout"/>
+	<view-controller view-name="login/login_duplicate" path="/login_duplicate"/>
 	
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
 	<resources mapping="/resources/**" location="/resources/" />

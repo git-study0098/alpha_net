@@ -46,18 +46,22 @@
 <!-- 	/> -->
 		  
 	<!-- ibatis -->
-<!-- 	<bean id="memberDao" -->
-<!-- 		  class="com.last.member.MemberDao" -->
-<!-- 		  abstract="true" -->
-<!-- 		  p:client-ref="client" -->
-<!-- 	/> -->
-<!-- 	<bean id="aa" -->
-<!-- 		  class="com.last.member.aa" -->
-<!-- 		  parent="memberDao" -->
-<!-- 	/> -->
+	<bean id="loginDao"
+		  class="com.last.login.LoginDao"
+		  abstract="true"
+		  p:client-ref="client"
+	/>
+	<bean id="loginDaoImpl"
+		  class="com.last.login.LoginDaoImpl"
+		  parent="loginDao"
+	/>
 	
 	<!-- Service -->
 	
+	<bean id="loginService"
+		  class="com.last.login.LoginService"
+		  p:loginDao-ref="loginDaoImpl"
+	/>	
 <!-- 	<bean id="noticeService" -->
 <!-- 		  class="com.last.board.service.NoticeService" -->
 <!-- 		  p:noticeDao-ref="notice" -->

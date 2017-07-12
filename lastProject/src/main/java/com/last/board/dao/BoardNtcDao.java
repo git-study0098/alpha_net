@@ -1,6 +1,6 @@
 package com.last.board.dao;
 
 
-public class BoardNtcDao extends NoticeDAO {
+public class BoardNtcDao {
 
 }
