@@ -36,7 +36,7 @@ public class AdminNotice1Controller {
 		Notice1VO vo = new Notice1VO();
 		vo.setAdminCode(request.getParameter("adminCode"));
 		vo.setEnrollDate(new Date(12));
-		vo.setNoticeCode("notice050000000016");
+		vo.setNoticeCode("notice050000000017");
 		vo.setNoticeContent(request.getParameter("noticeContent"));
 		vo.setRegistDate(new Date(12));
 		vo.setTitle(request.getParameter("title"));
