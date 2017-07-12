@@ -1,6 +1,6 @@
-<%@page import="com.last.vo.Notice1VO"%>
+<%@page import="com.last.common.vo.Notice1VO"%>
+<%@page import="com.last.common.vo.PagingVO"%>
 <%@page import="java.util.List"%>
-<%@page import="com.last.vo.PagingVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page trimDirectiveWhitespaces="true"%>
@@ -11,6 +11,16 @@
    PagingVO viewData =
    (PagingVO)request.getAttribute("viewData");
 %>
+
+
+<script>
+	function go_noticeDetail(noticeCode){
+		alert("음");
+		var noticeForm = document.noticeDetail;
+		noticeForm.action = "/boardUpdateForm?notice_code="+noticeCode;
+		noticeForm.submit();
+	}	
+</script>
 
 <style>
 	* {	box-sizing: content-box;}
@@ -162,6 +172,7 @@
 									class="blind">검색</span></a>
 							</span>
 						</div>
+						<form name="noticeDetail">
 						<div id="viewList">
 							<div class="tbl_type1">
 								<table summary="번호,제목,담당부서,최종수정일자 항목으로 정보 제공"
@@ -170,7 +181,8 @@
 										<col width="7%">
 										<col width="*">
 										<col width="16%">
-										<col width="12%">
+										<col width="11%">
+										<col width="1%">
 									</colgroup>
 									<thead>
 										<tr>
@@ -178,36 +190,31 @@
 											<th scope="col">제목</th>
 											<th scope="col">담당부서</th>
 											<th scope="col">최종수정일자</th>
+											<th scope="col"></th>
 										</tr>
 									</thead>
 									<tbody>
 									
 									<!-- 게시판 테이블 내용 -->
-										<%
-											if (viewData.getNotice1CountPerPage() > 0) {
-												List<Notice1VO> noticeList = viewData.getNotice1List();
-												for (int i = 0; i < noticeList.size(); i++) {
-										%>
-										<tr>
-											<td><%=i+1%></td> <!-- 글번호 -->
-											<td><%=noticeList.get(i).getTitle()%></td>
-											<td><%=noticeList.get(i).getAdminCode()%></td>
-											<td><%=noticeList.get(i).getEnrollDate()%></td>
-										</tr>
-										<%
-											}
-										%>
+										<c:choose>
 
-										<%
-											} else {
-										%>
+										<c:when test="${viewData.notice1CountPerPage > 0 }">
+										<c:forEach items="${viewData.notice1List }" var="notice" varStatus="number">
+										<tr>
+											<td>${number.count}</td> <!-- 글번호 -->
+											<td><a href="<%=request.getContextPath() %>/boardUpdateForm?notice_code=${notice.notice_code }" >${notice.title}</a></td>
+											<td>${notice.admin_code}</td>
+											<td>${notice.enroll_date}</td>
+											<td><input type="hidden" value="${notice.notice_code}" name="noticeCode"/></td>
+										</tr>
+										</c:forEach>
+										</c:when>
+										<c:otherwise>
 										<tr>
 											<td style="text-align: center;">내용이 없습니다.</td>
 										</tr>
-										<%
-											}
-										%>
-
+										</c:otherwise>
+										</c:choose>
 
 									</tbody>
 								</table>
@@ -241,8 +248,6 @@
 										<% }
 									}
 								%>
-								
-									
 									
 								</span>
 								<button type="button" class="btn3_icon3 btn_next_page"
@@ -255,6 +260,7 @@
 								</button>
 							</div>
 						</div>
+						</form>
 					</div>
 					<!-- //컨텐츠 내용 -->
 				</div>

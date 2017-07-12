@@ -6,14 +6,6 @@
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
 		  
-	<bean id="noticeDao"
-		  class="com.last.common.dao.NoticeDAO"
-		  p:client-ref="client"
-	/>
-	
-	<bean id="noticeService"
-		  class="com.last.common.service.NoticeService"
-		  p:noticeDao-ref="noticeDao"/> 
 	
 	<bean id="pdsDao"
 		  class="com.last.common.dao.PdsDAO"
