@@ -1,6 +1,6 @@
-<%@page import="com.last.vo.Notice1VO"%>
+<%@page import="com.last.common.vo.Notice1VO"%>
+<%@page import="com.last.common.vo.PdsVO"%>
 <%@page import="java.util.List"%>
-<%@page import="com.last.vo.PdsVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page trimDirectiveWhitespaces="true"%>
@@ -194,8 +194,8 @@
 										<td><%=i + 1%></td>
 										<!-- 글번호 -->
 										<td><%=pdsList.get(i).getTitle()%></td>
-										<td><%=pdsList.get(i).getAdminCode()%></td>
-										<td><%=pdsList.get(i).getEnrollDate()%></td>
+										<td><%=pdsList.get(i).getAdmin_code()%></td>
+										<td><%=pdsList.get(i).getEnroll_date()%></td>
 									</tr>
 									<%
 										}

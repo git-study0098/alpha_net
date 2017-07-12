@@ -18,20 +18,20 @@
 	</select>
 	
 	<select id="selectListPds" parameterClass="str" resultClass="pds">
-		select * from notice where notice_code like '%'||#noticeCode#||'%'
+		select * from notice where notice_code like '%'||#notice_code#||'%'
 	</select>
 	
 	<update id="updatePds" parameterClass="pds">
-		update notice set notice_content=#noticeContent# where notice_code=#noticeCode#
+		update notice set notice_content=#notice_content# where notice_code=#notice_code#
 	</update>
 	
 	<update id="deletePds" parameterClass="str">
-		delete from notice where notice_code=#noticeCode#
+		delete from notice where notice_code=#notice_code#
 	</update>
 	
 	<update id="insertPds" parameterClass="pds">
 		insert into notice(notice_code,title,notice_content,attach_file,enroll_date,admin_code) 
-					values(#noticeCode#,#title#,#noticeContent#,#attachFile#,sysdate,#adminCode#)
+					values(#notice_code#,#title#,#notice_content#,#attach_file#,sysdate,#admin_code#)
 	</update>
 	
 </sqlMap>
