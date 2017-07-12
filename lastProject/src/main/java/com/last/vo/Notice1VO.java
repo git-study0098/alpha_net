@@ -10,7 +10,14 @@ public class Notice1VO {
 	private String noticeContent;
 	private byte[] attachFile;	//첨부파일
 	private Date enrollDate;
+	private Date registDate;
 	
+	public Date getRegistDate() {
+		return registDate;
+	}
+	public void setRegistDate(Date registDate) {
+		this.registDate = registDate;
+	}
 	public String getTitle() {
 		return title;
 	}
