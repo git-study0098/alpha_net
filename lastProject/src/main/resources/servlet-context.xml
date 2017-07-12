@@ -48,13 +48,13 @@
 	
 	
 	
-<!-- 	<beans:bean id ="multipartResolver"  -->
-<!-- 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver"  -->
-<!-- 		p:defaultEncoding="utf-8" -->
-<!-- 		/> -->
-<!-- 	<beans:bean class="org.springframework.web.servlet.view.BeanNameViewResolver"  -->
-<!-- 		p:order="1" -->
-<!-- 	/> -->
+	<beans:bean id ="multipartResolver" 
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver" 
+		p:defaultEncoding="utf-8"
+		/>
+	<beans:bean class="org.springframework.web.servlet.view.BeanNameViewResolver" 
+		p:order="1"
+	/>
 	
 <!-- 	<beans:bean id=""  -->
 <!-- 		class="패키지.클래스" /> -->
