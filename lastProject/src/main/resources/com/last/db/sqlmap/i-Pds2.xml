@@ -6,7 +6,7 @@
 
 	<typeAlias alias="str" type="java.lang.String" />
 	<typeAlias alias="int" type="java.lang.Integer"/>
-	<typeAlias alias="pds" type="com.last.vo.Notice1VO"/>
+	<typeAlias alias="pds" type="com.last.common.vo.Notice1VO"/>
 	
 	<select id="selectPdsCount" resultClass="int">
 		SELECT COUNT(*) FROM notice

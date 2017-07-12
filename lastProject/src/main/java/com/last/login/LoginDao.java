@@ -2,7 +2,7 @@ package com.last.login;
 
 import java.sql.SQLException;
 
-import com.last.vo.MemberVo;
+import com.last.common.vo.MemberVo;
 
 public interface LoginDao {
 

@@ -7,30 +7,30 @@
 	<!-- Root Context: defines shared resources visible to all other web components -->
 		  
 	<bean id="noticeDao"
-		  class="com.last.board.dao.NoticeDAO"
+		  class="com.last.common.dao.NoticeDAO"
 		  p:client-ref="client"
 	/>
 	
 	<bean id="noticeService"
-		  class="com.last.board.service.NoticeService"
+		  class="com.last.common.service.NoticeService"
 		  p:noticeDao-ref="noticeDao"/> 
 	
 	<bean id="pdsDao"
-		  class="com.last.board.dao.PdsDAO"
+		  class="com.last.common.dao.PdsDAO"
 		  p:client-ref="client"
 	/>
 	
 	<bean id="pdsService"
-		  class="com.last.board.service.PdsService"
+		  class="com.last.common.service.PdsService"
 		  p:pdsDao-ref="pdsDao"/> 
 		  
 	<bean id="adminNotice1Dao"
-		  class="com.last.admin.board.dao.AdminNotice1DAO"
+		  class="com.last.common.dao.AdminNotice1DAO"
 		  p:client-ref="client"
 	/>
 	
 	<bean id="adminNotice1Service"
-		  class="com.last.admin.board.service.AdminNotice1Service"
+		  class="com.last.common.service.AdminNotice1Service"
 		  p:adminDao-ref="adminNotice1Dao"/> 
 	
 	<!-- dao,service 붙이기 aa라는 daoImpl이 있을경우-->

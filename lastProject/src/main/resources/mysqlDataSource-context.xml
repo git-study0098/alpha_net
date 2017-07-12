@@ -55,7 +55,7 @@
 		  
 <!-- 	<aop:config> -->
 <!-- 		<aop:pointcut id="mysqlServicePublicMethod" -->
-<!-- 					  expression="execution(public * com.board.service..*(..))" /> -->
+<!-- 					  expression="execution(public * com.last.service..*(..))" /> -->
 <!-- 		<aop:advisor advice-ref="mysqlTxAdvice" pointcut-ref="mysqlServicePublicMethod"/> -->
 <!-- 	</aop:config> -->
 		  
