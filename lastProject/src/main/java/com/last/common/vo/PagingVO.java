@@ -10,7 +10,6 @@ public class PagingVO {
 	private int notice1CountPerPage;
 	private int firstRow;
 	private int endRow;
-
 	
 	/**
 	 * 각 게시판VO 마다 생성되야 함

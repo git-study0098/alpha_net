@@ -2,22 +2,30 @@ package com.last.common.vo;
 
 import java.sql.Date;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class Notice1VO {
 	
 	private String title;
-	private String adminCode;
-	private String noticeCode;
-	private String noticeContent;
-	private byte[] attachFile;	//첨부파일
-	private Date enrollDate;
-	private Date registDate;
+	private String admin_code;
+	private String notice_code;
+	private String notice_content;
+	private String attach_file;	//첨부파일
+	private Date enroll_date;
+	private Date regist_date;
+	private MultipartFile uploadfile;
 	
-	
-	public Date getRegistDate() {
-		return registDate;
+	public String getAttach_file() {
+		return attach_file;
 	}
-	public void setRegistDate(Date registDate) {
-		this.registDate = registDate;
+	public MultipartFile getUploadfile() {
+		return uploadfile;
+	}
+	public void setUploadfile(MultipartFile uploadfile) {
+		this.uploadfile = uploadfile;
+	}
+	public void setAttach_file(String attach_file) {
+		this.attach_file = attach_file;
 	}
 	public String getTitle() {
 		return title;
@@ -25,37 +33,44 @@ public class Notice1VO {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public String getAdminCode() {
-		return adminCode;
+	public String getAdmin_code() {
+		return admin_code;
 	}
-	public void setAdminCode(String adminCode) {
-		this.adminCode = adminCode;
+	public void setAdmin_code(String admin_code) {
+		this.admin_code = admin_code;
 	}
-	public String getNoticeCode() {
-		return noticeCode;
+	public String getNotice_code() {
+		return notice_code;
 	}
-	
-	public byte[] getAttachFile() {
-		return attachFile;
+	public void setNotice_code(String notice_code) {
+		this.notice_code = notice_code;
 	}
-	public void setAttachFile(byte[] attachFile) {
-		this.attachFile = attachFile;
+	public String getNotice_content() {
+		return notice_content;
 	}
-	
-	public void setNoticeCode(String noticeCode) {
-		this.noticeCode = noticeCode;
-	}
-	public String getNoticeContent() {
-		return noticeContent;
-	}
-	public void setNoticeContent(String noticeContent) {
-		this.noticeContent = noticeContent;
-	}
-	public Date getEnrollDate() {
-		return enrollDate;
-	}
-	public void setEnrollDate(Date enrollDate) {
-		this.enrollDate = enrollDate;
+	public void setNotice_content(String notice_content) {
+		this.notice_content = notice_content;
 	}
 	
+	public Date getEnroll_date() {
+		return enroll_date;
+	}
+	public void setEnroll_date(Date enroll_date) {
+		this.enroll_date = enroll_date;
+	}
+	public Date getRegist_date() {
+		return regist_date;
+	}
+	public void setRegist_date(Date regist_date) {
+		this.regist_date = regist_date;
+	}
+	@Override
+	public String toString() {
+		return "Notice1VO [title=" + title + ", admin_code=" + admin_code
+				+ ", notice_code=" + notice_code + ", notice_content="
+				+ notice_content + ", attach_file=" + attach_file
+				+ ", enroll_date=" + enroll_date + ", regist_date="
+				+ regist_date + ", uploadfile=" + uploadfile + "]";
+	}
+
 }
