@@ -1,10 +1,7 @@
-<%@page import="org.springframework.security.core.context.SecurityContextHolder"%>
-<%@page import="org.springframework.security.core.userdetails.User"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page trimDirectiveWhitespaces="true"%>  
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>  
 <style>
 	.qnet.main #container{background:url(resources/images/main/bg_container.gif) repeat-x left top;}	
 	.main #container{ width:100%;}	
@@ -29,8 +26,6 @@ $(function(){
 	});	
 });
 </script>
-	<sec:authorize access="hasAuthority('ROLE_ADMIN')">	
-			
 	
 <article>
 <div id="container">
@@ -390,5 +385,4 @@ $(function(){
 		</div>	
 </div>
 </article>
-</sec:authorize>
 	

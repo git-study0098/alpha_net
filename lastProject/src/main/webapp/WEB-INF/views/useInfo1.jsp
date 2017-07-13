@@ -1,6 +1,24 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@page import="com.last.common.vo.Notice1VO"%>
+<%@page import="com.last.common.vo.PagingVO"%>
+<%@page import="java.util.List"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page trimDirectiveWhitespaces="true"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%
+   Integer pageNumber = (Integer)request.getAttribute("pageNumber");
+   PagingVO viewData =
+   (PagingVO)request.getAttribute("viewData");
+%>
+
+<script>
+	function go_noticeDetail(noticeCode){
+		alert("음");
+		var noticeForm = document.noticeDetail;
+		noticeForm.action = "/useInfoUpdateForm?notice_code="+noticeCode;
+		noticeForm.submit();
+	}	
+</script>
+
 <style>
 	* {	box-sizing: content-box;}
 	
@@ -124,7 +142,7 @@
 			<!-- //location -->
 			<div class="content">
 				<!-- 컨텐츠 타이틀 -->
-				<h3 class="tit_content">각종서식</h3>
+				<h3 class="tit_content">사이트 이용안내</h3>
 				<!-- //컨텐츠 타이틀 -->
 
 				<!-- 컨텐츠 내용 -->
@@ -138,10 +156,12 @@
 								<option value="U">글쓴이</option>
 						</select> <input type="text" style="width: 150px" name="schText"
 							id="schText" title="검색어 입력"> <a href="#"
-							class="btn3_icon search" onclick="getNoticeList(1)"><span
+							class="btn3_icon search" onclick="getUseInfoList(1)"><span
 								class="blind">검색</span></a>
+								<!-- useinfo List -->
 						</span>
 					</div>
+					<form name="noticeDetail">
 					<div id="viewList">
 						<div class="tbl_type1">
 							<table summary="번호, 제목, 작성자, 날짜 정보 제공"
@@ -162,54 +182,95 @@
 									</tr>
 								</thead>
 								<tbody>
-<!-- 여기에 c:choose문 같은 반복문 써서 표시하면 될듯 합니다 . -->								
-									<tr>
-										<td>1</td>
-										<td class="tit"><a href="#"
-											onclick="goNext('1005178', '1','Q006','1201')">콘크리트기사 출제기준(2016.1.1~2018.12.31)</a></td>
-										<td>NCS센터 NC..</td>
-										<td>2017.05.24</td>
-									</tr>
+<!-- 여기에 c:choose문 같은 반복문 써서 표시하면 될듯 합니다 . -->
+									<!-- 게시판 테이블 내용 -->
+										<c:choose>
+
+										<c:when test="${viewData.notice1CountPerPage > 0 }">
+										<c:forEach items="${viewData.notice1List }" var="notice" varStatus="number">
+										<tr>
+											<td>${number.count}</td> <!-- 글번호 -->
+											<td><a href="<%=request.getContextPath() %>/useInfoUpdateForm?notice_code=${notice.notice_code }" >${notice.title}</a></td>
+											<td>${notice.admin_code}</td>
+											<td>${notice.regist_date}</td>
+										</tr>
+											<input type="hidden" value="${notice.notice_code}" name="noticeCode"/>
+										</c:forEach>
+										</c:when>
+										<c:otherwise>
+										<tr>
+											<td style="text-align: center;">내용이 없습니다.</td>
+										</tr>
+										</c:otherwise>
+										</c:choose>
+																		
+<!-- 									<tr> -->
+<!-- 										<td>1</td> -->
+<!-- 										<td><a href="#" -->
+<!-- 											onclick="goNext('1005178', '1','Q006','1201')">콘크리트기사 출제기준(2016.1.1~2018.12.31)</a></td> -->
+<!-- 										<td>NCS센터 NC..</td> -->
+<!-- 										<td>2017.05.24</td> -->
+<!-- 									</tr> -->
 								</tbody>
 							</table>
 						</div>
 						<div class="pagination1 mb20">
 							<button type="button" class="btn3_icon3 btn_prev_first"
-								title="이전10페이지">
+								onclick="goPage(1);" title="이전10페이지">
 								<span class="blind">이전10페이지</span>
 							</button>
 							<button type="button" class="btn3_icon3 btn_prev_page"
-								title="이전 페이지">
+								onclick="goPage(11);" title="이전 페이지">
 								<span class="blind">이전 페이지</span>
 							</button>
-							<span class="page"> <strong class="on" title="1페이지">1</strong>
-								<button type="button" class="btn5" onclick="goPage(2);"
-									title="2페이지">
-									<span>2</span>
-								</button>
-								<button type="button" class="btn5" onclick="goPage(3);"
-									title="3페이지">
-									<span>3</span>
-								</button>
-								<button type="button" class="btn5" onclick="goPage(4);"
-									title="4페이지">
-									<span>4</span>
-								</button>
-								<button type="button" class="btn5" onclick="goPage(5);"
-									title="5페이지">
-									<span>5</span>
-								</button>
-								<button type="button" class="btn5" onclick="goPage(6);"
-									title="6페이지">
-									<span>6</span>
-								</button>
+							
+							<span class="page">
+							<%
+									for(int i = 1; i<viewData.getPageTotalCount()+1; i++){
+										if(pageNumber==i){
+								%>	
+										<strong class="on" title="<%=i %>페이지"><%=i %></strong>
+									<%
+										
+										}else{
+									%>
+										<button type="button" class="btn5" onclick="goPage(<%=i%>);"
+											title="<%=i%>페이지">
+											<span><%=i%></span>
+										</button> 
+										<% }
+									}
+								%>
+							
+<!-- 							 <strong class="on" title="1페이지">1</strong> -->
+<!-- 								<button type="button" class="btn5" onclick="goPage(2);" -->
+<!-- 									title="2페이지"> -->
+<!-- 									<span>2</span> -->
+<!-- 								</button> -->
+<!-- 								<button type="button" class="btn5" onclick="goPage(3);" -->
+<!-- 									title="3페이지"> -->
+<!-- 									<span>3</span> -->
+<!-- 								</button> -->
+<!-- 								<button type="button" class="btn5" onclick="goPage(4);" -->
+<!-- 									title="4페이지"> -->
+<!-- 									<span>4</span> -->
+<!-- 								</button> -->
+<!-- 								<button type="button" class="btn5" onclick="goPage(5);" -->
+<!-- 									title="5페이지"> -->
+<!-- 									<span>5</span> -->
+<!-- 								</button> -->
+<!-- 								<button type="button" class="btn5" onclick="goPage(6);" -->
+<!-- 									title="6페이지"> -->
+<!-- 									<span>6</span> -->
+<!-- 								</button> -->
 							</span>
+							
 							<button type="button" class="btn3_icon3 btn_next_page"
 								onclick="goPage(2);" title="다음 페이지">
 								<span class="blind">다음 페이지</span>
 							</button>
 							<button type="button" class="btn3_icon3 btn_next_end"
-								title="다음10페이지">
+								onclick="goPage(11);" title="다음10페이지">
 								<span class="blind">다음10페이지</span>
 							</button>
 						</div>
