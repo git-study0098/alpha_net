@@ -24,8 +24,11 @@
 	<view-controller path="/main" view-name="1main"/>
 	<view-controller view-name="login/accessDenied" path="/accessDenied"/>
 	<view-controller view-name="login/loginForm" path="/loginForm"/>
+	<view-controller view-name="login/loginForm" path="/admin/loginForm"/>
 	<view-controller view-name="login/logout" path="/logout"/>
 	<view-controller view-name="login/login_duplicate" path="/login_duplicate"/>
+	<view-controller view-name="sign_up" path="/signUp"/>
+	<view-controller view-name="2wonseo" path="/ttest"/>
 	
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
 	<resources mapping="/resources/**" location="/resources/" />

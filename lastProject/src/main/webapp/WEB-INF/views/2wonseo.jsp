@@ -1,9 +1,32 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@page import="org.springframework.security.core.userdetails.User"%>
+<%@page import="org.springframework.security.core.context.SecurityContextHolder"%>
+<%@page import="org.springframework.security.core.Authentication"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page trimDirectiveWhitespaces="true"%>  
 <style>
 	*{box-sizing:content-box;}
 </style>
+
+<script>
+	$(document).ready(function(){
+		$('.btn_login').click(function(){
+			if($('#mem_id').val() == ""){
+				alert("로그인할 아이디를 입력하세요.");
+				$('#mem_id').focus();
+			}else if($('#mem_pswd').val() == ""){
+				alert("로그인할 비밀번호를 입력하세요.");
+				$('#mem_pswd').focus();
+			}else{
+				$('#loginForm').attr("action", "<c:url value='/login'/>");
+				$('#loginForm').submit();
+			}
+		})
+		
+	})
+</script>
+
 <article>
 	<div id="container">
 		<!-- 좌측 메뉴바 -->
@@ -28,6 +51,7 @@
 						<div class="login_area">
 
 							<!-- 로그인 전 -->
+							<sec:authorize access="!isAuthenticated()">
 							<div class="login_yn">
 								<label for="mem_id" class="blind">아이디</label> <input type="text"
 									name="mem_id" id="mem_id" style="ime-mode: disabled;">
@@ -45,7 +69,39 @@
 										class="golink01"><span>아이디/비밀번호 찾기</span></a></li>
 								</ul>
 							</div>
+							</sec:authorize>
 							<!-- //로그인 전 -->
+
+					<!-- 로그인 후 -->
+					<sec:authorize access="isAuthenticated()">
+					<div class="welcom">
+					<%
+						Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+						authentication.getName();
+						
+						User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+					%>
+						<p><span class="fc_b"><%=user.getUsername() %></span>님 반갑습니다.</p>
+					</div>
+					<div>
+						<a href="logout" class="btn_login3 btncolor1" onclick="logoutForm()"><span>로그아웃</span></a>
+						<a href="https://www.q-net.or.kr/myp001.do?id=myp00101&amp;gSite=Q&amp;gId=" class="btn_login3 btncolor2"><span>정보수정</span></a>
+					</div>
+					<div class="my_list">
+						<a href="https://www.q-net.or.kr/myp002.do?id=myp00201&amp;gSite=Q&amp;gId=" class="golink01"><span>나의 접수내역 바로가기</span></a>
+					</div>
+					<div>
+						<a href="#" class="btn_loginsend" onclick="popup1('http://m.q-net.or.kr/relay/index.html','certiMoveInfo','620','560','30','30')">
+							<span>
+								<strong>공인인증서 전송</strong>
+								<span><em>PC</em><em>스마트폰</em></span>
+							</span>
+						</a>
+						<a href="https://www.q-net.or.kr/man001.do?id=man00104&amp;gSite=Q&amp;gId=" class="btn_lpoginapp"><span>공인인증서 등록</span></a>
+					</div>
+					</sec:authorize>
+					<!-- //로그인 후 -->
+
 						</div>
 					</form>
 				</div>
@@ -135,7 +191,7 @@
 					<input type="hidden" name="href">
 				</form>
 				<!-- 컨텐츠 내용 -->
-				<div class="step" id="rcvStep"> <ul class="list01">  	<li><img src="../images/step/step_original_on_01.gif" alt=""><span>자격선택</span><span class="blind">현재단계 자격선택</span></li> 	<li><img src="../images/step/step_original_off_09.gif" alt=""><span>종목선택</span></li> 	<li><img src="../images/step/step_original_off_03.gif" alt=""><span>응시유형</span></li> 	<li><img src="../images/step/step_original_off_04.gif" alt=""><span>추가입력</span></li> 	<li><img src="../images/step/step_original_off_05.gif" alt=""><span>장소선택</span></li> 	<li><img src="../images/step/step_original_off_06.gif" alt=""><span>결제하기</span></li> 	<li><img src="../images/step/step_original_off_07.gif" alt=""><span>접수완료</span></li> </ul></div>
+				<div class="step" id="rcvStep"> <ul class="list01">  	<li><img src="resources/images/step/step_original_on_01.gif" alt=""><span>자격선택</span><span class="blind">현재단계 자격선택</span></li> 	<li><img src="resources/images/step/step_original_off_09.gif" alt=""><span>종목선택</span></li> 	<li><img src="resources/images/step/step_original_off_03.gif" alt=""><span>응시유형</span></li> 	<li><img src="resources/images/step/step_original_off_04.gif" alt=""><span>추가입력</span></li> 	<li><img src="resources/images/step/step_original_off_05.gif" alt=""><span>장소선택</span></li> 	<li><img src="resources/images/step/step_original_off_06.gif" alt=""><span>결제하기</span></li> 	<li><img src="resources/images/step/step_original_off_07.gif" alt=""><span>접수완료</span></li> </ul></div>
 
 				
 				<h4>국가기술자격</h4>

@@ -15,34 +15,34 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.last.common.service.AdminNotice1Service;
+import com.last.common.service.AdminUseInfo1Service;
 import com.last.common.service.ServiceException;
 import com.last.common.vo.Notice1VO;
 import com.last.common.vo.PagingVO;
 
 @Controller
-public class AdminNotice1Controller {
+public class AdminUseInfo1Controller {
 	
 	
 	private String uploadPath=System.getProperty("java.io.tmpdir");
 	
 	@Autowired
-	private AdminNotice1Service adminNotice1Service;
+	private AdminUseInfo1Service adminUseInfo1Service;
 
-	public void setAdminNotice1Service(AdminNotice1Service adminNotice1Service) {
-		this.adminNotice1Service = adminNotice1Service;
+	public void setAdminUseInfo1Service(AdminUseInfo1Service adminUseInfo1Service) {
+		this.adminUseInfo1Service = adminUseInfo1Service;
 	}
 	
-	@RequestMapping("/adminRegist")
-	   public String listRegist(){
-		      return "/notice_1_registry";
+	@RequestMapping("/adminUseInfoRegist")
+	   public String listUseInfoRegist(){
+		      return "/useInfo1_registry";
 		   }
 	
-	@RequestMapping("/notice")
-	public String listNotice(@RequestParam(value="page",defaultValue="1") int pageNumber,Model model)throws SQLException, ServiceException{
+	@RequestMapping("/useInfo")
+	public String listUseInfo(@RequestParam(value="page",defaultValue="1") int pageNumber,Model model)throws SQLException, ServiceException{
 		PagingVO viewData=null;
 	      try {
-	          viewData= adminNotice1Service.selectNotice1List(pageNumber);
+	          viewData= adminUseInfo1Service.selectUseInfo1List(pageNumber);
 	      } catch (ServiceException e) {
 	         e.printStackTrace();
 	      }
@@ -51,7 +51,7 @@ public class AdminNotice1Controller {
 	         pageNumber--;
 	         if(pageNumber<=0) pageNumber=1;
 	         try {
-	            viewData = adminNotice1Service.selectNotice1List(pageNumber);
+	            viewData = adminUseInfo1Service.selectUseInfo1List(pageNumber);
 	         } catch (ServiceException e) {
 	            e.printStackTrace();
 	         }
@@ -60,41 +60,45 @@ public class AdminNotice1Controller {
 	      
 	      model.addAttribute("viewData",viewData);
 	      model.addAttribute("pageNumber",pageNumber);
-	      return "/notice_1";
+	      return "/useInfo1";
 	}
 	
-	@RequestMapping(value="/boardInsert",headers=("content-type=multipart/*"),method=RequestMethod.POST)
-	public String boardInsert(HttpServletRequest request,Model model,@RequestParam("f") MultipartFile multipartFile){
+	
+	@RequestMapping(value="/useInfoInsert",headers=("content-type=multipart/*"),method=RequestMethod.POST)
+	public String useInfoInsert(HttpServletRequest request,Model model,@RequestParam("f") MultipartFile multipartFile){
 		
-		 String upload=request.getSession().getServletContext().getRealPath("/resources/upload");
-		 String url ="redirect:notice";
+		 String upload=request.getSession().getServletContext().getRealPath("upload");
+		 String url ="redirect:useInfo";
 	      if(!multipartFile.isEmpty()){
 	         File file= new File(upload, multipartFile.getOriginalFilename()+"$$"+System.currentTimeMillis());
 	         
 	         try {
 				multipartFile.transferTo(file);
 			} catch (IllegalStateException e) {
+				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} catch (IOException e) {
+				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 	         
 	      }
 		
+		System.out.println("성공");
 		Notice1VO vo = new Notice1VO();
 		vo.setAdmin_code(request.getParameter("adminCode"));
 		vo.setEnroll_date(new Date(12));
-		vo.setNotice_code(adminNotice1Service.registNotice());
+		vo.setNotice_code("useinfo10000000002");
 		vo.setNotice_content(request.getParameter("noticeContent"));
 		vo.setAttach_file(request.getParameter("attach_file"));
-		vo.setRegist_date(new Date(12));
+//		vo.setRegist_date(new Date(12));
 		vo.setTitle(request.getParameter("title"));
 		
 		model.addAttribute(vo);
 		
 		int result=0;
 		try {
-			result=adminNotice1Service.insertNotice1(vo);
+			result=adminUseInfo1Service.insertUseInfo1(vo);
 			System.out.println(result);
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -103,13 +107,13 @@ public class AdminNotice1Controller {
 		return url;
 	}
 	
-	@RequestMapping("/boardUpdateForm")
-	public String boardUpdate(@RequestParam(value="notice_code") String noticeCode,Model model){
-		String url ="notice_1_update";
+	@RequestMapping("/useInfoUpdateForm")
+	public String useInfoUpdate(@RequestParam(value="notice_code") String noticeCode,Model model){
+		String url ="useInfo1_update";
 		
 		Notice1VO vo = null;
 		try {
-			vo = adminNotice1Service.selectNoticeCodeList(noticeCode);
+			vo = adminUseInfo1Service.selectUseInfoCodeList(noticeCode);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -118,22 +122,22 @@ public class AdminNotice1Controller {
 		return url;
 	}
 	
-	@RequestMapping("/boardUpdate")
-	public String boardUpdate(HttpServletRequest request,Model model){
-		String url ="redirect:notice";
+	@RequestMapping("/useInfoUpdate")
+	public String useInfoUpdate(HttpServletRequest request,Model model){
+		String url ="redirect:useInfo";
 		System.out.println("성공");
 		Notice1VO vo = new Notice1VO();
 		vo.setAdmin_code(request.getParameter("adminCode"));
 		vo.setNotice_code(request.getParameter("noticeCode"));
 		vo.setEnroll_date(new Date(1000000));
 		vo.setNotice_content(request.getParameter("noticeContent"));
-		vo.setRegist_date(new Date(1000000));
+//		vo.setRegist_date(new Date(1000000));
 		vo.setTitle(request.getParameter("title"));
 		
 		model.addAttribute(vo);
 		
 		try {
-			adminNotice1Service.updateNotice1(vo);
+			adminUseInfo1Service.updateUseInfo1(vo);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
