@@ -152,51 +152,84 @@
 								<col width="12%">
 								<col width="20%">
 							</colgroup>
-							<tbody>
-								<tr>
-									<th scope="row">제목</th>
-									<td colspan="5"><input name="title" type="text" value="${vo.title}" style="width:95%; background-color: #ffffff;"></td>
-								</tr>
-								<tr>
-									<th scope="row">담당부서</th>
-									<td><input name="adminCode" type="text" value="${vo.admin_code}" style="width:95%;  background-color: #ffffff;"></td>
-									<th scope="row">등록일</th>
-									<td>
-<%-- 									<c:choose> --%>
-<%-- 										<c:when test="${!empty '${date.enrollDate}'}"> --%>
-<%-- 											<input name="enrolldate" value="${date.registDate}" readonly="readonly"/> --%>
-<%-- 										</c:when> --%>
-<%-- 										<c:otherwise> --%>
-											<c:set var="now" value="<%=new java.util.Date()%>" />
-											<input name="registDate" value="${vo.regist_date}" readonly="readonly"/>
-<%-- 										</c:otherwise> --%>
-<%-- 									</c:choose> --%>
-									</td>
-									<th scope="row">최종수정일</th>
-									<td>
-									<c:set var="now" value="<%=new java.util.Date()%>" />
-											<input name="enrollDate" value="<fmt:formatDate value="${now}" pattern="yy/MM/dd" />" readonly="readonly"/>
-									</td>
-								</tr>
-								<tr>
-									<th scope="row">첨부파일</th>
-									<td colspan="5">
-										<a href="#" class="btn3_icon download"><input type="file"></a>
-									</td>
-								</tr>
-								<tr>
-								<td colspan="6">
-									<textarea name="noticeContent" id="contents_text" style="width: 100%;" rows="10">
-										${vo.notice_content}
-									</textarea>
-								</td>
-							</tr>
-							</tbody>
-						</table>
+								<c:choose>
+									<c:when test=""><!-- 관리자용  세션아이디로 비교하세요-->
+										<tbody>
+											<tr>
+												<th scope="row">제목</th>
+												<td colspan="5"><input name="title" type="text"
+													value="${vo.title}"
+													style="width: 95%; background-color: #ffffff;"></td>
+											</tr>
+											<tr>
+												<th scope="row">담당부서</th>
+												<td><input name="adminCode" type="text"
+													value="${vo.admin_code}"
+													style="width: 95%; background-color: #ffffff;"></td>
+												<th scope="row">등록일</th>
+												<td><c:set var="now" value="<%=new java.util.Date()%>" />
+													<input name="registDate" value="${vo.regist_date}"
+													readonly="readonly" /></td>
+												<th scope="row">최종수정일</th>
+												<td><c:set var="now" value="<%=new java.util.Date()%>" />
+													<input name="enrollDate"
+													value="<fmt:formatDate value="${now}" pattern="yy/MM/dd" />"
+													readonly="readonly" /></td>
+											</tr>
+											<tr>
+												<th scope="row">첨부파일</th>
+												<td colspan="5"><a href="#" class="btn3_icon download"><input
+														type="file"></a></td>
+											</tr>
+											<tr>
+												<td colspan="6">
+													<textarea name="noticeContent" id="contents_text" style="width: 100%;" rows="10">
+																	${vo.notice_content}
+													</textarea>
+												</td>
+											</tr>
+										</tbody>
+									</c:when>
+									<c:otherwise>
+										<tbody>
+											<tr>
+												<th scope="row">제목</th>
+												<td colspan="5">
+													<input name="title" value="${vo.title}" style="width: 95%; border:0px solid #ffffff; background-color: #ffffff;" readonly="readonly"/>
+												</td>
+											</tr>
+											<tr>
+												<th scope="row">담당부서</th>
+												<td><input name="adminCode" type="text"
+													value="${vo.admin_code}"
+													style="width: 95%; border:0px solid #ffffff; background-color: #ffffff;" readonly="readonly"></td>
+												<th scope="row">등록일</th>
+												<td><c:set var="now" value="<%=new java.util.Date()%>" />
+													<input name="registDate" value="${vo.regist_date}" style="width: 95%; border:0px solid #ffffff; background-color: #ffffff;"
+													readonly="readonly" /></td>
+												<th scope="row">최종수정일</th>
+												<td><c:set var="now" value="<%=new java.util.Date()%>" />
+													<input name="enrollDate" style="width: 95%; border:0px solid #ffffff; background-color: #ffffff;"
+													value="<fmt:formatDate value="${now}" pattern="yy/MM/dd" />"
+													readonly="readonly" /></td>
+											</tr>
+											<tr>
+												<th scope="row">첨부파일</th>
+												<td colspan="5"><a href="#" class="btn3_icon download">${vo.attach_file}</a></td>
+											</tr>
+											<tr>
+												<td colspan="6">
+												<c:if test="">
+												<p>${vo.notice_content}</p>
+												</c:if>
+										</td>
+											</tr>
+										</tbody>
+									</c:otherwise>
+								</c:choose>
+							</table>
 					</div>
 					<p class="txt_right">
-<!-- 						<button type="button" class="btn btncolor1" onclick="goList()"><span>등록</span></button> -->
-<!-- 						<button type="button" class="btn btncolor1" onclick=""><span>돌아가기</span></button> -->
 						<input type="submit" class="btn btncolor2" value="등록" style="color:#ffffff"/>
 						<a class="btn btncolor2" href="#" onclick="history.go(-1)" style="color:#ffffff">돌아가기</a>
 					</p>

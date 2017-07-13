@@ -158,6 +158,7 @@
 								<col width="12%">
 								<col width="20%">
 							</colgroup>
+							
 							<tbody>
 								<tr>
 									<th scope="row">제목</th>
@@ -168,15 +169,8 @@
 									<td><input name="adminCode" type="text" placeholder="담당부서를 입력해주세요." style="width:95%;  background-color: #ffffff;"></td>
 									<th scope="row">등록일</th>
 									<td>
-<%-- 									<c:choose> --%>
-<%-- 										<c:when test="${!empty '${date.enrollDate}'}"> --%>
-<%-- 											<input name="enrolldate" value="${date.registDate}" readonly="readonly"/> --%>
-<%-- 										</c:when> --%>
-<%-- 										<c:otherwise> --%>
 											<c:set var="now" value="<%=new java.util.Date()%>" />
 											<input name="registDate" value="<fmt:formatDate value="${now}" pattern="yy/MM/dd" />" readonly="readonly"/>
-<%-- 										</c:otherwise> --%>
-<%-- 									</c:choose> --%>
 									</td>
 									<th scope="row">최종수정일</th>
 									<td>
