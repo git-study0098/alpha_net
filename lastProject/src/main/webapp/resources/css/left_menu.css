@@ -2,8 +2,8 @@
 
 	#lnb {float:left; padding-bottom:100px; width:205px; margin-right:20px; }
 	#lnb2 {float:left; margin-right:25px; padding-bottom:100px; height:717px;}
-	#lnb2{border-left:2px solid #ededee; box-shadow:1px 1px 5px #ededee; }
-
+	/*#lnb2{border-left:2px solid #ededee; box-shadow:1px 1px 5px #ededee; }*/
+*/
 /* 서브메뉴 */
     /* 로그인 */
    .login_tab {margin-top:20px; margin-bottom:1px; overflow:hidden}
