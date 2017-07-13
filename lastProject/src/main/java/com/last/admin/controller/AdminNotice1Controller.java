@@ -83,7 +83,6 @@ public class AdminNotice1Controller {
 		
 		Notice1VO vo = new Notice1VO();
 		vo.setAdmin_code(request.getParameter("adminCode"));
-		vo.setEnroll_date(new Date(12));
 		vo.setNotice_code(adminNotice1Service.registNotice());
 		vo.setNotice_content(request.getParameter("noticeContent"));
 		vo.setAttach_file(request.getParameter("attach_file"));
