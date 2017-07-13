@@ -37,26 +37,26 @@
 
 
 
-<!-- 	<bean id="transactionManager" -->
-<!-- 		  class="org.springframework.jdbc.datasource.DataSourceTransactionManager" -->
-<!-- 		  p:dataSource-ref="dataSource" -->
-<!-- 		  /> -->
+	<bean id="transactionManager"
+		  class="org.springframework.jdbc.datasource.DataSourceTransactionManager"
+		  p:dataSource-ref="dataSource"
+		  />
 		  
-<!-- 	<tx:advice id="txAdvice" transaction-manager="transactionManager"> -->
-<!-- 		<tx:attributes> -->
-<!-- 			<tx:method name="*" propagation="REQUIRED"/> -->
-<!-- 			<tx:method name="insert*" rollback-for="Exception"/> -->
-<!-- 			<tx:method name="update*" rollback-for="Exception"/> -->
-<!-- 			<tx:method name="delete*" rollback-for="Exception"/> -->
-<!-- 			<tx:method name="get*" read-only="true" /> -->
-<!-- 			<tx:method name="select*" read-only="true" /> -->
-<!-- 		</tx:attributes> -->
-<!-- 	</tx:advice> -->
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="*" propagation="REQUIRED"/>
+			<tx:method name="insert*" rollback-for="Exception"/>
+			<tx:method name="update*" rollback-for="Exception"/>
+			<tx:method name="delete*" rollback-for="Exception"/>
+			<tx:method name="get*" read-only="true" />
+			<tx:method name="select*" read-only="true" />
+		</tx:attributes>
+	</tx:advice>
 		  
-<!-- 	<aop:config> -->
-<!-- 		<aop:pointcut id="servicePublicMethod" -->
-<!-- 					  expression="execution(public * com.board.service..*(..))" /> -->
-<!-- 		<aop:advisor advice-ref="txAdvice" pointcut-ref="servicePublicMethod"/> -->
-<!-- 	</aop:config> -->
+	<aop:config>
+		<aop:pointcut id="servicePublicMethod"
+					  expression="execution(public * com.last.service..*(..))" />
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="servicePublicMethod"/>
+	</aop:config>
 		  
 </beans>

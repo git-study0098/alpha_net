@@ -34,7 +34,7 @@
 	<!-- Service -->
 	
 <!-- 	<bean id="memberService" -->
-<!-- 		  class="com.last.member.MemberService" -->
+<!-- 		  class="com.last.service.MemberService" -->
 <!-- 		  p:memberDao-ref="aa" -->
 <!-- 	/>	 -->
 

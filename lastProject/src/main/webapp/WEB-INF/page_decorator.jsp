@@ -26,7 +26,7 @@
 
 <style>	
 	#wrap{ min-width:1000px;}		
-	#header { position: relative; background: url(resources/images/bg_header.gif) repeat-x left top;	}	
+	#header { position: relative;}
 	#container {position: relative; width: 980px;margin: 0 auto; background: url(resources/images/common/bg_container.gif) repeat-y left top;}
 	.main #content{float:left; margin:0 auto; width:725px; padding-bottom: 100px;}
 	.center_area, .footer_top {position: relative; margin: 0 auto; width: 980px;	}

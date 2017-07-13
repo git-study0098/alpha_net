@@ -1,6 +1,17 @@
+<%@page import="com.last.common.vo.Notice1VO"%>
+<%@page import="com.last.common.vo.PdsVO"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page trimDirectiveWhitespaces="true"%>
+
+
+<%
+   Integer pageNumber = (Integer)request.getAttribute("pageNumber");
+   PdsVO viewData =
+   (PdsVO)request.getAttribute("viewData");
+%>
+
 <style>
 	* {	box-sizing: content-box;}
 	
@@ -171,15 +182,34 @@
 									</tr>
 								</thead>
 								<tbody>
-<!-- 여기에 c:choose문 같은 반복문 써서 표시하면 될듯 합니다 . -->								
+<!-- 여기에 c:choose문 같은 반복문 써서 표시하면 될듯 합니다 . -->
+									<%
+										if (viewData.getpdsCountPerPage() > 0) {
+											List<Notice1VO> pdsList = viewData.getPdsList();
+											for (int i = 0; i < pdsList.size(); i++) {
+									%>
+
 									<tr>
-										<td>1</td>
-										<td class="tit"><a href="#"
-											onclick="goNext('1005178', '1','Q006','1201')">경력증명서 양식
-												(기사.산업기사.기술사.기능장 등)</a></td>
-										<td>능력평가국 기술..</td>
-										<td>2017.05.24</td>
+
+										<td><%=i + 1%></td>
+										<!-- 글번호 -->
+										<td><%=pdsList.get(i).getTitle()%></td>
+										<td><%=pdsList.get(i).getAdmin_code()%></td>
+										<td><%=pdsList.get(i).getEnroll_date()%></td>
 									</tr>
+									<%
+										}
+									%>
+
+									<%
+										} else {
+									%>
+									<tr>
+										<td style="text-align: center;">내용이 없습니다.</td>
+									</tr>
+									<%
+										}
+									%>
 								</tbody>
 							</table>
 						</div>
@@ -192,27 +222,23 @@
 								title="이전 페이지">
 								<span class="blind">이전 페이지</span>
 							</button>
-							<span class="page"> <strong class="on" title="1페이지">1</strong>
-								<button type="button" class="btn5" onclick="goPage(2);"
-									title="2페이지">
-									<span>2</span>
-								</button>
-								<button type="button" class="btn5" onclick="goPage(3);"
-									title="3페이지">
-									<span>3</span>
-								</button>
-								<button type="button" class="btn5" onclick="goPage(4);"
-									title="4페이지">
-									<span>4</span>
-								</button>
-								<button type="button" class="btn5" onclick="goPage(5);"
-									title="5페이지">
-									<span>5</span>
-								</button>
-								<button type="button" class="btn5" onclick="goPage(6);"
-									title="6페이지">
-									<span>6</span>
-								</button>
+							<span class="page"> 
+							<%
+									for(int i = 1; i<viewData.getPageTotalCount()+1; i++){
+										if(pageNumber==i){
+								%>	
+										<strong class="on" title="<%=i %>페이지"><%=i %></strong>
+									<%
+										
+										}else{
+									%>
+										<button type="button" class="btn5" onclick="goPage(<%=i%>);"
+											title="<%=i%>페이지">
+											<span><%=i%></span>
+										</button> 
+										<% }
+									}
+								%>
 							</span>
 							<button type="button" class="btn3_icon3 btn_next_page"
 								onclick="goPage(2);" title="다음 페이지">

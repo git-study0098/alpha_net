@@ -21,7 +21,7 @@
 	
 	<bean 
 		id="mongoDAO"
-		class="com.last.board.dao.MemberDAOImpl">
+		class="com.last.common.dao.MemberDAOImpl">
 		<property name="mongoTemplate" ref="mongoTemplate"/>
 	</bean>	
 </beans>

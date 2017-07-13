@@ -30,7 +30,7 @@
 	<resources mapping="/resources/**" location="/resources/" />
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
-	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" p:order="1">
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
@@ -39,13 +39,13 @@
 	
 	
 	
-<!-- 	<beans:bean id ="multipartResolver"  -->
-<!-- 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver"  -->
-<!-- 		p:defaultEncoding="utf-8" -->
-<!-- 		/> -->
-<!-- 	<beans:bean class="org.springframework.web.servlet.view.BeanNameViewResolver"  -->
-<!-- 		p:order="1" -->
-<!-- 	/> -->
+	<beans:bean id ="multipartResolver" 
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver" 
+		p:defaultEncoding="utf-8"
+		/>
+	<beans:bean class="org.springframework.web.servlet.view.BeanNameViewResolver" 
+		p:order="0"
+	/>
 	
 <!-- 	<beans:bean id=""  -->
 <!-- 		class="패키지.클래스" /> -->

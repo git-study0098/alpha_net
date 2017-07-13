@@ -3,7 +3,7 @@ package com.last.login;
 import java.sql.SQLException;
 
 import com.ibatis.sqlmap.client.SqlMapClient;
-import com.last.vo.MemberVo;
+import com.last.common.vo.MemberVo;
 
 public class LoginDaoImpl implements LoginDao {
 	

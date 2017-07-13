@@ -6,32 +6,37 @@
 
 	<typeAlias alias="str" type="java.lang.String" />
 	<typeAlias alias="int" type="java.lang.Integer"/>
-	<typeAlias alias="notice1" type="com.last.vo.Notice1VO"/>
+	<typeAlias alias="notice1" type="com.last.common.vo.Notice1VO"/>
+	
 	
 	<select id="selectNotice1_Count" resultClass="int">
 		SELECT COUNT(*) FROM notice
 	</select>
 	
-	<select id="selectNotice1" parameterClass="str" resultClass="notice1">
+	<select id="selectNotice1List" parameterClass="str" resultClass="notice1">
 		select * from notice 
 <!-- 		where notice_code=#noticeCode# -->
 	</select>
 	
-	<select id="selectNotice1List" parameterClass="str" resultClass="notice1">
-		select * from notice where notice_code like '%'||#noticeCode#||'%'
+<!-- 	<select id="selectNoticeCode" parameterClass="str" resultClass="notice1"> -->
+<!-- 		select notice_code from notice  -->
+<!-- 	</select> -->
+	
+	<select id="selectNotice1" parameterClass="str" resultClass="notice1">
+		select * from notice where notice_code = #notice_code#
 	</select>
 	
 	<update id="updateNotice1" parameterClass="notice1">
-		update notice set notice_content=#noticeContent# where notice_code=#noticeCode#
+		update notice set notice_content=#notice_content# where notice_code=#notice_code#
 	</update>
 	
 	<update id="deleteNotice1" parameterClass="str">
-		delete from notice where notice_code=#noticeCode#
+		delete from notice where notice_code=#notice_code#
 	</update>
 	
 	<update id="insertNotice1" parameterClass="notice1">
-		insert into notice(notice_code,title,notice_content,attach_file,enroll_date,admin_code) 
-					values(#noticeCode#,#title#,#noticeContent#,#attachFile#,sysdate,#adminCode#)
+		insert into notice(notice_code,title,notice_content,attach_file,enroll_date,regist_date,admin_code) 
+					values(#notice_code#,#title#,#notice_content#,#attach_file#,#enroll_date#,#regist_date#,#admin_code#)
 	</update>
 	
 </sqlMap>

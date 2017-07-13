@@ -5,25 +5,25 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
-	
-	
-<!-- 	<bean id="commonDao" -->
-<!-- 		  class="com.last.common.CommonDao" -->
-<!-- 		  p:client-ref="client" -->
-<!-- 	/> -->
-	
-<!-- 	<bean id="commonService" -->
-<!-- 		  class="com.last.common.CommonService" -->
-<!-- 		  p:commonDao-ref="commonDao"/>  -->
 		  
-	<bean id="noticeDao"
-		  class="com.last.board.dao.NoticeDAO"
+	
+	<bean id="pdsDao"
+		  class="com.last.common.dao.PdsDAO"
 		  p:client-ref="client"
 	/>
 	
-	<bean id="noticeService"
-		  class="com.last.board.service.NoticeService"
-		  p:noticeDao-ref="noticeDao"/> 
+	<bean id="pdsService"
+		  class="com.last.common.service.PdsService"
+		  p:pdsDao-ref="pdsDao"/> 
+		  
+	<bean id="adminNotice1Dao"
+		  class="com.last.common.dao.AdminNotice1DAO"
+		  p:client-ref="client"
+	/>
+	
+	<bean id="adminNotice1Service"
+		  class="com.last.common.service.AdminNotice1Service"
+		  p:adminDao-ref="adminNotice1Dao"/> 
 	
 	<!-- dao,service 붙이기 aa라는 daoImpl이 있을경우-->
 	<!-- mybatis -->
