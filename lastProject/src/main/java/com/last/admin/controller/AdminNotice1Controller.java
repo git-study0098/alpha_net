@@ -64,9 +64,10 @@ public class AdminNotice1Controller {
 	}
 	
 	
+	
+	
 	@RequestMapping(value="/boardInsert",headers=("content-type=multipart/*"),method=RequestMethod.POST)
 	public String boardInsert(HttpServletRequest request,Model model,@RequestParam("f") MultipartFile multipartFile){
-		
 		 String upload=request.getSession().getServletContext().getRealPath("upload");
 		 String url ="redirect:notice";
 	      if(!multipartFile.isEmpty()){
@@ -83,12 +84,11 @@ public class AdminNotice1Controller {
 			}
 	         
 	      }
-		
-		System.out.println("성공");
+	      
 		Notice1VO vo = new Notice1VO();
 		vo.setAdmin_code(request.getParameter("adminCode"));
 		vo.setEnroll_date(new Date(12));
-		vo.setNotice_code("notice050000000026");
+		vo.setNotice_code(adminNotice1Service.registNotice());
 		vo.setNotice_content(request.getParameter("noticeContent"));
 		vo.setAttach_file(request.getParameter("attach_file"));
 		vo.setRegist_date(new Date(12));

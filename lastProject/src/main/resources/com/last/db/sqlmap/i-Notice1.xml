@@ -18,9 +18,9 @@
 <!-- 		where notice_code=#noticeCode# -->
 	</select>
 	
-<!-- 	<select id="selectNoticeCode" parameterClass="str" resultClass="notice1"> -->
-<!-- 		select notice_code from notice  -->
-<!-- 	</select> -->
+	<select id="selectNoticeCode" resultClass="str">
+		select notice_code from notice 
+	</select>
 	
 	<select id="selectNotice1" parameterClass="str" resultClass="notice1">
 		select * from notice where notice_code = #notice_code#

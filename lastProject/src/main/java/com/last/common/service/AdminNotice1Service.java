@@ -1,6 +1,7 @@
 package com.last.common.service;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -44,6 +45,44 @@ public class AdminNotice1Service {
 	    	  throw new ServiceException("게시판 리스트 구하기 실패!",e);
 	      } 
 	   }
+	   
+	   public String registNotice(){
+			String notice="notice05";
+			int noticeNumber = 0;
+			String compare = "";
+			String code = "";
+			List<String> temp = null;
+			List<String> codeList = new ArrayList<String>();
+			try {
+				temp =  adminDao.selectNoticeCode();
+				for(int i = 0; i<temp.size(); i++){
+					code = temp.get(i);
+					compare = code.substring(0, 8);
+					System.out.println(compare);
+					if(notice.equals(compare)){
+						codeList.add(code);
+						System.out.println(codeList.size());
+					}else{
+						System.out.println("gg");
+					}
+				}
+				
+				if(codeList.size()==0){
+					notice+=1000000001+"";
+				}else{
+					String noticeCode = codeList.get(codeList.size()-1);
+					compare= noticeCode.substring(0, 8);
+					
+					if(notice.equals(compare)){
+						noticeNumber =Integer.parseInt(noticeCode.substring(8,18))+1;
+						notice = compare+noticeNumber+"";
+					}
+				}
+			} catch (NumberFormatException | SQLException e) {
+				e.printStackTrace();
+			}
+			return notice;
+		}
 	   
 	public Notice1VO selectNoticeCodeList(String notice_code) throws SQLException{
 		Notice1VO vo = adminDao.selectNotice1(notice_code);
