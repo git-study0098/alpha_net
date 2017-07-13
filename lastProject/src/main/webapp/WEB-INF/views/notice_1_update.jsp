@@ -216,7 +216,7 @@
 											<tr>
 												<th scope="row">첨부파일</th>
 												<td colspan="5">
-													<a href="#" class="btn3_icon download">${vo.attach_file}</a>
+													<a href="file/1?attach_file=${vo.attach_file}" class="btn3_icon download">${vo.attach_file}</a>
 												</td>
 											</tr>
 											<tr>

@@ -48,15 +48,11 @@
 		p:defaultEncoding="utf-8"
 		/>
 	
-	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"
-		p:prefix="/WEB-INF/views/" 
-		p:suffix=".jsp" 
-		p:order="1"
-	/>
-		
 	<beans:bean class="org.springframework.web.servlet.view.BeanNameViewResolver"
-				p:order="0"/>
-<!-- 	<beans:bean id="downloadView" class="com.test.view.DownloadView"/> -->
+				p:order="0"
+	/>
+	
+	<beans:bean id="downloadView" class="com.last.admin.view.DownloadView" />
 	
 	
 	
