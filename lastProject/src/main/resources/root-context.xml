@@ -23,7 +23,16 @@
 	
 	<bean id="adminNotice1Service"
 		  class="com.last.common.service.AdminNotice1Service"
-		  p:adminDao-ref="adminNotice1Dao"/> 
+		  p:adminDao-ref="adminNotice1Dao"/>
+		   
+	<bean id="adminUseInfo1Dao"
+		  class="com.last.common.dao.AdminUseInfo1DAO"
+		  p:client-ref="client"
+	/>
+	
+	<bean id="adminUseInfo1Service"
+		  class="com.last.common.service.AdminUseInfo1Service"
+		  p:adminDao-ref="adminUseInfo1Dao"/> 
 	
 	<!-- dao,service 붙이기 aa라는 daoImpl이 있을경우-->
 	<!-- mybatis -->
