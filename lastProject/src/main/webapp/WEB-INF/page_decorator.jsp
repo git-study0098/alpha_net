@@ -1,10 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page trimDirectiveWhitespaces="true"%>    
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ taglib prefix="decorator"
-   uri="http://www.opensymphony.com/sitemesh/decorator"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="decorator" uri="http://www.opensymphony.com/sitemesh/decorator"%>
 <!DOCTYPE html >
 <html>
 <head>
@@ -239,7 +238,6 @@ var speed = 800;
 		$(this).mouseenter();
 	});
 	
-	
 });
 </script>
 </head>
@@ -259,7 +257,13 @@ var speed = 800;
 						<li><a>고객의소리</a></li>
 					</ul>
 					<ul class="right">
+					
+					<sec:authorize access="isAuthenticated()">
+						<li><a href="logout">로그아웃</a></li>
+					</sec:authorize>
+					<sec:authorize access="!isAuthenticated()">
 						<li><a href="login">로그인</a></li>
+					</sec:authorize>
 						<li><a>회원가입</a></li>
 						<li><a>English</a></li>
 						<li><a>이용안내</a></li>
@@ -284,7 +288,7 @@ var speed = 800;
 				<div class="gnb_area">
 					<div class="gnb" style="height: 34px;">
 						<ul>
-							<li class=""><a href="#">정기시험</a>
+							<li class=""><a href="ttest">정기시험</a>
 								<div class="sub01" style="display: none;">
 									<ul style="min-height: 235px;">
 										<li class=""><a
