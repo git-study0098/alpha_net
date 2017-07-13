@@ -66,7 +66,7 @@ public class AdminNotice1Controller {
 	@RequestMapping(value="/boardInsert",headers=("content-type=multipart/*"),method=RequestMethod.POST)
 	public String boardInsert(HttpServletRequest request,Model model,@RequestParam("f") MultipartFile multipartFile){
 		
-		 String upload=request.getSession().getServletContext().getRealPath("/resources/upload");
+		 String upload="C:/git/alpha_net/lastProject/src/main/webapp/resources/upload";
 		 String url ="redirect:notice";
 	      if(!multipartFile.isEmpty()){
 	         File file= new File(upload, multipartFile.getOriginalFilename()+"$$"+System.currentTimeMillis());
