@@ -67,7 +67,7 @@ public class AdminNotice1Controller {
 	@RequestMapping(value="/boardInsert",headers=("content-type=multipart/*"),method=RequestMethod.POST)
 	public String boardInsert(HttpServletRequest request,Model model,@RequestParam("f") MultipartFile multipartFile){
 		
-		 String upload=request.getSession().getServletContext().getRealPath("upload");
+		 String upload=request.getSession().getServletContext().getRealPath("/resources/upload");
 		 String url ="redirect:notice";
 	      if(!multipartFile.isEmpty()){
 	         File file= new File(upload, multipartFile.getOriginalFilename()+"$$"+System.currentTimeMillis());
@@ -75,10 +75,8 @@ public class AdminNotice1Controller {
 	         try {
 				multipartFile.transferTo(file);
 			} catch (IllegalStateException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 	         
@@ -87,8 +85,7 @@ public class AdminNotice1Controller {
 		System.out.println("성공");
 		Notice1VO vo = new Notice1VO();
 		vo.setAdmin_code(request.getParameter("adminCode"));
-		vo.setEnroll_date(new Date(12));
-		vo.setNotice_code("notice050000000025");
+		vo.setNotice_code("notice050000000037");
 		vo.setNotice_content(request.getParameter("noticeContent"));
 		vo.setAttach_file(request.getParameter("attach_file"));
 		vo.setRegist_date(new Date(12));

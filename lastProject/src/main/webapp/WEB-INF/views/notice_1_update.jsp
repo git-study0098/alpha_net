@@ -215,13 +215,13 @@
 											</tr>
 											<tr>
 												<th scope="row">첨부파일</th>
-												<td colspan="5"><a href="#" class="btn3_icon download">${vo.attach_file}</a></td>
+												<td colspan="5">
+													<a href="#" class="btn3_icon download">${vo.attach_file}</a>
+												</td>
 											</tr>
 											<tr>
 												<td colspan="6">
-												<c:if test="">
-												<p>${vo.notice_content}</p>
-												</c:if>
+												<p style="min-height: 400px;">${vo.notice_content}</p>
 										</td>
 											</tr>
 										</tbody>

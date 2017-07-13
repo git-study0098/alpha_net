@@ -36,7 +36,7 @@
 	
 	<update id="insertNotice1" parameterClass="notice1">
 		insert into notice(notice_code,title,notice_content,attach_file,enroll_date,regist_date,admin_code) 
-					values(#notice_code#,#title#,#notice_content#,#attach_file#,#enroll_date#,#regist_date#,#admin_code#)
+					values(#notice_code#,#title#,#notice_content#,#attach_file#,sysdate,#regist_date#,#admin_code#)
 	</update>
 	
 </sqlMap>

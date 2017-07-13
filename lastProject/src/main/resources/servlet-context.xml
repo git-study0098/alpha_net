@@ -12,6 +12,8 @@
 	
 	<!-- Enables the Spring MVC @Controller programming model -->
 	<annotation-driven />
+	
+	 <resources mapping="/upload/**" location="/resources/upload/" /> 
 
 <!-- 	<view-controller path="/a" view-name="1main"/> -->
 	
@@ -42,9 +44,19 @@
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver" 
 		p:defaultEncoding="utf-8"
 		/>
-	<beans:bean class="org.springframework.web.servlet.view.BeanNameViewResolver" 
-		p:order="0"
+	
+	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"
+		p:prefix="/WEB-INF/views/" 
+		p:suffix=".jsp" 
+		p:order="1"
 	/>
+		
+	<beans:bean class="org.springframework.web.servlet.view.BeanNameViewResolver"
+				p:order="0"/>
+<!-- 	<beans:bean id="downloadView" class="com.test.view.DownloadView"/> -->
+	
+	
+	
 	
 <!-- 	<beans:bean id=""  -->
 <!-- 		class="패키지.클래스" /> -->

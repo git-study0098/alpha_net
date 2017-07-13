@@ -182,8 +182,11 @@
 								<tr>
 									<th scope="row">첨부파일</th>
 									<td colspan="5">
-										<a href="#" class="btn3_icon download"><input type="file" name="f" onchange="javascript:file_change(this.value);"></a>
+										<a href="#" class="btn3_icon download">
+											<input type="file" name="f" onchange="javascript:file_change(this.value);">
+										</a>
 										<input type="text" name="attach_file" readonly>
+										
 									</td>
 								</tr>
 
@@ -197,8 +200,6 @@
 						
 					</div>
 					<p class="txt_right">
-<!-- 						<button type="button" class="btn btncolor1" onclick="goList()"><span>등록</span></button> -->
-<!-- 						<button type="button" class="btn btncolor1" onclick=""><span>돌아가기</span></button> -->
 						<input type="submit" class="btn btncolor2" value="등록" style="color:#ffffff"/>
 						<a class="btn btncolor2" href="#" onclick="history.go(-1)" style="color:#ffffff">돌아가기</a>
 					</p>
