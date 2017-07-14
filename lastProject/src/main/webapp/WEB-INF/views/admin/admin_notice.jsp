@@ -1,16 +1,26 @@
 <%@page import="com.last.common.vo.Notice1VO"%>
-<%@page import="com.last.common.vo.PdsVO"%>
+<%@page import="com.last.common.vo.PagingVO"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page trimDirectiveWhitespaces="true"%>
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <%
    Integer pageNumber = (Integer)request.getAttribute("pageNumber");
-   PdsVO viewData =
-   (PdsVO)request.getAttribute("viewData");
+   PagingVO viewData =
+   (PagingVO)request.getAttribute("viewData");
 %>
+
+
+<script>
+	function go_noticeDetail(noticeCode){
+		var noticeForm = document.noticeDetail;
+		noticeForm.action = "/boardUpdateForm?notice_code="+noticeCode;
+		noticeForm.submit();
+	}	
+</script>
 
 <style>
 	* {	box-sizing: content-box;}
@@ -83,9 +93,9 @@
 				<h2 id="lnbTitle" class="tit_lnb">고객지원</h2>
 				<!-- menu리스트 -->
 				<ul id="lnbNavi" class="lnb on">
-					<li class="low"><a>공지사항</a>
+					<li class="low active on"><a>공지사항</a>
 						<ul style="display: block;">
-							<li><a>공지사항</a></li>
+							<li class="on"><a>공지사항</a></li>
 							<li><a>자격제도</a></li>
 							<li><a>시행</a></li>
 							<li><a>출제</a></li>
@@ -96,9 +106,9 @@
 							<li><a>사이트 이용방법</a></li>
 							<li><a>자주찾는 질문</a></li>
 						</ul></li>
-					<li class="low active on"><a>자료실</a>
+					<li class="low"><a>자료실</a>
 						<ul style="display: block;">
-							<li class="on"><a>각종서식</a></li>
+							<li><a>각종서식</a></li>
 							<li><a>출제기준</a></li>
 							<li><a>기출문제(기술사)</a></li>
 							<li><a>공개문제</a></li>
@@ -120,110 +130,109 @@
 				<!-- menu리스트 끝 -->
 			</div>
 			<!-- 좌측 메뉴바 끝-->
+
 			<div id="lnb2"></div>
 		</div>
+
+		<!-- 내용 부분 들어 가는 곳 입니다. 로케이션 수정하시고 하면 됩니다. -->
 		<div id="content">
-			<!-- location -->
 			<div class="location">
 				<ul>
 					<li>홈</li>
 					<li>고객지원</li>
-					<li>이용안내</li>
-					<li><strong>사이트 이용방법</strong></li>
+					<li>공지사항</li>
+					<li><strong>공지사항</strong></li>
 				</ul>
 			</div>
-			<!-- //location -->
+			<!-- 컨텐츠 시작 -->
 			<div class="content">
 				<!-- 컨텐츠 타이틀 -->
-				<h3 class="tit_content">각종서식</h3>
-				<!-- //컨텐츠 타이틀 -->
+				<h3 class="tit_content">공지사항</h3>
 
 				<!-- 컨텐츠 내용 -->
-				<div>
-					<div class="tabLayout" id="subTab">
-						<ul class="n5">
-							<li class="on"><a href="#" title="각종서식"><span>각종서식</span></a></li>
-							<li><a href="#"><span>출제기준</span></a></li>
-							<li><a href="#"><span>기출문제(기술사)</span></a></li>
-							<li><a href="#"><span>공개문제</span></a></li>
-							<li><a href="#"><span>관련법령</span></a></li>
-						</ul>
-					</div>
-					<div class="searchType">
-						<span> <label for="schType">검색</label> <select
-							title="검색구분 선택" name="schType" id="schType" class="m0">
-								<option value="A" selected="selected">전체</option>
-								<option value="T">글제목</option>
-								<option value="C">내용</option>
-								<option value="U">글쓴이</option>
-						</select> <input type="text" style="width: 150px" name="schText"
-							id="schText" title="검색어 입력"> <a href="#"
-							class="btn3_icon search" onclick="getNoticeList(1)"><span
-								class="blind">검색</span></a>
-						</span>
-					</div>
-					<div id="viewList">
-						<div class="tbl_type1">
-							<table summary="번호, 제목, 작성자, 날짜 정보 제공"
-								style="table-layout: fixed">
-								<caption>각종서식 목록</caption>
-								<colgroup>
-									<col width="7%">
-									<col width="*">
-									<col width="16%">
-									<col width="16%">
-								</colgroup>
-								<thead>
-									<tr>
-										<th scope="col">번호</th>
-										<th scope="col">제목</th>
-										<th scope="col">작성자</th>
-										<th scope="col">날짜</th>
-									</tr>
-								</thead>
-								<tbody>
-<!-- 여기에 c:choose문 같은 반복문 써서 표시하면 될듯 합니다 . -->
-									<%
-										if (viewData.getpdsCountPerPage() > 0) {
-											List<Notice1VO> pdsList = viewData.getPdsList();
-											for (int i = 0; i < pdsList.size(); i++) {
-									%>
-
-									<tr>
-
-										<td><%=i + 1%></td>
-										<!-- 글번호 -->
-										<td><%=pdsList.get(i).getTitle()%></td>
-										<td><%=pdsList.get(i).getAdmin_code()%></td>
-										<td><%=pdsList.get(i).getEnroll_date()%></td>
-									</tr>
-									<%
-										}
-									%>
-
-									<%
-										} else {
-									%>
-									<tr>
-										<td style="text-align: center;">내용이 없습니다.</td>
-									</tr>
-									<%
-										}
-									%>
-								</tbody>
-							</table>
+				<div class="content">
+					<div>
+						<div class="searchType">
+							<span> <label for="notiType">검색</label> <select
+								name="notiType" id="notiType" title="검색 카테고리 선택" class="m0">
+									<option value="10" selected="selected">전체</option>
+									<option value="00">긴급</option>
+									<option value="20">자격제도</option>
+									<option value="30">시행</option>
+									<option value="40">출제</option>
+									<option value="50">서비스개선</option>
+							</select> <select name="schType" id="schType" title="검색 구분 선택" class="m0">
+									<option value="A" selected="selected">전체</option>
+									<option value="T">글제목</option>
+									<option value="C">내용</option>
+									<option value="D">담당부서</option>
+							</select> <input type="text" name="schText" style="width: 150px"
+								id="schText" title="검색어 입력"> <a href="#"
+								class="btn3_icon search" onclick="getNoticeList(1)"><span
+									class="blind">검색</span></a>
+							</span>
 						</div>
-						<div class="pagination1 mb20">
-							<button type="button" class="btn3_icon3 btn_prev_first"
-								title="이전10페이지">
-								<span class="blind">이전10페이지</span>
-							</button>
-							<button type="button" class="btn3_icon3 btn_prev_page"
-								title="이전 페이지">
-								<span class="blind">이전 페이지</span>
-							</button>
-							<span class="page"> 
-							<%
+						<form name="noticeDetail">
+						<div id="viewList">
+							<div class="tbl_type1">
+								<table summary="번호,제목,담당부서,최종수정일자 항목으로 정보 제공"
+									style="table-layout: fixed">
+									<colgroup>
+										<col width="7%">
+										<col width="*">
+										<col width="16%">
+										<col width="11%">
+										<col width="1%">
+									</colgroup>
+									<thead>
+										<tr>
+											<th scope="col">번호</th>
+											<th scope="col">제목</th>
+											<th scope="col">담당부서</th>
+											<th scope="col">최종수정일자</th>
+											<th scope="col"></th>
+										</tr>
+									</thead>
+									<tbody>
+									
+									<!-- 게시판 테이블 내용 -->
+										<c:choose>
+
+										<c:when test="${viewData.notice1CountPerPage > 0 }">
+										<c:forEach items="${viewData.notice1List }" var="notice" varStatus="number">
+										<tr>
+											<td>${number.count}</td> <!-- 글번호 -->
+											<td><a href="<%=request.getContextPath() %>/boardUpdateForm?notice_code=${notice.notice_code }" >${notice.title}</a></td>
+											<td>${notice.admin_code}</td>
+											<td><fmt:formatDate value="${notice.enroll_date}"/></td>
+											<td><input type="hidden" value="${notice.notice_code}" name="noticeCode"/></td>
+										</tr>
+										</c:forEach>
+										</c:when>
+										<c:otherwise>
+										<tr>
+											<td style="text-align: center;">내용이 없습니다.</td>
+										</tr>
+										</c:otherwise>
+										</c:choose>
+
+									</tbody>
+								</table>
+							</div>
+							<div class="pagination1 mb20">
+								<button type="button" class="btn3_icon3 btn_prev_first"
+									title="이전10페이지">
+									<span class="blind">이전10페이지</span>
+								</button>
+								
+								<button type="button" class="btn3_icon3 btn_prev_page"
+									title="이전 페이지">
+									<span class="blind">이전 페이지</span>
+								</button>
+								
+								<span class="page"> 
+								
+								<%
 									for(int i = 1; i<viewData.getPageTotalCount()+1; i++){
 										if(pageNumber==i){
 								%>	
@@ -232,27 +241,31 @@
 										
 										}else{
 									%>
-										<button type="button" class="btn5" onclick="goPage(<%=i%>);"
-											title="<%=i%>페이지">
+										<button type="button" class="btn5" onclick="location.href='notice?page=<%=i %>'" title="<%=i%>페이지">
 											<span><%=i%></span>
 										</button> 
 										<% }
 									}
 								%>
-							</span>
-							<button type="button" class="btn3_icon3 btn_next_page"
-								onclick="goPage(2);" title="다음 페이지">
-								<span class="blind">다음 페이지</span>
-							</button>
-							<button type="button" class="btn3_icon3 btn_next_end"
-								title="다음10페이지">
-								<span class="blind">다음10페이지</span>
-							</button>
+									
+								</span>
+								<button type="button" class="btn3_icon3 btn_next_page"
+									onclick="goPage(2);" title="다음 페이지">
+									<span class="blind">다음 페이지</span>
+								</button>
+								<button type="button" class="btn3_icon3 btn_next_end"
+									onclick="goPage(11);" title="다음10페이지">
+									<span class="blind">다음10페이지</span>
+								</button>
+							</div>
 						</div>
+						</form>
 					</div>
+					<!-- //컨텐츠 내용 -->
 				</div>
 				<!-- //컨텐츠 내용 -->
 			</div>
+			<!--  컨텐츠 끝 -->
 		</div>
 	</div>
 </article>
