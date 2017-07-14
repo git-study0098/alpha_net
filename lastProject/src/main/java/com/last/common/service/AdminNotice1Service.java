@@ -21,12 +21,12 @@ public class AdminNotice1Service {
 	/*
 	    * 관리자 서비스 메소드
 	    */
-	   public PagingVO selectNotice1List(int pageNumber) throws ServiceException {
+	   public PagingVO selectNotice1List(int pageNumber,String notice_code) throws ServiceException {
 
 	      int currentPageNumber = pageNumber;
 	      try {
 	         
-	         int notice1TotalCount = adminDao.selectNotice1Count();
+	         int notice1TotalCount = adminDao.selectNotice1Count(notice_code);
 
 	         List<Notice1VO> notice1List = null;
 	         int firstRow = 0;
@@ -34,7 +34,7 @@ public class AdminNotice1Service {
 	         if (notice1TotalCount > 0) {
 	            firstRow = (pageNumber - 1) * NOTICE_COUNT_PER_PAGE + 1;
 	            endRow = firstRow + NOTICE_COUNT_PER_PAGE - 1;
-	            notice1List = adminDao.selectNotice1List(firstRow, endRow);
+	            notice1List = adminDao.selectNotice1List(firstRow, endRow,notice_code);
 	         } else {
 	            currentPageNumber = 0;
 	            notice1List = Collections.emptyList();
@@ -46,8 +46,7 @@ public class AdminNotice1Service {
 	      } 
 	   }
 	   
-	   public String registNotice(){
-			String notice="notice05";
+	   public String registNotice(String notice){
 			int noticeNumber = 0;
 			String compare = "";
 			String code = "";
@@ -58,12 +57,8 @@ public class AdminNotice1Service {
 				for(int i = 0; i<temp.size(); i++){
 					code = temp.get(i);
 					compare = code.substring(0, 8);
-					System.out.println(compare);
 					if(notice.equals(compare)){
 						codeList.add(code);
-						System.out.println(codeList.size());
-					}else{
-						System.out.println("gg");
 					}
 				}
 				

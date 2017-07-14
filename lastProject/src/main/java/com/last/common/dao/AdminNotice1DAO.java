@@ -21,13 +21,13 @@ public class AdminNotice1DAO {
 			return selectNoticeCode;
 		}
 		
-		public List<Notice1VO> selectNotice1List(int firstRow, int endRow) throws SQLException{
-			List<Notice1VO> selectNotice1List = (ArrayList<Notice1VO>)client.queryForList("selectNotice1List",firstRow-1 , endRow-firstRow+1);
+		public List<Notice1VO> selectNotice1List(int firstRow, int endRow,String notice_code) throws SQLException{
+			List<Notice1VO> selectNotice1List = (ArrayList<Notice1VO>)client.queryForList("selectNotice1List",notice_code,firstRow-1 , endRow-firstRow+1);
 			return selectNotice1List;
 		}
 		
-		public int selectNotice1Count() throws SQLException{
-			int result = (Integer) client.queryForObject("selectNotice1_Count");
+		public int selectNotice1Count(String notice_code) throws SQLException{
+			int result = (Integer) client.queryForObject("selectNotice1_Count",notice_code);
 			return result;
 		}
 		

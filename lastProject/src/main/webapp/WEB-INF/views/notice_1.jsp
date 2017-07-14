@@ -16,6 +16,7 @@
 
 <script>
 	function go_noticeDetail(noticeCode){
+		alert("음");
 		var noticeForm = document.noticeDetail;
 		noticeForm.action = "/boardUpdateForm?notice_code="+noticeCode;
 		noticeForm.submit();
@@ -95,7 +96,7 @@
 				<ul id="lnbNavi" class="lnb on">
 					<li class="low active on"><a>공지사항</a>
 						<ul style="display: block;">
-							<li class="on"><a>공지사항</a></li>
+							<li class="on"><a href="/notice?notice_code=notice01">공지사항</a></li>
 							<li><a>자격제도</a></li>
 							<li><a>시행</a></li>
 							<li><a>출제</a></li>
@@ -173,7 +174,7 @@
 							</span>
 						</div>
 						<form name="noticeDetail">
-						<input type="hidden" name="notice_code" value="notice01">
+						<input type="hidden" name="notice_code"> 
 						<div id="viewList">
 							<div class="tbl_type1">
 								<table summary="번호,제목,담당부서,최종수정일자 항목으로 정보 제공"
