@@ -86,7 +86,6 @@ public class AdminNotice1Controller {
 	      if(!multipartFile.isEmpty()){
 	         File file= new File(upload, fileName[0]+uuid.toString()+"."+fileName[1]);
 	         
-	         
 	         try {
 				multipartFile.transferTo(file);
 			} catch (IllegalStateException e) {

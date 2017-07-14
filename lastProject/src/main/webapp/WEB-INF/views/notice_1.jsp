@@ -96,7 +96,7 @@
 				<ul id="lnbNavi" class="lnb on">
 					<li class="low active on"><a>공지사항</a>
 						<ul style="display: block;">
-							<li class="on"><a>공지사항</a></li>
+							<li class="on"><a href="/notice?notice_code=notice01">공지사항</a></li>
 							<li><a>자격제도</a></li>
 							<li><a>시행</a></li>
 							<li><a>출제</a></li>

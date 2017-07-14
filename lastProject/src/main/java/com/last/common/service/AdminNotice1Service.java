@@ -58,12 +58,8 @@ public class AdminNotice1Service {
 				for(int i = 0; i<temp.size(); i++){
 					code = temp.get(i);
 					compare = code.substring(0, 8);
-					System.out.println(compare);
 					if(notice.equals(compare)){
 						codeList.add(code);
-						System.out.println(codeList.size());
-					}else{
-						System.out.println("gg");
 					}
 				}
 				
