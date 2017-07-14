@@ -173,6 +173,7 @@
 							</span>
 						</div>
 						<form name="noticeDetail">
+						<input type="hidden" name="notice_code" value="notice01">
 						<div id="viewList">
 							<div class="tbl_type1">
 								<table summary="번호,제목,담당부서,최종수정일자 항목으로 정보 제공"
