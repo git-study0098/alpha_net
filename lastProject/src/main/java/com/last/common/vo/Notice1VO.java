@@ -15,6 +15,8 @@ public class Notice1VO {
 	private Date regist_date;
 	private MultipartFile uploadfile;
 	
+	
+	
 	public String getAttach_file() {
 		return attach_file;
 	}

@@ -5,6 +5,7 @@
 	pageEncoding="UTF-8"%>
 <%@ page trimDirectiveWhitespaces="true"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <%
    Integer pageNumber = (Integer)request.getAttribute("pageNumber");
@@ -95,7 +96,7 @@
 				<ul id="lnbNavi" class="lnb on">
 					<li class="low active on"><a>공지사항</a>
 						<ul style="display: block;">
-							<li class="on"><a>공지사항</a></li>
+							<li class="on"><a href="/notice?notice_code=notice01">공지사항</a></li>
 							<li><a>자격제도</a></li>
 							<li><a>시행</a></li>
 							<li><a>출제</a></li>
@@ -173,6 +174,7 @@
 							</span>
 						</div>
 						<form name="noticeDetail">
+						<input type="hidden" name="notice_code"> 
 						<div id="viewList">
 							<div class="tbl_type1">
 								<table summary="번호,제목,담당부서,최종수정일자 항목으로 정보 제공"
@@ -204,7 +206,7 @@
 											<td>${number.count}</td> <!-- 글번호 -->
 											<td><a href="<%=request.getContextPath() %>/boardUpdateForm?notice_code=${notice.notice_code }" >${notice.title}</a></td>
 											<td>${notice.admin_code}</td>
-											<td>${notice.enroll_date}</td>
+											<td><fmt:formatDate value="${notice.enroll_date}"/></td>
 											<td><input type="hidden" value="${notice.notice_code}" name="noticeCode"/></td>
 										</tr>
 										</c:forEach>
@@ -241,8 +243,7 @@
 										
 										}else{
 									%>
-										<button type="button" class="btn5" onclick="goPage(<%=i%>);"
-											title="<%=i%>페이지">
+										<button type="button" class="btn5" onclick="location.href='notice?page=<%=i %>'" title="<%=i%>페이지">
 											<span><%=i%></span>
 										</button> 
 										<% }

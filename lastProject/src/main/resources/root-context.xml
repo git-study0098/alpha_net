@@ -15,6 +15,8 @@
 	<bean id="pdsService"
 		  class="com.last.common.service.PdsService"
 		  p:pdsDao-ref="pdsDao"/> 
+		
+		
 		  
 	<bean id="adminNotice1Dao"
 		  class="com.last.common.dao.AdminNotice1DAO"
@@ -23,7 +25,18 @@
 	
 	<bean id="adminNotice1Service"
 		  class="com.last.common.service.AdminNotice1Service"
-		  p:adminDao-ref="adminNotice1Dao"/> 
+		  p:adminDao-ref="adminNotice1Dao"/>
+		
+		
+		   
+	<bean id="adminUseInfo1Dao"
+		  class="com.last.common.dao.AdminUseInfo1DAO"
+		  p:client-ref="client"
+	/>
+	
+	<bean id="adminUseInfo1Service"
+		  class="com.last.common.service.AdminUseInfo1Service"
+		  p:adminDao-ref="adminUseInfo1Dao"/> 
 	
 	
 	<bean id="memDao"
