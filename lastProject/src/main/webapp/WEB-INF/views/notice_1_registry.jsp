@@ -18,6 +18,7 @@
 </script>
 
 <style>
+/*
 	* {	box-sizing: content-box;}
 	
 	.searchType {padding-top:10px; margin-bottom:10px; text-align:right; font-size:13px; font-family:naumB}
@@ -38,6 +39,7 @@
 	.pagination1{text-align:center;}
 	.pagination1 .page {margin:0 15px}
 	.pagination1 .on {height:26px; line-height:23px; padding:0 9px; display:inline-block; color:#fff; border:1px solid #fff; background:#5c5c5c; vertical-align:middle}
+*/
 </style>
 <article>
 	<div id="container">

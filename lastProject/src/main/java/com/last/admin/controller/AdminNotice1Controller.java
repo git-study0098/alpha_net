@@ -20,6 +20,7 @@ import com.last.common.service.ServiceException;
 import com.last.common.vo.Notice1VO;
 import com.last.common.vo.PagingVO;
 
+@RequestMapping("/admin")
 @Controller
 public class AdminNotice1Controller {
 	
@@ -142,6 +143,44 @@ public class AdminNotice1Controller {
 			e.printStackTrace();
 		}
 		
+		return url;
+	}
+	
+	@RequestMapping("/admin2")
+	public String admin(){
+		String url ="admin/admin_main";
+		return url;
+	}
+	
+	@RequestMapping("/exam")
+	public String admin1(){
+		String url ="admin/exam_admin";
+		return url;
+	}
+	@RequestMapping("/cbt")
+	public String admin2(){
+		String url ="admin/cbt_admin";
+		return url;
+	}
+	@RequestMapping("/client")
+	public String admin3(){
+		String url ="admin/client_board_admin";
+		return url;
+	}
+	@RequestMapping("/write")
+	public String admin4(){
+		String url ="admin/write_board";
+		return url;
+	}
+	@RequestMapping("/mem")
+	public String admin5(){
+		String url ="admin/mem_admin";
+		return url;
+	}
+	
+	@RequestMapping("/badim")
+	public String admin6(){
+		String url ="admin/board_admin";
 		return url;
 	}
 		

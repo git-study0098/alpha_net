@@ -5,7 +5,7 @@
 		<pattern>/</pattern>
 	</decorator>
 	<decorator name="admin" page="WEB-INF/admin_decorator.jsp" >
-		<pattern>/admin/*.do</pattern>
+		<pattern>/admin/*</pattern>
 	</decorator>
 
 	
