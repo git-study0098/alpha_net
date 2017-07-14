@@ -9,8 +9,8 @@
 	<typeAlias alias="notice1" type="com.last.common.vo.Notice1VO"/>
 	
 	
-	<select id="selectNotice1_Count" resultClass="int">
-		SELECT COUNT(*) FROM notice
+	<select id="selectNotice1_Count" parameterClass="str" resultClass="int">
+		SELECT COUNT(*) FROM notice where substr(notice_code,1,8)=#notice_code#
 	</select>
 	
 	<select id="selectNotice1List" parameterClass="str" resultClass="notice1">
