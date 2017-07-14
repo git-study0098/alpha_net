@@ -16,7 +16,6 @@
 
 <script>
 	function go_noticeDetail(noticeCode){
-		alert("음");
 		var noticeForm = document.noticeDetail;
 		noticeForm.action = "/boardUpdateForm?notice_code="+noticeCode;
 		noticeForm.submit();
