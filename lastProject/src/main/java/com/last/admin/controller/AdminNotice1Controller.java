@@ -22,7 +22,6 @@ import com.last.common.service.ServiceException;
 import com.last.common.vo.Notice1VO;
 import com.last.common.vo.PagingVO;
 
-@RequestMapping("/admin")
 @Controller
 public class AdminNotice1Controller {
 	
