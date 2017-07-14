@@ -26,8 +26,8 @@ public class AdminNotice1DAO {
 			return selectNotice1List;
 		}
 		
-		public int selectNotice1Count() throws SQLException{
-			int result = (Integer) client.queryForObject("selectNotice1_Count");
+		public int selectNotice1Count(String notice_code) throws SQLException{
+			int result = (Integer) client.queryForObject("selectNotice1_Count",notice_code);
 			return result;
 		}
 		

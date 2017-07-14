@@ -26,7 +26,7 @@ public class AdminNotice1Service {
 	      int currentPageNumber = pageNumber;
 	      try {
 	         
-	         int notice1TotalCount = adminDao.selectNotice1Count();
+	         int notice1TotalCount = adminDao.selectNotice1Count(notice_code);
 
 	         List<Notice1VO> notice1List = null;
 	         int firstRow = 0;
