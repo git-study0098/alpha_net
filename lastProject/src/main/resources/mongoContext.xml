@@ -19,9 +19,11 @@
         <constructor-arg name="databaseName" value="mongo_alphaMember" />
     </bean>
 	
+	<!-- 
 	<bean 
 		id="mongoDAO"
 		class="com.last.common.dao.MemberDAOImpl">
 		<property name="mongoTemplate" ref="mongoTemplate"/>
 	</bean>	
+	 -->
 </beans>

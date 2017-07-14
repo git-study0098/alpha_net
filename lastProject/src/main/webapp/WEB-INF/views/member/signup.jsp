@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page trimDirectiveWhitespaces="true"%>
+<script type="text/javascript" src="resources/js/member.js"></script>
 <style>
    * {   box-sizing: content-box;}
    
@@ -24,10 +25,71 @@
    .pagination1 .on {height:26px; line-height:23px; padding:0 9px; display:inline-block; color:#fff; border:1px solid #fff; background:#5c5c5c; vertical-align:middle}
    
 </style>
+
 <script>
-function addr(){
-	var pop = window.open("jusoPopup.jsp","pop","width=570,height=420, scrollbars=yes, resizable=yes"); 
+function jusoCallback(mem_post_numb1,mem_add1,mem_add2) {
+	document.getElementById("mem_post_numb1").value = mem_post_numb1;
+	document.getElementById("mem_add1").value = mem_add1;
+	document.getElementById("mem_add2").value = mem_add2;
+
 }
+
+function jusoCallback2(mem_post_numb2,mem_add3,mem_add4) {
+	document.getElementById("mem_post_numb2").value = mem_post_numb2;
+	document.getElementById("mem_add3").value = mem_add3;
+	document.getElementById("mem_add4").value = mem_add4;
+}
+
+function idCheck(){
+    var id = $('#id').val();
+    $.ajax({
+    url : 'idCheck',
+    type : 'post',
+    data : {'id' : id},
+    success : function(res){
+       var code ="";
+       if(res.Status =="ok"){
+          code+=res.id+"사용 가능합니다.";
+          idch=true;
+          $('#idChk').html(code).css('color','blue');
+       }else{
+          alert("aaa");
+          code+=res.id+"사용 불가능합니다.";
+          $('#idChk').html(code).css('color','red');
+       }
+    }
+ })
+} 
+
+
+
+// function idCheck(){
+// 	var id = $('#id').val();
+// 	if(id == ''){
+// 		alert("id를 입력해주세요");
+// 		return;
+// 	}
+	
+// 	$.ajax({
+// 		url:"idCheck",
+// 		type:"post",
+// 		data:
+// 			"id="+id,
+// 		success:function(res){
+// 			alert("asdas");
+// 				alert(res.Status);
+// 			if(res.Status == "OK"){
+// 				$("#idChk").html("<b style:'font-size:18px;color:red'>사용불가.</b>");
+// 			}else{
+// 				$("#idChk").html("<b style:'font-size:18px;color:blue'>사용가능.</b>");
+// 			}
+// 		},
+// 		dataType: 'json',
+// 		error: function(e){
+// 			alert(e);
+// 		}
+// 	});
+// }
 
 </script>
 
@@ -43,13 +105,16 @@ function addr(){
 					<ul class="list03">
 						<li><img src="resources/images/약관동의(전).gif" alt=""><span>약관동의</span></li>
 						<li><img src="resources/images/본인인증(전).gif" alt=""><span>본인인증</span></li>
-						<li><img src="resources/images/신청서작성(후).gif" alt=""><span>신청서작성</span><span
-							class="blind">현재단계 신청서작성</span></li>
-						<li><img src="resources/images/약관동의(전).gif" alt=""><span>가입완료</span></li>
+						<li>
+						<img src="resources/images/신청서작성(후).gif" alt="">
+						<span>신청서작성</span>
+						<span class="blind">현재단계 신청서작성</span></li>
+						<li><img src="resources/images/약관동의(전).gif" alt="">
+						<span>가입완료</span>
+						</li>
 					</ul>
 				</div>
-				<form name="regMEM" id="regMEM" method="post"
-					action="https://www.q-net.or.kr/man003.do?id=man00304&amp;gSite=Q&amp;gId=">
+				<form name="regMEM" id="regMEM" method="post" action="insert">
 					<fieldset>
 						<input type="hidden" name="memIdChk" value="N"> <input
 							type="hidden" name="juminRes"> <input type="hidden"
@@ -118,15 +183,15 @@ function addr(){
 								</colgroup>
 								<tbody>
 									<tr>
-										<th scope="row" class="thRight"><label for="memId">아이디</label><strong
-											class="fc_r" title="필수">*</strong></th>
-										<td colspan="2"><input type="text"
-											style="ime-mode: inactive;" id="memId" name="memId"
-											class="member_id">
-										<button type="button" id="memIdChkBtn"
-												class="btn3_type1 chk_id ml5">
+										<th scope="row" class="thRight">
+											<label for="memId">아이디</label>
+											<strong class="fc_r" title="필수">*</strong>
+										</th>
+										<td colspan="2">
+											<input type="text" style="ime-mode: inactive;" id="id" name="id2" class="member_id">
+											<button type="button" id="memIdChkBtn" class="btn3_type1 chk_id ml5" onclick="javascript:idCheck();">
 												<span>아이디중복 확인</span>
-											</button></td>
+											</button> <span id="idChk"></span></td>
 										<td rowspan="9" class="photo">
 												<img id="viewImg" src="resources/images/사진미등록.png"
 													alt="사진미등록" onclick="cropImage();">
@@ -325,7 +390,7 @@ function addr(){
 										<th scope="row"><label for="member_name">이 름</label><strong
 											class="fc_r" title="필수">*</strong></th>
 										<td colspan="2"><input type="text" id="member_name"
-											name="userNm" class="form_mid"></td>
+											name="name" class="form_mid"></td>
 									</tr>
 									<tr>
 										<th scope="row"><label for="member_name_e">이
@@ -339,7 +404,7 @@ function addr(){
 										<th scope="row"><label for="member_pw">비밀번호</label><strong
 											class="fc_r" title="필수">*</strong></th>
 										<td colspan="2"><input type="password" class="join_pw"
-											id="member_pw" name="newPwd" maxlength="16"></td>
+											id="member_pw" name="" maxlength="16"></td>
 									</tr>
 									<tr>
 										<th scope="row"><label for="member_pw_c">비밀번호 확인</label><strong
@@ -382,7 +447,7 @@ function addr(){
 										<th scope="row"><label for="member_pw_a">비밀번호 답변</label><strong
 											class="fc_r" title="필수">*</strong></th>
 										<td colspan="3"><input type="text" id="member_pw_a"
-											name="pwHntAns" class="member_pw_a" disabled="disabled">
+											name="pwHntAns" class="member_pw_a">
 											<span class="txt_add">(비밀번호 분실시 사용됩니다. 질문의 답변을 잘 기억해
 												두세요.)</span><br> <span class="txt_add">(안전한 답변 작성 예시 :
 												걸어다닙니다.(서술형))</span></td>
@@ -529,7 +594,7 @@ function addr(){
 										</th>
 										<td colspan="3"><label for="member_addr1-1"
 											class="txt_addr">우편번호 입력</label> <input type="text"
-											id="member_addr1-1" name="zip01" class="form_short numInput"
+											id="mem_post_numb1" name="mem_post_numb1" class="form_short numInput"
 											readonly="readonly" title="우편번호" maxlength="5"
 											onkeyup="nextFocus('regMEM', 'zip01', 'addr01');">
 
@@ -542,17 +607,15 @@ function addr(){
 									</tr>
 									<tr>
 										<td colspan="3"><label for="member_addr1-2"
-											class="txt_addr">주소</label> <input type="text"
-											style="width: 300px" id="member_addr1-2" name="addr01"
-											class="member_addr1" readonly="readonly"> <input
-											type="text" style="width: 100px;" id="resdTownBldNm"
-											name="resdTownBldNm" class="member_addr2" title="주소 입력"
-											readonly="readonly"></td>
+											class="txt_addr">주소</label> 
+											<input type="text"
+											style="width: 415px" id="mem_add1" name="mem_add1"
+											class="member_addr1" readonly="readonly"></td>
 									</tr>
 									<tr>
 										<td colspan="3"><label for="member_addr1-3"
 											class="txt_addr">나머지 주소 입력</label> <input type="text"
-											id="member_addr1-3" name="addr02" class="member_addr3">
+											id="mem_add2" name="mem_add2" class="member_addr3">
 											<input type="hidden" name="gibunResdAddr" id="gibunResdAddr">
 										</td>
 									</tr>
@@ -565,12 +628,12 @@ function addr(){
 										</th>
 										<td colspan="3"><label for="member_addr2-1"
 											class="txt_addr">우편번호 입력</label> <input type="text"
-											id="member_addr2-1" name="dZip01" class="form_short numInput"
+											id="mem_post_numb2" name="mem_post_numb2" class="form_short numInput"
 											readonly="readonly" title="우편번호" maxlength="5"
 											onkeyup="nextFocus('regMEM', 'dZip01', 'dAddr01');">
 
 											<button type="button" class="btn3_type1" name="addrPop"
-												id="02">
+												id="02" onclick="addr2();">
 												<span>주소검색</span>
 											</button> <strong class="info_tool"
 											title="※ 주소입력방법 [주소검색]을 눌러 검색방법에 따라 주소를 검색하신 후 도로명주소를 선택하신 다음에 나머지 상세 주소를 입력합니다. (@, (, ), *, &amp; 등과 같은 특수문자는 입력하실 수 없습니다.) * 주민등록지와 실제거주지가 같은 경우 &quot;상동&quot;을 체크하면 실제거주지 주소가 자동 입력됩니다. "
@@ -579,16 +642,13 @@ function addr(){
 									<tr>
 										<td colspan="3"><label for="member_addr2-2"
 											class="txt_addr">주소</label> <input type="text"
-											style="width: 300px" id="member_addr2-2" name="dAddr01"
-											class="member_addr1" readonly="readonly"> <input
-											type="text" style="width: 100px" id="abdTownBldNm"
-											name="abdTownBldNm" class="member_addr2" title="주소 입력"
-											readonly="readonly"></td>
+											style="width: 415px" id="mem_add3" name="mem_add3"
+											class="member_addr1" readonly="readonly"></td>
 									</tr>
 									<tr>
 										<td colspan="3"><label for="member_addr2-3"
 											class="txt_addr">나머지 주소 입력</label> <input type="text"
-											id="member_addr2-3" name="dAddr02" class="member_addr3">
+											id="mem_add4" name="mem_add4" class="member_addr3">
 											<input type="hidden" name="gibunAbdAddr" id="gibunAbdAddr">
 										</td>
 									</tr>
@@ -596,15 +656,15 @@ function addr(){
 							</table>
 						</div>
 					</fieldset>
-				</form>
 				<div class="btn_center">
-					<button type="button" id="formSubmit" class="btn2 btncolor2">
+					<button type="submit" id="formSubmit" class="btn2 btncolor2">
 						<span>작성완료</span>
 					</button>
 					<button type="button" id="formCancel" class="btn2 btncolor4">
 						<span>가입취소</span>
 					</button>
 				</div>
+				</form>
 
 				<form name="iPinHiddenForm" method="post"
 					style="margin-top: 0; margin-bottom: 0;">

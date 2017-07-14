@@ -4,7 +4,7 @@
  
 <sqlMap namespace="Member">
 
-<!-- 	<typeAlias alias="str" type="java.lang.String" /> -->
+ 		<typeAlias alias="str" type="java.lang.String" /> 
 <!-- 	<typeAlias alias="int" type="java.lang.Integer"/> -->
 	<typeAlias alias="member" type="com.last.common.vo.MemberVo"/>
 	
@@ -19,6 +19,15 @@
 	<select id="selectLoginMember" parameterClass="member" resultClass="member">
 		select * from mem where mem_code=#id# and mem_pwd=#pwd#
 	</select>
+	
+	<select id="selectMemberId" resultClass="member"> 
+		select mem_code from mem where mem_code = #id#
+	</select>
+	
+	<update id="insertMember" parameterClass="member">
+		insert into mem (mem_code,mem_pwd,mem_nm,mem_phone,mem_email,mem_add1,mem_add2,mem_add3,mem_add4,mem_kor_for,mem_post_numb1,mem_post_numb2,mem_gender,mem_photo,mem_bir,enabled,authorities) 
+		values (#id# ,#pwd#, #name# ,#mem_phone#,#mem_email#,#mem_add1#,#mem_add2#,#mem_add3#,#mem_add4#,#mem_kor_for#,#mem_post_numb1#,#mem_post_numb2#,#mem_gender#,#mem_photo#,#mem_bir#,'1','Role_member')
+	</update>
 	
 <!-- 	<select id="selectMemberList" parameterClass="str" resultClass="member"> -->
 <!-- 		select * from member where id like '%'||#id#||'%' -->
