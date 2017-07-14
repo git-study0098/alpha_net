@@ -1,6 +1,7 @@
 package com.last.common.service;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -20,7 +21,7 @@ public class AdminNotice1Service {
 	/*
 	    * 관리자 서비스 메소드
 	    */
-	   public PagingVO selectNotice1List(int pageNumber) throws ServiceException {
+	   public PagingVO selectNotice1List(int pageNumber,String notice_code) throws ServiceException {
 
 	      int currentPageNumber = pageNumber;
 	      try {
@@ -33,7 +34,7 @@ public class AdminNotice1Service {
 	         if (notice1TotalCount > 0) {
 	            firstRow = (pageNumber - 1) * NOTICE_COUNT_PER_PAGE + 1;
 	            endRow = firstRow + NOTICE_COUNT_PER_PAGE - 1;
-	            notice1List = adminDao.selectNotice1List(firstRow, endRow);
+	            notice1List = adminDao.selectNotice1List(firstRow, endRow,notice_code);
 	         } else {
 	            currentPageNumber = 0;
 	            notice1List = Collections.emptyList();
@@ -44,6 +45,39 @@ public class AdminNotice1Service {
 	    	  throw new ServiceException("게시판 리스트 구하기 실패!",e);
 	      } 
 	   }
+	   
+	   public String registNotice(String notice){
+			int noticeNumber = 0;
+			String compare = "";
+			String code = "";
+			List<String> temp = null;
+			List<String> codeList = new ArrayList<String>();
+			try {
+				temp =  adminDao.selectNoticeCode();
+				for(int i = 0; i<temp.size(); i++){
+					code = temp.get(i);
+					compare = code.substring(0, 8);
+					if(notice.equals(compare)){
+						codeList.add(code);
+					}
+				}
+				
+				if(codeList.size()==0){
+					notice+=1000000001+"";
+				}else{
+					String noticeCode = codeList.get(codeList.size()-1);
+					compare= noticeCode.substring(0, 8);
+					
+					if(notice.equals(compare)){
+						noticeNumber =Integer.parseInt(noticeCode.substring(8,18))+1;
+						notice = compare+noticeNumber+"";
+					}
+				}
+			} catch (NumberFormatException | SQLException e) {
+				e.printStackTrace();
+			}
+			return notice;
+		}
 	   
 	public Notice1VO selectNoticeCodeList(String notice_code) throws SQLException{
 		Notice1VO vo = adminDao.selectNotice1(notice_code);

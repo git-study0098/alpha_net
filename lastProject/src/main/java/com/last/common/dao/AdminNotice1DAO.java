@@ -16,8 +16,13 @@ public class AdminNotice1DAO {
 		}
 		
 		
-		public List<Notice1VO> selectNotice1List(int firstRow, int endRow) throws SQLException{
-			List<Notice1VO> selectNotice1List = (ArrayList<Notice1VO>)client.queryForList("selectNotice1List",firstRow-1 , endRow-firstRow+1);
+		public List<String> selectNoticeCode()throws SQLException{
+			List<String> selectNoticeCode = (ArrayList<String>)client.queryForList("selectNoticeCode");
+			return selectNoticeCode;
+		}
+		
+		public List<Notice1VO> selectNotice1List(int firstRow, int endRow,String notice_code) throws SQLException{
+			List<Notice1VO> selectNotice1List = (ArrayList<Notice1VO>)client.queryForList("selectNotice1List",notice_code,firstRow-1 , endRow-firstRow+1);
 			return selectNotice1List;
 		}
 		

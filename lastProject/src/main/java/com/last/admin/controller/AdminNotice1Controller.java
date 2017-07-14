@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.IOException;
 import java.sql.Date;
 import java.sql.SQLException;
+import java.util.StringTokenizer;
+import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -36,14 +38,14 @@ public class AdminNotice1Controller {
 	
 	@RequestMapping("/adminRegist")
 	   public String listRegist(){
-		      return "/notice_1_registry";
+		      return "admin/notice_1_registry";
 		   }
 	
 	@RequestMapping("/notice")
-	public String listNotice(@RequestParam(value="page",defaultValue="1") int pageNumber,Model model)throws SQLException, ServiceException{
+	public String listNotice(@RequestParam(value="page",defaultValue="1") int pageNumber,Model model,@RequestParam(value="notice_code", defaultValue="notice01" )String notice_code)throws SQLException, ServiceException{
 		PagingVO viewData=null;
 	      try {
-	          viewData= adminNotice1Service.selectNotice1List(pageNumber);
+	          viewData= adminNotice1Service.selectNotice1List(pageNumber,notice_code);
 	      } catch (ServiceException e) {
 	         e.printStackTrace();
 	      }
@@ -52,46 +54,55 @@ public class AdminNotice1Controller {
 	         pageNumber--;
 	         if(pageNumber<=0) pageNumber=1;
 	         try {
-	            viewData = adminNotice1Service.selectNotice1List(pageNumber);
+	            viewData = adminNotice1Service.selectNotice1List(pageNumber,notice_code);
 	         } catch (ServiceException e) {
 	            e.printStackTrace();
 	         }
 	      }
 	      
-	      
 	      model.addAttribute("viewData",viewData);
 	      model.addAttribute("pageNumber",pageNumber);
-	      return "/notice_1";
+	      return "admin/admin_notice";
 	}
 	
-	
 	@RequestMapping(value="/boardInsert",headers=("content-type=multipart/*"),method=RequestMethod.POST)
-	public String boardInsert(HttpServletRequest request,Model model,@RequestParam("f") MultipartFile multipartFile){
+	public String boardInsert(HttpServletRequest request,Model model,@RequestParam("f") MultipartFile multipartFile,@RequestParam(value="notice_code" , defaultValue="notice01")String notice){
 		
-		 String upload=request.getSession().getServletContext().getRealPath("upload");
+		 String upload="C:/git/alpha_net/lastProject/src/main/webapp/resources/upload";
 		 String url ="redirect:notice";
+		 
+		 
+		 String str = multipartFile.getOriginalFilename();
+		 
+		 StringTokenizer tokens = new StringTokenizer( str, "." );
+		 String[] fileName = {"1","txt"};
+		 int i=0;
+		 while(tokens.hasMoreTokens()){
+			 fileName[i] = tokens.nextToken();
+			 i++;
+		 }
+		 
+		 UUID uuid = UUID.randomUUID();
+		 
 	      if(!multipartFile.isEmpty()){
-	         File file= new File(upload, multipartFile.getOriginalFilename()+"$$"+System.currentTimeMillis());
+	         File file= new File(upload, fileName[0]+uuid.toString()+"."+fileName[1]);
 	         
 	         try {
 				multipartFile.transferTo(file);
 			} catch (IllegalStateException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 	         
 	      }
-		
-		System.out.println("성공");
+	      
+	      
 		Notice1VO vo = new Notice1VO();
 		vo.setAdmin_code(request.getParameter("adminCode"));
-		vo.setEnroll_date(new Date(12));
-		vo.setNotice_code("notice050000000024");
+		vo.setNotice_code(adminNotice1Service.registNotice(notice));
 		vo.setNotice_content(request.getParameter("noticeContent"));
-		vo.setAttach_file(request.getParameter("attach_file"));
+		vo.setAttach_file(fileName[0]+uuid.toString()+"."+fileName[1]);
 		vo.setRegist_date(new Date(12));
 		vo.setTitle(request.getParameter("title"));
 		

@@ -1,9 +1,28 @@
 package com.last.common.dao;
 
-import com.last.common.vo.MongoVO;
+import java.sql.SQLException;
 
-public interface MemberDAO{
-	public void insert(MongoVO mongo);
+import com.ibatis.sqlmap.client.SqlMapClient;
+import com.last.common.vo.MemberVo;
+
+
+public abstract class MemberDAO{
 	
-	MongoVO getMongoVO(MongoVO mvo);
+	protected static SqlMapClient client;
+	
+	public void setClient(SqlMapClient client){		
+		this.client=client;
+	}
+	
+	 public static SqlMapClient getSqlMapInstance(){
+	      return client;
+	  }
+	 
+//	public void insert(MongoVO mongo);
+//	
+//	MongoVO getMongoVO(MongoVO mvo);
+
+	public abstract int idCheck(String userId) throws SQLException;
+	public abstract int insert(MemberVo vo) throws SQLException ;
+
 }

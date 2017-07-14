@@ -12,6 +12,8 @@
 	
 	<!-- Enables the Spring MVC @Controller programming model -->
 	<annotation-driven />
+	
+	 <resources mapping="/upload/**" location="/resources/upload/" /> 
 
 <!-- 	<view-controller path="/a" view-name="1main"/> -->
 	
@@ -22,9 +24,14 @@
 	<view-controller path="/main" view-name="1main"/>
 	<view-controller view-name="login/accessDenied" path="/accessDenied"/>
 	<view-controller view-name="login/loginForm" path="/loginForm"/>
+	<view-controller view-name="login/loginForm" path="/admin/loginForm"/>
 	<view-controller view-name="login/logout" path="/logout"/>
 	<view-controller view-name="login/login_duplicate" path="/login_duplicate"/>
-	<view-controller view-name="mem_admin" path="/admin/admim2"/>
+<<<<<<< HEAD
+=======
+	<view-controller view-name="sign_up" path="/signUp"/>
+	<view-controller view-name="2wonseo" path="/ttest"/>
+>>>>>>> refs/remotes/origin/master
 	
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
 	<resources mapping="/resources/**" location="/resources/" />
@@ -43,9 +50,15 @@
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver" 
 		p:defaultEncoding="utf-8"
 		/>
-	<beans:bean class="org.springframework.web.servlet.view.BeanNameViewResolver" 
-		p:order="0"
+	
+	<beans:bean class="org.springframework.web.servlet.view.BeanNameViewResolver"
+				p:order="0"
 	/>
+	
+	<beans:bean id="downloadView" class="com.last.admin.view.DownloadView" />
+	
+	
+	
 	
 <!-- 	<beans:bean id=""  -->
 <!-- 		class="패키지.클래스" /> -->
