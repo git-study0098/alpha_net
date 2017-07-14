@@ -50,9 +50,9 @@
 	      parent="memDao"
 	       />
 	      
-	<bean id = "memService"
-	      class="com.last.common.service.MemberService"
-	      p:memDao-ref="memDaoImpl"></bean>
+<!-- 	<bean id = "memService" -->
+<!-- 	      class="com.last.common.service.MemberService" -->
+<!-- 	      p:memDao-ref="memDaoImpl"></bean> -->
 	
 	
 	<!-- dao,service 붙이기 aa라는 daoImpl이 있을경우-->
