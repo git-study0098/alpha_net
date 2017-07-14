@@ -61,7 +61,7 @@ public class AdminNotice1Controller {
 	      
 	      model.addAttribute("viewData",viewData);
 	      model.addAttribute("pageNumber",pageNumber);
-	      return "/notice_1";
+	      return "/member/notice/notice";
 	}
 	
 	@RequestMapping(value="/boardInsert",headers=("content-type=multipart/*"),method=RequestMethod.POST)

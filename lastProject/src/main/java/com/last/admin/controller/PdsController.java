@@ -41,7 +41,7 @@ public class PdsController {
 		      }
 		      model.addAttribute("viewData",viewData);
 		      model.addAttribute("pageNumber",pageNumber);
-		      return "/jaryosil_1";
+		      return "/member/notice/pds";
 		   }
 	
 }

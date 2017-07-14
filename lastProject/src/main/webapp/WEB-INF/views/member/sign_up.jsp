@@ -41,11 +41,11 @@ function addr(){
 				<!-- 컨텐츠 내용 -->
 				<div class="step">
 					<ul class="list03">
-						<li><img src="resources/images/약관동의(전).gif" alt=""><span>약관동의</span></li>
-						<li><img src="resources/images/본인인증(전).gif" alt=""><span>본인인증</span></li>
-						<li><img src="resources/images/신청서작성(후).gif" alt=""><span>신청서작성</span><span
+						<li><img src="<%=request.getContextPath()%>/resources/images/약관동의(전).gif" alt=""><span>약관동의</span></li>
+						<li><img src="<%=request.getContextPath()%>/resources/images/본인인증(전).gif" alt=""><span>본인인증</span></li>
+						<li><img src="<%=request.getContextPath()%>/resources/images/신청서작성(후).gif" alt=""><span>신청서작성</span><span
 							class="blind">현재단계 신청서작성</span></li>
-						<li><img src="resources/images/약관동의(전).gif" alt=""><span>가입완료</span></li>
+						<li><img src="<%=request.getContextPath()%>/resources/images/약관동의(전).gif" alt=""><span>가입완료</span></li>
 					</ul>
 				</div>
 				<form name="regMEM" id="regMEM" method="post"
@@ -128,7 +128,7 @@ function addr(){
 												<span>아이디중복 확인</span>
 											</button></td>
 										<td rowspan="9" class="photo">
-												<img id="viewImg" src="resources/images/사진미등록.png"
+												<img id="viewImg" src="<%=request.getContextPath()%>/resources/images/사진미등록.png"
 													alt="사진미등록" onclick="cropImage();">
 												<!-- //2014.12.08 접근성 : 사진 등록시 alt값 "이름+사진" -->
 										</td>

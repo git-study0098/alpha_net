@@ -14,20 +14,20 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js'></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script type="text/javascript" src="resources/js/left_script.js" charset="euc-kr"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/left_script.js" charset="euc-kr"></script>
 
-<link href="resources/images/main/HRDKorea_favicon_16x16.ico" rel="shortcut icon" type="image/x-icon">
-<link rel="stylesheet" href="resources/css/common.css">
-<link rel="stylesheet" href="resources/css/header_footer.css">
-<link rel="stylesheet" href="resources/css/left_menu.css">
-<link rel="stylesheet" href="resources/css/style.css">
-<link rel="stylesheet" href="resources/css/content.css">
-<link rel="stylesheet" href="resources/css/mobile.css">
+<link href="<%=request.getContextPath()%>/<%=request.getContextPath()%>/resources/images/main/HRDKorea_favicon_16x16.ico" rel="shortcut icon" type="image/x-icon">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/common.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/header_footer.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/left_menu.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/style.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/content.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/mobile.css">
 
 <style>	
 	#wrap{ min-width:1000px;}		
 	#header { position: relative;}
-	#container {position: relative; width: 980px;margin: 0 auto; background: url(resources/images/common/bg_container.gif) repeat-y left top;}
+	#container {position: relative; width: 980px;margin: 0 auto; background: url(<%=request.getContextPath()%>/resources/images/common/bg_container.gif) repeat-y left top;}
 	.main #content{float:left; margin:0 auto; width:725px; padding-bottom: 100px;}
 	.center_area, .footer_top {position: relative; margin: 0 auto; width: 980px;	}
 </style>
@@ -248,12 +248,12 @@ var speed = 800;
 			<div id="header">
 				<div class="center_area">
 				<!-- 경로 설정 -->
-					<h1><a id="lnkMoveToMain" href="1main.jsp"><img src="resources/images/alpha_logo.png" alt="Q-Net 자격의 모든것"></a></h1>
-					<button type="button" class="mMenu_open" title="메뉴 열기"><img src="resources/images/btn_menu.png" alt="메뉴 열기"></button>
+					<h1><a id="lnkMoveToMain" href="1main.jsp"><img src="<%=request.getContextPath()%>/resources/images/alpha_logo.png" alt="Q-Net 자격의 모든것"></a></h1>
+					<button type="button" class="mMenu_open" title="메뉴 열기"><img src="<%=request.getContextPath()%>/resources/images/btn_menu.png" alt="메뉴 열기"></button>
 					<ul class="left">
 						<li><button type="button" class="notice" id="topNoticeBtn" title="긴급공지 열기"><span>긴급공지</span></button></li>
-						<li><a href="#" target="_blank" title="본 링크를 클릭하시면 새 창이 열립니다." class="imgLink"><img src="resources/images/logo_hrdkorea.gif" alt="한국산업인력공단"></a></li>
-						<li><a><img alt="정부3.0" src="resources/images/logo_gov30_1 (1).jpg"></a></li>
+						<li><a href="#" target="_blank" title="본 링크를 클릭하시면 새 창이 열립니다." class="imgLink"><img src="<%=request.getContextPath()%>/resources/images/logo_hrdkorea.gif" alt="한국산업인력공단"></a></li>
+						<li><a><img alt="정부3.0" src="<%=request.getContextPath()%>/resources/images/logo_gov30_1 (1).jpg"></a></li>
 						<li><a>고객의소리</a></li>
 					</ul>
 					<ul class="right">
@@ -288,7 +288,7 @@ var speed = 800;
 				<div class="gnb_area">
 					<div class="gnb" style="height: 34px;">
 						<ul>
-							<li class=""><a href="ttest">정기시험</a>
+							<li class=""><a href="exam">정기시험</a>
 								<div class="sub01" style="display: none;">
 									<ul style="min-height: 235px;">
 										<li class=""><a
@@ -297,7 +297,7 @@ var speed = 800;
 												<li><a onclick="return NetFunnel_goUrl({},this.href);"
 													href="#">원서접수안내</a></li>
 												<li><a onclick="return NetFunnel_goUrl({},this.href);"
-													href="#">원서접수신청</a></li>
+													href="/member/wonseo/request">원서접수신청</a></li>
 												<li><a href="#">원서접수현황</a></li>
 												<li><a href="#">장애유형별편의제공안내</a></li>
 											</ul></li>
@@ -401,40 +401,40 @@ var speed = 800;
 									<p>- 클릭하시면 해당 전문자격 홈페이지로 이동됩니다. -</p>
 								</div>
 							</li>								
-							<li class=""><a href="#">자격증/확인서</a>
+							<li class=""><a href="jaguk">자격증/확인서</a>
 								<div class="sub03" style="display: none;">
 									<ul style="min-height: 145px;">
-										<li class=""><a href="#">자격증발급안내</a>
+										<li class=""><a href="member/jaguk/infoRequest">자격증발급안내</a>
 											<ul style="min-height: 145px; left: 180px; display: none;">
-												<li><a href="#">자격증발급/발급처</a></li>
-												<li><a href="#">신규/인정/재발급</a></li>
-												<li><a href="#">기능사보기능자격부여</a></li>
-												<li><a href="#">면허발급대상종목</a></li>
-												<li><a href="#">국가자격취득자주의사항</a></li>
-												<li><a href="#">보수교육갱신등록폐지</a></li>
-												<li><a href="#">폐지종목자격발급</a></li>
+												<li><a href="member/jaguk/infoRequest">자격증발급/발급처</a></li>
+												<li><a href="member/jaguk/infoNew">신규/인정/재발급</a></li>
+												<li><a href="member/jaguk/infoFunc">기능사보기능자격부여</a></li>
+												<li><a href="member/jaguk/infoTarget">면허발급대상종목</a></li>
+												<li><a href="member/jaguk/infoWarn">국가자격취득자주의사항</a></li>
+												<li><a href="member/jaguk/infoEdu">보수교육갱신등록폐지</a></li>
+												<li><a href="member/jaguk/infoNon">폐지종목자격발급</a></li>
 											</ul></li>
-										<li><a href="#">자격증발급</a>
+										<li><a href="jaguk">자격증발급</a>
 											<ul style="display: none; min-height: 145px; left: 180px;">
-												<li><a href="#">자격증발급신청</a></li>
+												<li><a href="jaguk">자격증발급신청</a></li>
 												<li><a href="#">자격증발급내역</a></li>
 											</ul></li>
-										<li><a href="#">확인서발급</a>
+										<li><a href="member/jaguk/confirminfo">확인서발급</a>
 											<ul style="display: none; min-height: 145px; left: 180px;">
-												<li><a href="#">확인서발급안내</a></li>
-												<li><a href="#">확인서발급신청</a></li>
-												<li><a href="#">확인서발급내역</a></li>
+												<li><a href="member/jaguk/confirminfo">확인서발급안내</a></li>
+												<li><a href="member/jaguk/confirmRequest">확인서발급신청</a></li>
+												<li><a href="member/jaguk/confirmSelect">확인서발급내역</a></li>
 												<li><a href="#">기능경기확인서신청</a></li>
 											</ul></li>
-										<li><a href="#">자격취득/미발급조회</a>
+										<li><a href="member/jaguk/get">자격취득/미발급조회</a>
 											<ul style="display: none; min-height: 145px; left: 180px;">
-												<li><a href="#">자격증취득조회</a></li>
-												<li><a href="#">자격증미발급조회</a></li>
+												<li><a href="member/jaguk/get">자격증취득조회</a></li>
+												<li><a href="member/jaguk/nonGet">자격증미발급조회</a></li>
 											</ul></li>
-										<li><a href="#">확인서/자격증진위확인</a>
+										<li><a href="member/jaguk/jagukTrue">확인서/자격증진위확인</a>
 											<ul style="display: none; min-height: 145px; left: 180px;">
-												<li><a href="#">확인서진위확인</a></li>
-												<li><a href="#">자격증진위확인</a></li>
+												<li><a href="member/jaguk/jagukTrue">확인서진위확인</a></li>
+												<li><a href="member/jaguk/confirmTrue">자격증진위확인</a></li>
 												<li><a href="#">단체 진위확인</a></li>
 											</ul></li>
 									</ul>
@@ -487,25 +487,25 @@ var speed = 800;
 									</p>
 								</div>
 							</li>
-							<li class=""><a href="#">고객지원</a>
+							<li class=""><a href="notice">고객지원</a>
 								<div class="sub05" style="display: none;">
 									<ul style="min-height: 295px;">
-										<li class="on"><a href="#">공지사항</a>
+										<li class="on"><a href="notice">공지사항</a>
 											<ul style="min-height: 295px; left: 154px;">
-												<li><a href="#">공지사항</a></li>
+												<li><a href="notice">공지사항</a></li>
 												<li><a href="#">자격제도</a></li>
 												<li><a href="#">시행자료</a></li>
 												<li><a href="#">출제자료</a></li>
 												<li><a href="#">서비스개선</a></li>
 											</ul></li>
-										<li><a href="#">이용안내</a>
+										<li><a href="useInfo">이용안내</a>
 											<ul style="display: none; min-height: 295px; left: 154px;">
 												<li><a href="#">사이트 이용방법</a></li>
 												<li><a href="#" target="_blank"
 													title="한국산업인력공단 고객센터 새 창">자주찾는질문</a></li>
 												<li><a href="#">큐넷 체험하기</a></li>
 											</ul></li>
-										<li><a href="#">자료실</a>
+										<li><a href="pds">자료실</a>
 											<ul style="display: none; min-height: 295px; left: 154px;">
 												<li><a href="#">각종서식자료</a></li>
 												<li><a href="#">출제기준</a></li>
@@ -564,7 +564,7 @@ var speed = 800;
 		<div class="mMenu_list"
 			style="right: -245px; min-height: 2183px; display: none;">
 			<button class="close" title="메뉴 닫기">
-				<img src="resources/images/main/btn_menu_close.png" alt="메뉴 닫기">
+				<img src="<%=request.getContextPath()%>/resources/images/main/btn_menu_close.png" alt="메뉴 닫기">
 			</button>
 			<span><a href="https://m.q-net.or.kr">&nbsp;모바일앱&nbsp;&nbsp;|</a><a
 				href="http://www.q-net.or.kr/qnet/html/eng_qnet/main.html">&nbsp;&nbsp;English</a></span>
@@ -794,8 +794,8 @@ var speed = 800;
 				</div>
 				<div class="center_area">
 					<div class="address">
-						<strong class="logo"><img src="resources/images/footer_logo.gif" alt="한국산업인력공단"></strong>
-						<span class="mLogo"><img src="resources/images/footer_logo.png" alt="한국산업인력공단"></span>
+						<strong class="logo"><img src="<%=request.getContextPath()%>/resources/images/footer_logo.gif" alt="한국산업인력공단"></strong>
+						<span class="mLogo"><img src="<%=request.getContextPath()%>/resources/images/footer_logo.png" alt="한국산업인력공단"></span>
 						<address>울산광역시 중구 종가로 345 한국산업인력공단 (우)44538 ☏1644 - 8000</address>
 						<p>Copyright ⓒ 1999~2015 All Rights Reserved. Human resources Development Service of Korea.</p>
 					</div>

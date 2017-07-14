@@ -60,7 +60,7 @@ public class AdminUseInfo1Controller {
 	      
 	      model.addAttribute("viewData",viewData);
 	      model.addAttribute("pageNumber",pageNumber);
-	      return "/useInfo1";
+	      return "/member/notice/useInfo";
 	}
 	
 	

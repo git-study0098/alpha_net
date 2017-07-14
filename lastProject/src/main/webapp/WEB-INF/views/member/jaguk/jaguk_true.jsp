@@ -12,91 +12,10 @@
 <article>
 	<div id="container">
 		<!-- 좌측 메뉴바 -->
-		<div>
-			<div id="lnb">
-				<div class="login">
-					<!-- 회원 구분 -->
-					<div class="login_tab">
-						<a href="#" class="btn on" id="pMem"><span>일반회원</span></a>
-						<!-- // class="on" 으로 탭 선택 표시 -->
-					</div>
-					<!-- //회원 구분 -->
-
-					<!-- //로그인 전 -->
-					<form id="loginForm" method="post">
-						<input type="hidden" name="pageId" value="man004_01_10"> <input
-							type="hidden" name="redir"
-							value="man004.do?id=man00401&amp;gSite=Q&amp;gId=&amp;notiType=10">
-						<input type="hidden" name="lnb" value="Y"> <input
-							type="hidden" name="groupChk" value="N"> <input
-							type="hidden" name="logoutYn" value="Y">
-						<div class="login_area">
-
-							<!-- 로그인 전 -->
-							<div>
-								<label for="mem_id" class="blind">아이디</label> <input type="text"
-									name="mem_id" id="mem_id" style="ime-mode: disabled;">
-								<label for="mem_pswd" class="blind">비밀번호</label> <input
-									type="password" name="mem_pswd" id="mem_pswd" maxlength="16">
-								<a href="#" class="btn_login" id="loginBtn"><span>로그인</span></a>
-							</div>
-							<div>
-								<ul>
-									<li><a
-										href="http://www.q-net.or.kr/man003.do?id=man00301&amp;gSite=Q&amp;gId="
-										class="golink01"><span>회원가입</span></a></li>
-									<li><a
-										href="https://www.q-net.or.kr/man002.do?id=man00201&amp;gSite=Q&amp;gId="
-										class="golink01"><span>아이디/비밀번호 찾기</span></a></li>
-								</ul>
-							</div>
-							<!-- //로그인 전 -->
-						</div>
-					</form>
-				</div>
-
-				<h2 id="lnbTitle" class="tit_lnb">자격증/확인서</h2>
-				<!-- menu리스트 -->
-				<ul id="lnbNavi" class="lnb on">
-					<li class="low"><a>자격증 발급 안내</a>
-						<ul style="display: block;">
-							<li><a>자격증발급/발급처</a></li>
-							<li><a>신규/인정/재발급</a></li>
-							<li><a>기능사보기능사자격부여</a></li>
-							<li><a>면허발급대상종목</a></li>
-							<li><a>국가자격취득자주의사항</a></li>
-							<li><a>보수교육갱신등록폐지</a></li>
-							<li><a>폐지종목자격증발급</a></li>
-						</ul></li>
-					<li class="low"><a>자격증 발급</a>
-						<ul style="display: block;">
-							<li><a>자격증발급신청</a></li>
-							<li><a>자격증발급신청내역조회</a></li>
-						</ul></li>
-					<li class="low"><a>확인서 발급</a>
-						<ul style="display: block;">
-							<li><a>확인서발급안내</a></li>
-							<li><a>확인서발급신청</a></li>
-							<li><a>확인서발급신청내역조회</a></li>
-							<li><a>기능경기확인서신청</a></li>
-						</ul></li>
-					<li class="low"><a>자격취득/미발급 조회</a>
-						<ul style="display: block;">
-							<li><a>자격증취득조회</a></li>
-							<li><a>자격증 미발급조회</a></li>
-						</ul></li>
-					<li class="low active on"><a>확인서/자격증 진위확인</a>
-						<ul style="display: block;">
-							<li><a>확인서진위확인</a></li>
-							<li class="on"><a>자격증진위확인</a></li>
-						</ul></li>
-				</ul>
-				<!-- menu리스트 끝 -->
-			</div>
-			<!-- 좌측 메뉴바 끝-->
-			<div id="lnb2"></div>
-		</div>
-
+<div>
+		<jsp:include page="jagukLnb.jsp" />
+	   <div id="lnb2"></div>
+	</div>
 		<!-- 내용 부분 들어 가는 곳 입니다. 로케이션 수정하시고 하면 됩니다. -->
 		<div id="content">
 			<!-- location -->
@@ -172,7 +91,7 @@
 						<!-- 내용열기 버튼 이미지명:btn_bl_slide_dn.gif -->
 						<div class="slide_wrap">
 						<!-- slide inner content  -->
-							<span class="img"><img src="../images/temp/photo_ex1.gif" alt="인터넷 발급 이전 자격증 진위 식별을 위한 예시 자격증"></span> <!-- 수정(0910) -->
+							<span class="img"><img src="<%=request.getContextPath()%>/resources/images/temp/photo_ex1.gif" alt="인터넷 발급 이전 자격증 진위 식별을 위한 예시 자격증"></span> <!-- 수정(0910) -->
 							<ul class="list guide">
 								<li>사진부분 압인/천공 : 사진좌측하단부에 압인 또는 천공이 있습니다.</li> <!-- 수정(0901) -->
 								<li>실인날인 : 2001년 이전에 발행된 자격증에는 "합격년월일/등록년월일/발행년월일"란에 실인(지름 1.5cm 크기의 원형 인장)이 날인되어 있습니다.</li>
@@ -187,7 +106,7 @@
 						<h4 class="slide_title"><a href="#">인터넷 발급 이후 자격증 진위 식별요령<span class="slide_close" style="display: inline;">내용닫기</span><span class="slide_open" style="display: none;">내용열기</span></a></h4><!-- /2014.08.22 수정 -->
 						<div class="slide_wrap rePos">
 						<!-- slide inner content  -->
-							<span class="img"><img src="../images/temp/photo_ex2.gif" alt="인터넷 발급 이후 자격증 진위 식별을 위한 예시 자격증"></span> <!-- 수정(0910) -->
+							<span class="img"><img src="<%=request.getContextPath()%>/resources/images/temp/photo_ex2.gif" alt="인터넷 발급 이후 자격증 진위 식별을 위한 예시 자격증"></span> <!-- 수정(0910) -->
 							<ul class="list guide">
 								<li>사진부분 : 인터넷 자격증 발급 이후 발행된 자격증은 사진부착 방식과 인쇄방식을 병행 시행하였습니다.</li>
 								<li>사진부분 압인/천공 : 인쇄방식 자격증은 사진좌측하단부에 압인 또는 천공이 없으며, 사진부착 방식은 압인/천공이 있습니다.</li>

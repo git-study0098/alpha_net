@@ -3,7 +3,7 @@
 <%@ page trimDirectiveWhitespaces="true"%>  
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <style>
-	.qnet.main #container{background:url(resources/images/main/bg_container.gif) repeat-x left top;}	
+	.qnet.main #container{background:url(<%=request.getContextPath()%>/resources/images/main/bg_container.gif) repeat-x left top;}	
 	.main #container{ width:100%;}	
 	#container{position:relative; margin:0 auto;}	
 	.main #container #content{float:none;margin: 0 auto;padding: 0 0 50px;width:980px;}	
@@ -34,7 +34,7 @@ $(function(){
 			<li class="n01">
 				<a href="2wonseo.jsp">
 					<em>
-						<img src="resources/images/main/link_top_new_01.gif" alt="원서접수">
+						<img src="<%=request.getContextPath()%>/resources/images/main/link_top_new_01.gif" alt="원서접수">
 					</em>
 					<strong>원서접수</strong>
 					<span>
@@ -46,7 +46,7 @@ $(function(){
 			<li class="n02">
 				<a href="#">
 					<em>
-						<img src="resources/images/main/link_top_new_02.gif" alt="합격자/답안발표">
+						<img src="<%=request.getContextPath()%>/resources/images/main/link_top_new_02.gif" alt="합격자/답안발표">
 					</em>
 					<strong>합격자/답안발표</strong>
 					<span>
@@ -58,7 +58,7 @@ $(function(){
 			<li class="n03">
 				<a href="7자격증발급신청.jsp">
 					<em>
-						<img src="resources/images/main/link_top_new_03.gif" alt="자격정보">
+						<img src="<%=request.getContextPath()%>/resources/images/main/link_top_new_03.gif" alt="자격정보">
 					</em>
 					<strong>자격정보</strong>
 					<span>
@@ -70,7 +70,7 @@ $(function(){
 			<li class="n04">
 				<a href="#">
 					<em>
-						<img src="resources/images/main/link_top_new_04.gif" alt="상시시험">
+						<img src="<%=request.getContextPath()%>/resources/images/main/link_top_new_04.gif" alt="상시시험">
 					</em>
 					<strong>상시시험</strong>
 					<span>
@@ -86,10 +86,10 @@ $(function(){
 			<li class="go01">
 				<a href="#">
 					<span style="opacity:1;">
-						<img src="resources/images/main/link_go_01.png" alt="시험일정안내">
+						<img src="<%=request.getContextPath()%>/resources/images/main/link_go_01.png" alt="시험일정안내">
 					</span>
 					<em style="opacity:0;">
-						<img src="resources/images/main/link_go_01_on.png" alt="시험일정안내">
+						<img src="<%=request.getContextPath()%>/resources/images/main/link_go_01_on.png" alt="시험일정안내">
 					</em>
 					<strong style="color: rgb(195, 220, 244); background-color: rgb(0, 85, 126);">시험일정안내</strong>
 				</a>
@@ -97,10 +97,10 @@ $(function(){
 			<li class="go02">
 				<a href="#">
 					<span style="opacity:1;">
-						<img src="resources/images/main/link_go_02.png" alt="응시자격자가진단">
+						<img src="<%=request.getContextPath()%>/resources/images/main/link_go_02.png" alt="응시자격자가진단">
 					</span>
 					<em style="opacity: 0;">
-						<img src="resources/images/main/link_go_02_on.png" alt="응시자격자가진단">
+						<img src="<%=request.getContextPath()%>/resources/images/main/link_go_02_on.png" alt="응시자격자가진단">
 					</em>
 					<strong style="color: rgb(195, 220, 244); background-color: rgb(0, 85, 126);">응시자격자가진단</strong>
 				</a>
@@ -108,10 +108,10 @@ $(function(){
 			<li class="go03">
 				<a href="#">
 					<span style="opacity:1;">
-						<img src="resources/images/main/link_go_03.png" alt="원서접수현황">
+						<img src="<%=request.getContextPath()%>/resources/images/main/link_go_03.png" alt="원서접수현황">
 					</span>
 					<em style="opacity: 0;">
-						<img src="resources/images/main/link_go_03_on.png" alt="원서접수현황">
+						<img src="<%=request.getContextPath()%>/resources/images/main/link_go_03_on.png" alt="원서접수현황">
 					</em>
 					<strong style="color: rgb(195, 220, 244); background-color: rgb(0, 85, 126);">원서접수현황</strong>
 				</a>
@@ -119,10 +119,10 @@ $(function(){
 			<li class="go04">
 				<a href="#">
 					<span style="opacity:1;">
-						<img src="resources/images/main/link_go_04.png" alt="확인서신청">
+						<img src="<%=request.getContextPath()%>/resources/images/main/link_go_04.png" alt="확인서신청">
 					</span>
 					<em style="opacity: 0;">
-						<img src="resources/images/main/link_go_04_on.png" alt="확인서신청">
+						<img src="<%=request.getContextPath()%>/resources/images/main/link_go_04_on.png" alt="확인서신청">
 					</em>
 					<strong style="color: rgb(195, 220, 244); background-color: rgb(0, 85, 126);">확인서신청</strong>
 				</a>
@@ -130,10 +130,10 @@ $(function(){
 			<li class="go05">
 				<a href="#">
 					<span style="opacity:1;">
-						<img src="resources/images/main/link_go_05.png" alt="자격증신청">
+						<img src="<%=request.getContextPath()%>/resources/images/main/link_go_05.png" alt="자격증신청">
 					</span>
 					<em style="opacity: 0;">
-						<img src="resources/images/main/link_go_05_on.png" alt="자격증신청">
+						<img src="<%=request.getContextPath()%>/resources/images/main/link_go_05_on.png" alt="자격증신청">
 					</em>
 					<strong style="color: rgb(195, 220, 244); background-color: rgb(0, 85, 126);">자격증신청</strong>
 				</a>
@@ -141,10 +141,10 @@ $(function(){
 			<li class="go06">
 				<a href="#">
 					<span style="opacity:1;">
-						<img src="resources/images/main/link_go_06.png" alt="수험자준비물">
+						<img src="<%=request.getContextPath()%>/resources/images/main/link_go_06.png" alt="수험자준비물">
 					</span>
 					<em style="opacity: 0;">
-						<img src="resources/images/main/link_go_06_on.png" alt="수험자준비물">
+						<img src="<%=request.getContextPath()%>/resources/images/main/link_go_06_on.png" alt="수험자준비물">
 					</em>
 					<strong style="color: rgb(195, 220, 244); background-color: rgb(0, 85, 126);">수험자준비물</strong>
 				</a>
@@ -152,10 +152,10 @@ $(function(){
 			<li class="go07">
 				<a href="#">
 					<span style="opacity:1;">
-						<img src="resources/images/main/link_go_07.png" alt="자료실">
+						<img src="<%=request.getContextPath()%>/resources/images/main/link_go_07.png" alt="자료실">
 					</span>
 					<em style="opacity: 0;">
-						<img src="resources/images/main/link_go_07_on.png" alt="자료실">
+						<img src="<%=request.getContextPath()%>/resources/images/main/link_go_07_on.png" alt="자료실">
 					</em>
 					<strong style="color: rgb(195, 220, 244); background-color: rgb(0, 85, 126);">자료실</strong>
 				</a>
@@ -163,10 +163,10 @@ $(function(){
 			<li class="go08">
 				<a href="#">
 					<span style="opacity:1;">
-						<img src="resources/images/main/link_go_08.png" alt="환불">
+						<img src="<%=request.getContextPath()%>/resources/images/main/link_go_08.png" alt="환불">
 					</span>
 					<em style="opacity: 0;">
-						<img src="resources/images/main/link_go_08_on.png" alt="환불">
+						<img src="<%=request.getContextPath()%>/resources/images/main/link_go_08_on.png" alt="환불">
 					</em>
 					<strong style="color: rgb(195, 220, 244); background-color: rgb(0, 85, 126);">환불</strong>
 				</a>
@@ -228,15 +228,15 @@ $(function(){
 						<!-- // class="play" 자동 플레이 상태  -->
 						<span class="move">
 							<button title="배너 멈춤" class="auto">
-								<img src="resources/images/main/banner_stop.gif" alt="배너 멈춤"
+								<img src="<%=request.getContextPath()%>/resources/images/main/banner_stop.gif" alt="배너 멈춤"
 									title="배너 멈춤">
 							</button>
 							<button title="이전 배너" class="prev">
-								<img src="resources/images/main/banner_prev.gif" alt="이전 배너"
+								<img src="<%=request.getContextPath()%>/resources/images/main/banner_prev.gif" alt="이전 배너"
 									title="이전 배너">
 							</button>
 							<button title="다음 배너" class="next">
-								<img src="resources/images/main/banner_next.gif" alt="다음 배너"
+								<img src="<%=request.getContextPath()%>/resources/images/main/banner_next.gif" alt="다음 배너"
 									title="다음 배너">
 							</button>
 						</span>
@@ -246,19 +246,19 @@ $(function(){
 								<li style="opacity: 0; display: none;"><a
 									href="#"
 									target="_blank" title="새 창"><img
-										src="resources/images/main/banner04.gif"
+										src="<%=request.getContextPath()%>/resources/images/main/banner04.gif"
 										alt="자격증불법대여신고:한국산업인력공단이 천만 기술인의 꿈을 지켜드립니다. 노력해서 얻은 자격증을 사고파는 사람이 있습니다. 자격증대여가 불법임을 알고 있음에도 대수롭지 않게 생각하는사람이 있습니다. 자격증대여는 불법일 뿐만 아니라 자신의 꿈을 헐값에 파는 행위입니다."></a></li>
 								<li style="opacity: 0; display: none;"><a
 									href="#" title="새 창"><img
-										src="resources/images/main/banner01.gif"
+										src="<%=request.getContextPath()%>/resources/images/main/banner01.gif"
 										alt="개인의 행복이 커질수록 함께 강해지는 새로운 대한민국 정부3.0이 함께 열어가겠습니다. 행복한 대한민국을 여는 정부3.0"></a></li>
 								<li style="opacity: 0; display: none;"><a
 									href="#" target="_blank" title="새 창"><img
-										src="resources/images/main/banner03.gif"
+										src="<%=request.getContextPath()%>/resources/images/main/banner03.gif"
 										alt="한국직업방송 : 일자리 중심 고용핵심 인프라. 고용정보, 유망기업소개, 직업진로지도, 직업능력개발 강좌의 모든것!!"></a></li>
 								<li style="opacity: 0; display: none;"><a
 									href="#" target="_blank" title="새 창"><img
-										src="resources/images/main/banner03.gif"
+										src="<%=request.getContextPath()%>/resources/images/main/banner03.gif"
 										alt="한국직업방송 : 일자리 중심 고용핵심 인프라. 고용정보, 유망기업소개, 직업진로지도, 직업능력개발 강좌의 모든것!!"></a></li>
 
 								<li class="base01" style="opacity: 0; display: none;"><a
@@ -296,13 +296,13 @@ $(function(){
 								<li><a
 									href="#"
 									title="국가자격 능력평가전문가 인력풀 모집 안내">국가자격 능력평가전문가 인력풀 모집 안내</a> <img
-									src="resources/images/common/ico_new.gif" alt="새로운 글"> <span>2017.07.05</span>
+									src="<%=request.getContextPath()%>/resources/images/common/ico_new.gif" alt="새로운 글"> <span>2017.07.05</span>
 								</li>
 
 								<li><a
 									href="#"
 									title="지도제작기능사 실기시험 방법 개선(재공지)"><b>지도제작기능사 실기시험 방법
-											개선(재공지)</b></a> <img src="resources/images/common/ico_new.gif"
+											개선(재공지)</b></a> <img src="<%=request.getContextPath()%>/resources/images/common/ico_new.gif"
 									alt="새로운 글"> <span>2017.07.04</span></li>
 
 								<li><a
@@ -328,7 +328,7 @@ $(function(){
 						</dt>
 						<dd id="bbs_system">
 							<p class="none">
-								<img src="resources/images/ajax-loader_s.gif" alt="데이터 처리 중입니다.">
+								<img src="<%=request.getContextPath()%>/resources/images/ajax-loader_s.gif" alt="데이터 처리 중입니다.">
 							</p>
 						</dd>
 						<dt class="bbs_test">
@@ -336,7 +336,7 @@ $(function(){
 						</dt>
 						<dd id="bbs_test">
 							<p class="none">
-								<img src="resources/images/ajax-loader_s.gif" alt="데이터 처리 중입니다.">
+								<img src="<%=request.getContextPath()%>/resources/images/ajax-loader_s.gif" alt="데이터 처리 중입니다.">
 							</p>
 						</dd>
 						<dt class="bbs_question">
@@ -344,7 +344,7 @@ $(function(){
 						</dt>
 						<dd id="bbs_question">
 							<p class="none">
-								<img src="resources/images/ajax-loader_s.gif" alt="데이터 처리 중입니다.">
+								<img src="<%=request.getContextPath()%>/resources/images/ajax-loader_s.gif" alt="데이터 처리 중입니다.">
 							</p>
 						</dd>
 						<!-- 2015.08.31 jws : 이종용대리 요청 서비스 개선 추가 -->
@@ -353,7 +353,7 @@ $(function(){
 						</dt>
 						<dd id="bbs_improve">
 							<p class="none">
-								<img src="resources/images/ajax-loader_s.gif" alt="데이터 처리 중입니다.">
+								<img src="<%=request.getContextPath()%>/resources/images/ajax-loader_s.gif" alt="데이터 처리 중입니다.">
 							</p>
 						</dd>
 
